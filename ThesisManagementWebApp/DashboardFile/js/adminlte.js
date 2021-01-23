@@ -1,8 +1,4 @@
-/*!
- * AdminLTE v3.1.0-rc (https://adminlte.io)
- * Copyright 2014-2020 Colorlib <https://colorlib.com>
- * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
- */
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
@@ -11,18 +7,9 @@
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  var $__default = /*#__PURE__*/_interopDefaultLegacy($);
+  var $__default = _interopDefaultLegacy($);
 
-  /**
-   * --------------------------------------------
-   * AdminLTE CardRefresh.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-   * Constants
-   * ====================================================
-   */
+ 
 
   var NAME = 'CardRefresh';
   var DATA_KEY = 'lte.cardrefresh';
@@ -136,10 +123,7 @@
 
     return CardRefresh;
   }();
-  /**
-   * Data API
-   * ====================================================
-   */
+  
 
 
   $__default['default'](document).on('click', SELECTOR_DATA_REFRESH, function (event) {
@@ -154,10 +138,7 @@
       CardRefresh._jQueryInterface.call($__default['default'](this));
     });
   });
-  /**
-   * jQuery API
-   * ====================================================
-   */
+  
 
   $__default['default'].fn[NAME] = CardRefresh._jQueryInterface;
   $__default['default'].fn[NAME].Constructor = CardRefresh;
@@ -167,16 +148,7 @@
     return CardRefresh._jQueryInterface;
   };
 
-  /**
-   * --------------------------------------------
-   * AdminLTE CardWidget.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-   * Constants
-   * ====================================================
-   */
+  
 
   var NAME$1 = 'CardWidget';
   var DATA_KEY$1 = 'lte.cardwidget';
@@ -636,11 +608,7 @@
 
     return ControlSidebar;
   }();
-  /**
-   *
-   * Data Api implementation
-   * ====================================================
-   */
+  
 
 
   $__default['default'](document).on('click', SELECTOR_DATA_TOGGLE, function (event) {
@@ -648,10 +616,7 @@
 
     ControlSidebar._jQueryInterface.call($__default['default'](this), 'toggle');
   });
-  /**
-   * jQuery API
-   * ====================================================
-   */
+  
 
   $__default['default'].fn[NAME$2] = ControlSidebar._jQueryInterface;
   $__default['default'].fn[NAME$2].Constructor = ControlSidebar;
@@ -661,16 +626,7 @@
     return ControlSidebar._jQueryInterface;
   };
 
-  /**
-   * --------------------------------------------
-   * AdminLTE DirectChat.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-   * Constants
-   * ====================================================
-   */
+ 
 
   var NAME$3 = 'DirectChat';
   var DATA_KEY$3 = 'lte.directchat';
@@ -680,10 +636,7 @@
   var SELECTOR_DATA_TOGGLE$1 = '[data-widget="chat-pane-toggle"]';
   var SELECTOR_DIRECT_CHAT = '.direct-chat';
   var CLASS_NAME_DIRECT_CHAT_OPEN = 'direct-chat-contacts-open';
-  /**
-   * Class Definition
-   * ====================================================
-   */
+ 
 
   var DirectChat = /*#__PURE__*/function () {
     function DirectChat(element) {
@@ -713,11 +666,7 @@
 
     return DirectChat;
   }();
-  /**
-   *
-   * Data Api implementation
-   * ====================================================
-   */
+  
 
 
   $__default['default'](document).on('click', SELECTOR_DATA_TOGGLE$1, function (event) {
@@ -727,10 +676,7 @@
 
     DirectChat._jQueryInterface.call($__default['default'](this), 'toggle');
   });
-  /**
-   * jQuery API
-   * ====================================================
-   */
+ 
 
   $__default['default'].fn[NAME$3] = DirectChat._jQueryInterface;
   $__default['default'].fn[NAME$3].Constructor = DirectChat;
@@ -740,16 +686,7 @@
     return DirectChat._jQueryInterface;
   };
 
-  /**
-   * --------------------------------------------
-   * AdminLTE Dropdown.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-   * Constants
-   * ====================================================
-   */
+ 
 
   var NAME$4 = 'Dropdown';
   var DATA_KEY$4 = 'lte.dropdown';
@@ -762,10 +699,7 @@
   var CLASS_NAME_DROPDOWN_SUBMENU = 'dropdown-submenu'; // TODO: this is unused; should be removed along with the extend?
 
   var Default$3 = {};
-  /**
-   * Class Definition
-   * ====================================================
-   */
+ 
 
   var Dropdown = /*#__PURE__*/function () {
     function Dropdown(element, config) {
@@ -844,10 +778,7 @@
 
     return Dropdown;
   }();
-  /**
-   * Data API
-   * ====================================================
-   */
+
 
 
   $__default['default'](SELECTOR_DROPDOWN_MENU + " " + SELECTOR_DROPDOWN_TOGGLE).on('click', function (event) {
@@ -867,10 +798,7 @@
       Dropdown._jQueryInterface.call($__default['default'](this), 'fixPosition');
     }, 1);
   });
-  /**
-   * jQuery API
-   * ====================================================
-   */
+ 
 
   $__default['default'].fn[NAME$4] = Dropdown._jQueryInterface;
   $__default['default'].fn[NAME$4].Constructor = Dropdown;
@@ -880,16 +808,7 @@
     return Dropdown._jQueryInterface;
   };
 
-  /**
-   * --------------------------------------------
-   * AdminLTE ExpandableTable.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-    * Constants
-    * ====================================================
-    */
+  
 
   var NAME$5 = 'ExpandableTable';
   var DATA_KEY$5 = 'lte.expandableTable';
@@ -900,10 +819,7 @@
   var SELECTOR_TABLE = '.expandable-table';
   var SELECTOR_DATA_TOGGLE$2 = '[data-widget="expandable-table"]';
   var SELECTOR_ARIA_ATTR = 'aria-expanded';
-  /**
-    * Class Definition
-    * ====================================================
-    */
+ 
 
   var ExpandableTable = /*#__PURE__*/function () {
     function ExpandableTable(element, options) {
@@ -967,11 +883,7 @@
 
     return ExpandableTable;
   }();
-  /**
-    * Data API
-    * ====================================================
-    */
-
+ 
 
   $__default['default'](SELECTOR_TABLE).ready(function () {
     ExpandableTable._jQueryInterface.call($__default['default'](this), 'init');
@@ -979,10 +891,7 @@
   $__default['default'](document).on('click', SELECTOR_DATA_TOGGLE$2, function () {
     ExpandableTable._jQueryInterface.call($__default['default'](this), 'toggleRow');
   });
-  /**
-    * jQuery API
-    * ====================================================
-    */
+ 
 
   $__default['default'].fn[NAME$5] = ExpandableTable._jQueryInterface;
   $__default['default'].fn[NAME$5].Constructor = ExpandableTable;
@@ -992,16 +901,7 @@
     return ExpandableTable._jQueryInterface;
   };
 
-  /**
-   * --------------------------------------------
-   * AdminLTE Fullscreen.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-   * Constants
-   * ====================================================
-   */
+  
 
   var NAME$6 = 'Fullscreen';
   var DATA_KEY$6 = 'lte.fullscreen';
@@ -1012,10 +912,7 @@
     minimizeIcon: 'fa-compress-arrows-alt',
     maximizeIcon: 'fa-expand-arrows-alt'
   };
-  /**
-   * Class Definition
-   * ====================================================
-   */
+  
 
   var Fullscreen = /*#__PURE__*/function () {
     function Fullscreen(_element, _options) {
@@ -1080,19 +977,13 @@
 
     return Fullscreen;
   }();
-  /**
-    * Data API
-    * ====================================================
-    */
+  
 
 
   $__default['default'](document).on('click', SELECTOR_DATA_WIDGET, function () {
     Fullscreen._jQueryInterface.call($__default['default'](this), 'toggle');
   });
-  /**
-   * jQuery API
-   * ====================================================
-   */
+ 
 
   $__default['default'].fn[NAME$6] = Fullscreen._jQueryInterface;
   $__default['default'].fn[NAME$6].Constructor = Fullscreen;
@@ -1102,16 +993,7 @@
     return Fullscreen._jQueryInterface;
   };
 
-  /**
-   * --------------------------------------------
-   * AdminLTE IFrame.js
-   * License MIT
-   * --------------------------------------------
-   */
-  /**
-   * Constants
-   * ====================================================
-   */
+ 
 
   var NAME$7 = 'IFrame';
   var DATA_KEY$7 = 'lte.iframe';
@@ -1154,11 +1036,7 @@
     iconMaximize: 'fa-expand',
     iconMinimize: 'fa-compress'
   };
-  /**
-   * Class Definition
-   * ====================================================
-   */
-
+ 
   var IFrame = /*#__PURE__*/function () {
     function IFrame(element, config) {
       this._config = config;
@@ -1519,10 +1397,7 @@
     panelAutoHeightMode: 'min-height',
     loginRegisterAutoHeight: true
   };
-  /**
-   * Class Definition
-   * ====================================================
-   */
+  
 
   var Layout = /*#__PURE__*/function () {
     function Layout(element, config) {
@@ -2162,10 +2037,7 @@
 
     return SidebarSearch;
   }();
-  /**
-   * Data API
-   * ====================================================
-   */
+  
 
 
   $__default['default'](document).on('click', SELECTOR_SEARCH_BUTTON, function (event) {

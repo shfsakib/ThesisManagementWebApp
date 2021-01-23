@@ -92,12 +92,66 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="ThesisManagementWebApp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ThesisManagementWebApp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DashboardFile\DummyPic.png" />
+    <Content Include="DashboardFile\Login\css\main.css" />
+    <Content Include="DashboardFile\Login\css\util.css" />
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="DashboardFile\Login\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="DashboardFile\Login\images\icons\favicon.ico" />
+    <Content Include="DashboardFile\Login\images\icons\icon-google.png" />
+    <Content Include="DashboardFile\Login\images\img-01.png" />
+    <Content Include="DashboardFile\Login\js\main.js" />
+    <Content Include="DashboardFile\Login\vendor\animate\animate.css" />
+    <Content Include="DashboardFile\Login\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="DashboardFile\Login\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="DashboardFile\Login\vendor\bootstrap\js\popper.js" />
+    <Content Include="DashboardFile\Login\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="DashboardFile\Login\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="DashboardFile\Login\vendor\select2\select2.min.css" />
+    <Content Include="DashboardFile\Login\vendor\select2\select2.min.js" />
+    <Content Include="DashboardFile\Signup\css\main.css" />
+    <Content Include="DashboardFile\Signup\js\global.js" />
+    <Content Include="DashboardFile\Signup\vendor\datepicker\daterangepicker.css" />
+    <Content Include="DashboardFile\Signup\vendor\datepicker\daterangepicker.js" />
+    <Content Include="DashboardFile\Signup\vendor\datepicker\moment.min.js" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="DashboardFile\Signup\vendor\jquery\jquery.min.js" />
+    <Content Include="DashboardFile\Signup\vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="DashboardFile\Signup\vendor\select2\select2.min.css" />
+    <Content Include="DashboardFile\Signup\vendor\select2\select2.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="DashboardFile\Login\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="DashboardFile\Login\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="DashboardFile\Login\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="DashboardFile\Login\fonts\raleway\Raleway-Black.ttf" />
+    <Content Include="DashboardFile\Login\fonts\raleway\Raleway-Bold.ttf" />
+    <Content Include="DashboardFile\Login\fonts\raleway\Raleway-Regular.ttf" />
+    <Content Include="DashboardFile\Login\fonts\raleway\Raleway-SemiBold.ttf" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="DashboardFile\Signup\vendor\font-awesome-4.7\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="DashboardFile\Signup\vendor\mdi-font\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="DashboardFile\Signup\vendor\mdi-font\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="DashboardFile\Signup\vendor\mdi-font\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Web\Signup.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,6 +209,13 @@
     </Compile>
     <Compile Include="Web\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
