@@ -4,9 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Thesis Management | Sign up</title>
+    <title>TMS | Sign up</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="/DashboardFile/tmsfav.ico" type="image/x-icon" />
+
     <link href="../DashboardFile/Signup/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all" />
     <link href="../DashboardFile/Signup/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
@@ -152,11 +154,18 @@
                             </div>
                         </asp:Panel>
                         <asp:Panel ID="coordinatePanel" Visible="False" runat="server">
-                            <div class="input-group">
+                            <div class="row row-space">
                                 <div class="col-12">
                                     <div class="input-group">
                                         <label class="label">Id No.</label>
                                         <asp:TextBox ID="txtCOId" runat="server" autocomplete="off" class="input--style-4 w-100" placeholder="XXX XXX XXX"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">Designation</label>
+                                        <asp:TextBox ID="txtCoDesignation" runat="server" autocomplete="off" class="input--style-4 w-100" placeholder="BSc.,MSc.,PhD. etc"></asp:TextBox>
+
                                     </div>
                                 </div>
                             </div>
@@ -165,20 +174,29 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <label class="label">Upload Picture.</label>
-                                    <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)"/>
+                                    <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
-                            <div class="col-12">
+                            <div class="col-2">
                                 <div class="input-group">
                                     <label class="label"></label>
-                                    <asp:Image ID="imgPic" style="border: 1px solid #d3d3d3; border-radius: 5px; width: 200px; height: 200px;" ImageUrl="../DashboardFile/DummyPic.png" runat="server" />
+                                    <asp:Image ID="imgPic" Style="border: 1px solid #d3d3d3; border-radius: 5px; width: 200px; height: 200px;" ImageUrl="../DashboardFile/DummyPic.png" runat="server" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <asp:Label ID="lblMessage" runat="server" Text="" Style="font-size: 16px;"></asp:Label>
+
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button id="btnSave" class="btn btn--radius-2 btn--blue" runat="server" onserverclick="OnServerClick" type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -191,7 +209,7 @@
     <script src="../DashboardFile/Signup/vendor/datepicker/moment.min.js"></script>
     <script src="../DashboardFile/Signup/vendor/datepicker/daterangepicker.js"></script>
     <script src="../DashboardFile/Signup/js/global.js"></script>
-     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         function ImagePreview(input) {

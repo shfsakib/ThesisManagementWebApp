@@ -63,3 +63,5 @@ D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.CodeDom.Provi
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.csprojResolveAssemblyReference.cache
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.pdb
+D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.dll
+D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\BitsMasterClass.dll
