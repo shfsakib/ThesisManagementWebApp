@@ -32,6 +32,8 @@ namespace ThesisManagementWebApp.DAL.Model
         public string FreeScheduleFrom { get; set; }
         public string FreeScheduleTo { get; set; }
         public string IdNo { get; set; }
+        public string Preffer { get; set; }
+        public string Password { get; set; }
         public string Status { get; set; }
         public string InTime { get; set; }
     }

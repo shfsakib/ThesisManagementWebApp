@@ -79,8 +79,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <div class="col-12">
+                        <div class="row row-space">
+                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Type</label>
                                     <asp:DropDownList ID="ddlType" AutoPostBack="True" OnSelectedIndexChanged="ddlType_OnSelectedIndexChanged" class="form-control w-100" runat="server">
@@ -125,7 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-group">
+                            <div class="row row-space">
                                 <div class="col-2">
                                     <div class="input-group">
                                         <label class="label">Id No.</label>
@@ -133,7 +133,19 @@
 
                                     </div>
                                 </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">Preffer</label>
+                                        <asp:DropDownList ID="ddlPreffer" class="form-control w-100" runat="server">
+                                            <asp:ListItem>Select</asp:ListItem>
+                                            <asp:ListItem>Project</asp:ListItem>
+                                            <asp:ListItem>Thesis</asp:ListItem>
+                                        </asp:DropDownList>
+
+                                    </div>
+                                </div>
                             </div>
+
                         </asp:Panel>
                         <asp:Panel ID="studentPanel" Visible="False" runat="server">
                             <div class="row row-space">
@@ -170,11 +182,18 @@
                                 </div>
                             </div>
                         </asp:Panel>
-                        <div class="input-group">
+                        <div class="row row-space">
                             <div class="col-12">
                                 <div class="input-group">
                                     <label class="label">Upload Picture.</label>
                                     <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <asp:TextBox ID="txtPass"  TextMode="Password" runat="server" autocomplete="off" class="input--style-4 w-100 h-50" placeholder="*********" MaxLength="20"></asp:TextBox>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -197,6 +216,13 @@
                         </div>
                         <div class="p-t-15">
                             <button id="btnSave" class="btn btn--radius-2 btn--blue" runat="server" onserverclick="OnServerClick" type="submit">Submit</button>
+                        </div>
+                         <div class="row row-space">
+                            <div class="col-12">
+                                <div class="input-group pt-3">
+                                   <span>Back to <a href="/Web/Login.aspx">Login</a></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

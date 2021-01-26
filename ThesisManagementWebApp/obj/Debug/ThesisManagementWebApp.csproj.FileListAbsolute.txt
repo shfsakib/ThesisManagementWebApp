@@ -45,7 +45,9 @@ D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\roslyn\vbc.exe
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\roslyn\VBCSCompiler.exe
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\roslyn\VBCSCompiler.exe.config
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.dll.config
+D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.pdb
+D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\BitsMasterClass.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.Agent.Intercept.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.DependencyCollector.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -60,8 +62,6 @@ D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.Web.xml
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.WindowsServer.xml
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.ApplicationInsights.xml
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.csprojResolveAssemblyReference.cache
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.pdb
-D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.dll
-D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\BitsMasterClass.dll
+D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\obj\Debug\ThesisManagementWebApp.csprojResolveAssemblyReference.cache

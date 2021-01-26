@@ -37,7 +37,36 @@ namespace ThesisManagementWebApp.Web
             func.BindDropDown(ddlStudentDepartment, "Select", $"SELECT DepartmentId Id,DepartmentName Name FROM DepartmentInfo ORDER BY DepartmentName ASC");
 
         }
-
+        private bool IsEmail(string email)
+        {
+            bool a = false;
+            string x = func.IsExist($"SELECT Email FROM Registration WHERE Email='{email}'");
+            if (x != "")
+            {
+                a = true;
+            }
+            return a;
+        }
+        private bool IsNumber(string number)
+        {
+            bool a = false;
+            string x = func.IsExist($"SELECT MobileNo FROM Registration WHERE MobileNo='{number}'");
+            if (x != "")
+            {
+                a = true;
+            }
+            return a;
+        }
+        private bool IsId(string id)
+        {
+            bool a = false;
+            string x = func.IsExist($"SELECT IdNo FROM Registration WHERE IdNo='{id}'");
+            if (x != "")
+            {
+                a = true;
+            }
+            return a;
+        }
         protected void ddlType_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlType.Text == "Teacher")
@@ -107,6 +136,21 @@ namespace ThesisManagementWebApp.Web
                 lblMessage.Text = "Type is required";
                 lblMessage.ForeColor = Color.Red;
             }
+            else if (txtPass.Text == "")
+            {
+                lblMessage.Text = "Password is required";
+                lblMessage.ForeColor = Color.Red;
+            }
+            else if (IsEmail(txtEmail.Text))
+            {
+                lblMessage.Text = "Email already exist";
+                lblMessage.ForeColor = Color.Red;
+            }
+            else if (IsNumber(txtMobile.Text))
+            {
+                lblMessage.Text = "Mobile no already exist";
+                lblMessage.ForeColor = Color.Red;
+            }
             else
             {
                 ViewState["RegId"] = func.GenerateId("Select Max(RegistrationId) FROM Registration");
@@ -117,6 +161,7 @@ namespace ThesisManagementWebApp.Web
                 registrationModel.DOB = txtDob.Text;
                 registrationModel.Gender = ddlGender.Text;
                 registrationModel.Address = txtAddress.Text;
+                registrationModel.Password = txtPass.Text;
                 registrationModel.Type = ddlType.Text;
                 if (filePic.HasFile)
                 {
@@ -130,28 +175,65 @@ namespace ThesisManagementWebApp.Web
                 }
                 if (ddlType.Text == "Teacher")
                 {
-                    registrationModel.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
-                    registrationModel.Designation = txtDesignation.Text;
-                    registrationModel.FreeScheduleFrom = txtTimeFrom.Text;
-                    registrationModel.FreeScheduleTo = txtTimeTo.Text;
-                    registrationModel.IdNo = txtTeacherId.Text;
+                    if (ddlDepartment.SelectedIndex == -1)
+                    {
+                        lblMessage.Text = "Department is required";
+                        lblMessage.ForeColor = Color.Red;
+                    }
+                    else if (IsId(txtTeacherId.Text))
+                    {
+                        lblMessage.Text = "Teacher id already exist";
+                        lblMessage.ForeColor = Color.Red;
+                    }
+                    else
+                    {
 
+                        registrationModel.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
+                        registrationModel.Designation = txtDesignation.Text;
+                        registrationModel.FreeScheduleFrom = txtTimeFrom.Text;
+                        registrationModel.FreeScheduleTo = txtTimeTo.Text;
+                        registrationModel.IdNo = txtTeacherId.Text;
+                        registrationModel.Preffer = ddlPreffer.Text;
+                    }
                 }
                 else if (ddlType.Text == "Student")
                 {
-                    registrationModel.DepartmentId = Convert.ToInt32(ddlStudentDepartment.SelectedValue);
-                    registrationModel.Designation = "";
-                    registrationModel.FreeScheduleFrom = "";
-                    registrationModel.FreeScheduleTo = "";
-                    registrationModel.IdNo = txtStdntId.Text;
+                    if (ddlStudentDepartment.SelectedIndex == -1)
+                    {
+                        lblMessage.Text = "Department is required";
+                        lblMessage.ForeColor = Color.Red;
+                    }
+                    else if (IsId(txtStdntId.Text))
+                    {
+                        lblMessage.Text = "Student id already exist";
+                        lblMessage.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        registrationModel.DepartmentId = Convert.ToInt32(ddlStudentDepartment.SelectedValue);
+                        registrationModel.Designation = "";
+                        registrationModel.FreeScheduleFrom = "";
+                        registrationModel.FreeScheduleTo = "";
+                        registrationModel.IdNo = txtStdntId.Text;
+                        registrationModel.Preffer = "";
+                    }
                 }
                 else if (ddlType.Text == "Coordinator")
                 {
-                    registrationModel.DepartmentId = 0;
-                    registrationModel.Designation = txtCoDesignation.Text;
-                    registrationModel.FreeScheduleFrom = "";
-                    registrationModel.FreeScheduleTo = "";
-                    registrationModel.IdNo = txtCOId.Text;
+                    if (IsId(txtCOId.Text))
+                    {
+                        lblMessage.Text = "Coordinator id already exist";
+                        lblMessage.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        registrationModel.DepartmentId = 0;
+                        registrationModel.Designation = txtCoDesignation.Text;
+                        registrationModel.FreeScheduleFrom = "";
+                        registrationModel.FreeScheduleTo = "";
+                        registrationModel.IdNo = txtCOId.Text;
+                        registrationModel.Preffer = "";
+                    }
 
                 }
                 registrationModel.Status = "I";
@@ -184,7 +266,7 @@ namespace ThesisManagementWebApp.Web
                                         txtTimeFrom.Text =
                                             txtTimeTo.Text = txtStdntId.Text = txtCOId.Text = txtCoDesignation.Text = "";
             ddlType.SelectedIndex =
-                ddlDepartment.SelectedIndex = ddlGender.SelectedIndex = ddlStudentDepartment.SelectedIndex = -1;
+                ddlDepartment.SelectedIndex = ddlGender.SelectedIndex = ddlPreffer.SelectedIndex = ddlStudentDepartment.SelectedIndex = -1;
         }
     }
 }

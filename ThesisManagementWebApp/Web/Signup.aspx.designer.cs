@@ -139,6 +139,15 @@ namespace ThesisManagementWebApp.Web {
         protected global::System.Web.UI.WebControls.TextBox txtTeacherId;
         
         /// <summary>
+        /// ddlPreffer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreffer;
+        
+        /// <summary>
         /// studentPanel control.
         /// </summary>
         /// <remarks>
@@ -200,6 +209,15 @@ namespace ThesisManagementWebApp.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload filePic;
+        
+        /// <summary>
+        /// txtPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPass;
         
         /// <summary>
         /// imgPic control.
