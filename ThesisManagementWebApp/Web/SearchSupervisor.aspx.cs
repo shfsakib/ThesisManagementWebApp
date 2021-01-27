@@ -34,7 +34,7 @@ namespace ThesisManagementWebApp.Web
             func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.DOB, Registration.Gender, Registration.Address, Registration.Type, Registration.Picture, Registration.Designation, 
                          Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
 FROM            Registration INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='A' AND Preffer='"+ddlType.Text+"' ORDER BY Registration.RegistrationId ASC");
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='A' AND Preffer='" + ddlType.Text + "' ORDER BY Registration.RegistrationId ASC");
         }
         public string Image(string img)
         {
@@ -60,7 +60,7 @@ FROM            Registration INNER JOIN
         }
         protected void gridTeacher_OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-            
+
         }
 
         protected void gridTeacher_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -71,8 +71,8 @@ FROM            Registration INNER JOIN
 
         protected void lnkReq_OnClick(object sender, EventArgs e)
         {
-            LinkButton linkButton = (LinkButton) sender;
-            HiddenField regId = (HiddenField) linkButton.Parent.FindControl("HiddenField1");
+            LinkButton linkButton = (LinkButton)sender;
+            HiddenField regId = (HiddenField)linkButton.Parent.FindControl("HiddenField1");
             Response.Write("<script>window.open ('/Web/SendSupervisorReq.aspx?RId=" + regId.Value + "','_blank');</script>");
         }
 
@@ -89,5 +89,6 @@ FROM            Registration INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='A' AND Preffer='" + ddlType.Text + "' AND Name +' | '+Email LIKE '" + txtSearch.Text + "' ORDER BY Registration.RegistrationId ASC");
 
         }
+
     }
 }

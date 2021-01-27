@@ -122,5 +122,44 @@ namespace ThesisManagementWebApp.DAL.Gateway
             }
             return result;
         }
+        internal bool UpdateProfile(RegistrationModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("UPDATE Registration SET Name=@Name,Email=@Email,MobileNo=@MobileNo,DOB=@DOB,Gender=@Gender,Address=@Address,Picture=@Picture,DepartmentId=@DepartmentId,Designation=@Designation,FreeScheduleFrom=@FreeScheduleFrom,FreeScheduleTo=@FreeScheduleTo,IdNo=@IdNo,Preffer=@Preffer,Password=@Password WHERE RegistrationId=@RegistrationId", con);
+                cmd.Parameters.AddWithValue("@Name", ob.Name);
+                cmd.Parameters.AddWithValue("@Email", ob.Email);
+                cmd.Parameters.AddWithValue("@MobileNo", ob.MobileNo);
+                cmd.Parameters.AddWithValue("@DOB", ob.DOB);
+                cmd.Parameters.AddWithValue("@Gender", ob.Gender);
+                cmd.Parameters.AddWithValue("@Address", ob.Address);
+                cmd.Parameters.AddWithValue("@Picture", ob.Picture);
+                cmd.Parameters.AddWithValue("@DepartmentId", ob.DepartmentId);
+                cmd.Parameters.AddWithValue("@Designation", ob.Designation);
+                cmd.Parameters.AddWithValue("@FreeScheduleFrom", ob.FreeScheduleFrom);
+                cmd.Parameters.AddWithValue("@FreeScheduleTo", ob.FreeScheduleTo);
+                cmd.Parameters.AddWithValue("@IdNo", ob.IdNo);
+                cmd.Parameters.AddWithValue("@Preffer", ob.Preffer);
+                cmd.Parameters.AddWithValue("@Password", ob.Password);
+                cmd.Parameters.AddWithValue("@RegistrationId", ob.RegistrationId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

@@ -126,7 +126,7 @@ namespace ThesisManagementWebApp.Web
                 lblMessage.Text = "Gender is required";
                 lblMessage.ForeColor = Color.Red;
             }
-            else if (txtAddress.Text == "Select")
+            else if (txtAddress.Text == "")
             {
                 lblMessage.Text = "Address is required";
                 lblMessage.ForeColor = Color.Red;

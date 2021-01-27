@@ -13,28 +13,28 @@
         </div>
         <div class="card card-body m-3">
             <div class="row">
-                <div class="col-3">
+                <div class="col-lg-3">
                     <asp:DropDownList ID="ddlType" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlType_OnSelectedIndexChanged" runat="server">
                         <asp:ListItem>Project</asp:ListItem>
                         <asp:ListItem>Thesis</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <div class="col-5 justify-content-center">
+                <div class="col-lg-5 justify-content-center">
                     <asp:TextBox runat="server" AutoPostBack="True" OnTextChanged="txtSearch_OnTextChanged" autocomplete="off" ID="txtSearch" placeholder="Search by Teacher's name, mobile no, email" class="form-control w-100"></asp:TextBox>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-lg-4"></div>
             </div>
             <div class="row pt-3">
-                <div class="col-12  justify-content-center table-responsive">
+                <div class="col-lg-12  justify-content-center table-responsive">
                     <asp:GridView ID="gridTeacher" Width="100%" class="table table-hover table-bordered table-striped" OnRowDataBound="gridTeacher_OnRowDataBound" OnPageIndexChanging="gridTeacher_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="False" ShowHeaderWhenEmpty="True" EmptyDataText="No Supervisor Found" AllowPaging="True" PageSize="30" runat="server">
                         <Columns>
                             <asp:TemplateField HeaderText="">
                                 <ItemTemplate>
                                     <div class="row">
-                                        <div class="col-3 text-center">
+                                        <div class="col-lg-3 text-center">
                                             <asp:Image runat="server" Style="width: 125px; height: 125px" ImageUrl='<%#Image(Eval("Picture").ToString())%>'></asp:Image>
                                         </div>
-                                        <div class="col-9">
+                                        <div class="col-lg-9">
                                             <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("RegistrationId")%>' />
                                             <asp:Label ID="Label1" runat="server" Style="font-size: 25px; font-weight: bold;" Text='<%#Eval("Name")%>'></asp:Label>
                                             <span class="d-block"><i class="fas fa-balance-scale"></i>&nbsp;&nbsp;<asp:Label ID="Label15" runat="server" Text='<%#Eval("Designation")%>'></asp:Label>

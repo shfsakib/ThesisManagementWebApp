@@ -33,12 +33,12 @@ namespace ThesisManagementWebApp.Web
                     string a = func.TypeCookie();
                     if (func.TypeCookie() == "Teacher")
                     {
-                        Response.Redirect("/Web/AddDepartment.aspx");
+                        Response.Redirect("/Web/ViewStudentReq.aspx");
 
                     }
                     else if (func.TypeCookie() == "Coordinator")
                     {
-                        Response.Redirect("/Web/");
+                        Response.Redirect("/Web/ViewAllStudentReq.aspx");
                     }
                     else if (func.TypeCookie() == "Student")
                     {
@@ -100,10 +100,10 @@ namespace ThesisManagementWebApp.Web
                     HttpContext.Current.Response.Cookies.Add(cookie);
                     cookie["Name"] = func.IsExist($"SELECT Name FROM Registration WHERE Email='{txtEmail.Text}'");
                     cookie["Type"] = func.IsExist($"SELECT Type FROM Registration WHERE Email='{txtEmail.Text}'");
-                    cookie["UserId"] = func.IsExist($"SELECT RegId FROM Registration WHERE Email='{txtEmail.Text}'");
+                    cookie["UserId"] = func.IsExist($"SELECT RegistrationId FROM Registration WHERE Email='{txtEmail.Text}'");
                     cookie["Email"] = func.IsExist($"SELECT Email FROM Registration WHERE Email='{txtEmail.Text}'");
                     cookie["Picture"] = func.IsExist($"SELECT Picture FROM Registration WHERE Email='{txtEmail.Text}'");
-                    cookie["Mobile"] = func.IsExist($"SELECT ContactNo FROM Registration WHERE Email='{txtEmail.Text}'");
+                    cookie["Mobile"] = func.IsExist($"SELECT MobileNo FROM Registration WHERE Email='{txtEmail.Text}'");
                     cookie.Expires = DateTime.Now.AddDays(30);
                     Response.Cookies.Add(cookie);
                     if (cookie["Type"] == "Admin")
@@ -112,7 +112,7 @@ namespace ThesisManagementWebApp.Web
                     }
                     else if (cookie["Type"] == "Teacher")
                     {
-                        Response.Redirect("/Web/");
+                        Response.Redirect("/Web/ViewStudentReq.aspx");
                     }
                     else if (cookie["Type"] == "Student")
                     {
@@ -120,7 +120,7 @@ namespace ThesisManagementWebApp.Web
                     }
                     else if (cookie["Type"] == "Coordinator")
                     {
-                        Response.Redirect("/Web/");
+                        Response.Redirect("/Web/ViewAllStudentReq.aspx");
                     }
                 }
                 else

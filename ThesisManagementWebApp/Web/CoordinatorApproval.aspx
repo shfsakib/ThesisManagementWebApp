@@ -14,7 +14,7 @@
     </div>
     <div class="card card-body m-3">
         <div class="row pt-3">
-            <div class="col-12 justify-content-center table-responsive">
+            <div class="col-lg-12 justify-content-center table-responsive">
                 <asp:GridView ID="gridCoord" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridStudent_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Coordinator Info Found" AllowPaging="True" PageSize="30" runat="server">
                     <Columns>
                         <asp:TemplateField HeaderText="University_Id">

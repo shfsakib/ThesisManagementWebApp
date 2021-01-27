@@ -13,7 +13,7 @@
     </div>
     <div class="card card-body m-3">
         <div class="row pt-3"> 
-            <div class="col-12 justify-content-center table-responsive">
+            <div class="col-lg-12 justify-content-center table-responsive">
                 <asp:gridview id="gridStudent" width="100%" class="table table-hover table-bordered table-striped" onpageindexchanging="gridStudent_OnPageIndexChanging" autogeneratecolumns="False" showheader="True" showheaderwhenempty="True" emptydatatext="No Student Info Found" allowpaging="True" pagesize="30" runat="server">
                 <Columns>
                     <asp:TemplateField HeaderText="University_Id">

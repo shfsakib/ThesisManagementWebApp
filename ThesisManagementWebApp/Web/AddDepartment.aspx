@@ -14,30 +14,30 @@
     </div>
     <div class="card card-body m-3">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 justify-content-center">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 justify-content-center">
                 <span>Department Name</span>
                 <asp:TextBox ID="txtDepartmentName" class="form-control-lg w-100 mt-1" placeholder="CSE,EEE etc" runat="server"></asp:TextBox>
             </div>
-            <div class="col-4"></div>
+            <div class="col-lg-4"></div>
         </div>
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 justify-content-center">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 justify-content-center">
                 <asp:Label ID="lblMessage" runat="server" Text="" Style="font-size: 16px;"></asp:Label>
             </div>
-            <div class="col-4"></div>
+            <div class="col-lg-4"></div>
         </div>
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 justify-content-center">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 justify-content-center">
                 <asp:Button ID="btnSave" runat="server" OnClick="btnSave_OnClick" class="btn btn-primary mt-1 w-100" autocomplete="off" Text="Save" />
             </div>
-            <div class="col-4"></div>
+            <div class="col-lg-4"></div>
         </div>
         <div class="row pt-3">
-            <div class="col-2"></div>
-            <div class="col-8 justify-content-center table-responsive">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 justify-content-center table-responsive">
                 <asp:GridView ID="gridDepartment" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridDepartment_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Department Found" AllowPaging="True" PageSize="30" runat="server">
                 <Columns>
                     <asp:TemplateField HeaderText="Department_Name">
@@ -54,7 +54,7 @@
                 </Columns>
             </asp:GridView>
             </div>
-            <div class="col-2"></div>
+            <div class="col-lg-2"></div>
         </div>
     </div>
 </asp:Content>

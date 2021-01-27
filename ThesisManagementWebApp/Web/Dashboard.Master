@@ -61,6 +61,25 @@
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                            <% HttpCookie cookieIndex = HttpContext.Current.Request.Cookies["Thesis"];
+                                if(cookieIndex["Type"]=="Admin")
+                                { %>
+                               <a href="/Web/AdminProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>Profile
+                            </a>
+                            <% }else if(cookieIndex["Type"]=="Teacher") { %>
+                             <a href="/Web/TeacherProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>Profile
+                            </a>
+                            <% }else if(cookieIndex["Type"]=="Student") { %>
+                             <a href="/Web/StudentProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>Profile
+                            </a>
+                            <% }else if(cookieIndex["Type"]=="Coordinator") { %>
+                             <a href="/Web/CoordinatorList.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>Profile
+                            </a>
+                            <% } %>
                             <a onserverclick="OnServerClick" class="dropdown-item" runat="server">
                                 <i class="fas fa-sign-out-alt"></i>Log out
                             </a>
@@ -189,50 +208,50 @@
                 </div>
             </aside>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <style>
-                    #ui-id-2 {
-                        z-index: 9999;
-                        list-style: none;
-                        background: #a5a3d1;
-                        width: 420px !important;
-                        padding: 12px;
-                        max-height: 200px;
-                        overflow-x: hidden;
-                        overflow-y: auto;
+            <style>
+                #ui-id-2 {
+                    z-index: 9999;
+                    list-style: none;
+                    background: #a5a3d1;
+                    width: 420px !important;
+                    padding: 12px;
+                    max-height: 200px;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                }
+
+                    #ui-id-2 li {
+                        padding: 10px;
                     }
 
-                        #ui-id-2 li {
+                        #ui-id-2 li:hover {
+                            background: dodgerblue;
                             padding: 10px;
+                            color: white;
                         }
 
-                            #ui-id-2 li:hover {
-                                background: dodgerblue;
-                                padding: 10px;
-                                color: white;
-                            }
+                #ui-id-1 {
+                    z-index: 9999;
+                    list-style: none;
+                    background: #a5a3d1;
+                    color: white !important;
+                    width: 420px !important;
+                    padding: 12px;
+                    max-height: 200px;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                }
 
-                    #ui-id-1 {
-                        z-index: 9999;
-                        list-style: none;
-                        background: #a5a3d1;
-                        color: white !important;
-                        width: 420px !important;
-                        padding: 12px;
-                        max-height: 200px;
-                        overflow-x: hidden;
-                        overflow-y: auto;
+                    #ui-id-1 li {
+                        padding: 10px;
                     }
 
-                        #ui-id-1 li {
+                        #ui-id-1 li:hover {
+                            background: dodgerblue;
                             padding: 10px;
+                            color: white;
                         }
-
-                            #ui-id-1 li:hover {
-                                background: dodgerblue;
-                                padding: 10px;
-                                color: white;
-                            }
-                </style>
+            </style>
             <div class="content-wrapper">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
@@ -257,6 +276,15 @@
     <script src="../DashboardFile/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../DashboardFile/dist/js/pages/dashboard.js"></script>
-   
+    <script>
+        $(document).ready(function () {
+            $('.closeModal').click(function () {
+                $('.ModalBg').css("display", "none");
+            });
+            $('.btnEdit').click(function () {
+                $('.ModalBg').css("display", "block");
+            });
+        });
+    </script>
 </body>
 </html>

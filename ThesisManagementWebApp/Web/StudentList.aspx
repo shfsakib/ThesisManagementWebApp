@@ -14,17 +14,17 @@
     </div>
     <div class="card card-body m-3">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 justify-content-center">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 justify-content-center">
                 <asp:DropDownList ID="ddlStatus" AutoPostBack="True" OnSelectedIndexChanged="ddlStatus_OnSelectedIndexChanged" class="form-control w-100" runat="server">
                     <asp:ListItem Value="A">Active</asp:ListItem>
                     <asp:ListItem Value="I">Inactive</asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="col-4"></div>
+            <div class="col-lg-4"></div>
         </div>
         <div class="row pt-3">
-            <div class="col-12 justify-content-center table-responsive">
+            <div class="col-lg-12 justify-content-center table-responsive">
                 <asp:GridView ID="gridStudent" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridStudent_OnPageIndexChanging" OnRowDataBound="gridStudent_OnRowDataBound" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Student Info Found" AllowPaging="True" PageSize="30" runat="server">
                     <Columns>
                         <asp:TemplateField HeaderText="University_Id">

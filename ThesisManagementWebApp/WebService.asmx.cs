@@ -53,5 +53,26 @@ namespace TicketBookingSystem
             catch (Exception ex) { }
             return result;
         }
+        [WebMethod]
+        public List<string> GetStudent(string txt)
+        {
+            List<string> result = new List<string>();
+            try
+            {
+
+                string query = @"SELECT Name +' | '+Email txt FROM Registration WHERE Name +' | '+Email +' | '+MobileNo LIKE '%" + txt + "%' AND Type='Student'";
+                using (cmd = new SqlCommand(query, con))
+                {
+                    if (con.State != System.Data.ConnectionState.Open) con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result.Add(reader["txt"].ToString().TrimEnd());
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return result;
+        }
     }
 }

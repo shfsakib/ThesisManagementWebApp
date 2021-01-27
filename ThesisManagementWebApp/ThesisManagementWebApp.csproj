@@ -158,15 +158,22 @@
     <Content Include="Web\AddAdmin.aspx" />
     <Content Include="Web\AddDepartment.aspx" />
     <Content Include="Web\AdminList.aspx" />
+    <Content Include="Web\AdminProfile.aspx" />
+    <Content Include="Web\CoordinateProfile.aspx" />
     <Content Include="Web\CoordinatorApproval.aspx" />
     <Content Include="Web\CoordinatorList.aspx" />
     <Content Include="Web\SearchSupervisor.aspx" />
+    <Content Include="Web\SendProgressReport.aspx" />
     <Content Include="Web\SendSupervisorReq.aspx" />
     <Content Include="Web\Signup.aspx" />
     <Content Include="Web\StudentApproval.aspx" />
     <Content Include="Web\StudentList.aspx" />
+    <Content Include="Web\StudentProfile.aspx" />
     <Content Include="Web\TeacherApproval.aspx" />
+    <Content Include="Web\TeacherProfile.aspx" />
     <Content Include="Web\TeachersList.aspx" />
+    <Content Include="Web\ViewAllStudentReq.aspx" />
+    <Content Include="Web\ViewStudentReq.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,8 +191,11 @@
   <ItemGroup>
     <Compile Include="DAL\Gateway\DepartmentGateway.cs" />
     <Compile Include="DAL\Gateway\RegistrationGateway.cs" />
+    <Compile Include="DAL\Gateway\RequestGateway.cs" />
     <Compile Include="DAL\Model\DepartmentModel.cs" />
     <Compile Include="DAL\Model\RegistrationModel.cs" />
+    <Compile Include="DAL\Model\ReportModel.cs" />
+    <Compile Include="DAL\Model\RequestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
@@ -211,6 +221,20 @@
     </Compile>
     <Compile Include="Web\AdminList.aspx.designer.cs">
       <DependentUpon>AdminList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\AdminProfile.aspx.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\AdminProfile.aspx.designer.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\CoordinateProfile.aspx.cs">
+      <DependentUpon>CoordinateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\CoordinateProfile.aspx.designer.cs">
+      <DependentUpon>CoordinateProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\CoordinatorApproval.aspx.cs">
       <DependentUpon>CoordinatorApproval.aspx</DependentUpon>
@@ -247,6 +271,13 @@
     <Compile Include="Web\SearchSupervisor.aspx.designer.cs">
       <DependentUpon>SearchSupervisor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\SendProgressReport.aspx.cs">
+      <DependentUpon>SendProgressReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SendProgressReport.aspx.designer.cs">
+      <DependentUpon>SendProgressReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\SendSupervisorReq.aspx.cs">
       <DependentUpon>SendSupervisorReq.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +306,13 @@
     <Compile Include="Web\StudentList.aspx.designer.cs">
       <DependentUpon>StudentList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\StudentProfile.aspx.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\StudentProfile.aspx.designer.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\TeacherApproval.aspx.cs">
       <DependentUpon>TeacherApproval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,12 +320,33 @@
     <Compile Include="Web\TeacherApproval.aspx.designer.cs">
       <DependentUpon>TeacherApproval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\TeacherProfile.aspx.cs">
+      <DependentUpon>TeacherProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\TeacherProfile.aspx.designer.cs">
+      <DependentUpon>TeacherProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\TeachersList.aspx.cs">
       <DependentUpon>TeachersList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\TeachersList.aspx.designer.cs">
       <DependentUpon>TeachersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\ViewAllStudentReq.aspx.cs">
+      <DependentUpon>ViewAllStudentReq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\ViewAllStudentReq.aspx.designer.cs">
+      <DependentUpon>ViewAllStudentReq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\ViewStudentReq.aspx.cs">
+      <DependentUpon>ViewStudentReq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\ViewStudentReq.aspx.designer.cs">
+      <DependentUpon>ViewStudentReq.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
