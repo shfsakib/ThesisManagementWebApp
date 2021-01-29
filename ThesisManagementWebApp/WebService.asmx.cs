@@ -74,5 +74,26 @@ namespace TicketBookingSystem
             catch (Exception ex) { }
             return result;
         }
+        [WebMethod]
+        public List<string> GetReport(string txt,string type)
+        {
+            List<string> result = new List<string>();
+            try
+            {
+
+                string query = @"SELECT FileName txt FROM Report WHERE FileName LIKE '%" + txt + "%' AND Type='"+type+"'";
+                using (cmd = new SqlCommand(query, con))
+                {
+                    if (con.State != System.Data.ConnectionState.Open) con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result.Add(reader["txt"].ToString().TrimEnd());
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return result;
+        }
     }
 }

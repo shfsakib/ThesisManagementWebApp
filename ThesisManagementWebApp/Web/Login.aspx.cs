@@ -42,7 +42,7 @@ namespace ThesisManagementWebApp.Web
                     }
                     else if (func.TypeCookie() == "Student")
                     {
-                        Response.Redirect("/Web/SearchSupervisor.aspx");
+                        Response.Redirect("/Web/FinalReports.aspx");
                     }
                     else if (func.TypeCookie() == "Admin")
                     {
@@ -116,7 +116,7 @@ namespace ThesisManagementWebApp.Web
                     }
                     else if (cookie["Type"] == "Student")
                     {
-                        Response.Redirect("/Web/SearchSupervisor.aspx");
+                        Response.Redirect("/Web/FinalReports.aspx");
                     }
                     else if (cookie["Type"] == "Coordinator")
                     {

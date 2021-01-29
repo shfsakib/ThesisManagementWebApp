@@ -27,7 +27,11 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-               Load();
+                if (func.TypeCookie() != "Coordinator")
+                {
+                    Response.Redirect("/Web/Login.aspx");
+                }
+                Load();
             }
         }
         private void Load()

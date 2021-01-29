@@ -26,6 +26,10 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
+                if (func.TypeCookie() != "Teacher")
+                {
+                    Response.Redirect("/Web/Login.aspx");
+                }
                 Load();
 
             }
@@ -36,7 +40,7 @@ namespace ThesisManagementWebApp.Web
                           Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
 FROM            ReqSupervisor INNER JOIN
                          Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.SupervisorId='" + func.UserIdCookie() + "'  ORDER BY  ReqSupervisor.ReqId ASC");
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.Status='I' AND ReqSupervisor.SupervisorId='" + func.UserIdCookie() + "' ORDER BY  ReqSupervisor.ReqId ASC");
         }
 
 
@@ -46,7 +50,7 @@ FROM            ReqSupervisor INNER JOIN
                           Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
 FROM            ReqSupervisor INNER JOIN
                          Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.SupervisorId='" + func.UserIdCookie() + "' AND Name +' | '+Email LIKE '%" + txtSearch.Text + "%' ORDER BY  ReqSupervisor.ReqId ASC");
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.Status='I' AND ReqSupervisor.SupervisorId='" + func.UserIdCookie() + "' AND Name +' | '+Email LIKE '%" + txtSearch.Text + "%' ORDER BY  ReqSupervisor.ReqId ASC");
 
         }
 
@@ -117,6 +121,20 @@ FROM            ReqSupervisor INNER JOIN
                 cTime = dateTime.ToString("hh:mm tt");
             }
             return cTime;
+        }
+
+        protected void gridStudent_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType==DataControlRowType.DataRow)
+            {
+                HiddenField status = (HiddenField) e.Row.FindControl("HiddenField2");
+                LinkButton lnkAccept = (LinkButton) e.Row.FindControl("lnkAccept");
+                LinkButton lnkReject = (LinkButton) e.Row.FindControl("lnkReject");
+                if (status.Value=="A")
+                {
+                    lnkReject.Visible = lnkAccept.Visible = false;
+                }
+            }
         }
     }
 }

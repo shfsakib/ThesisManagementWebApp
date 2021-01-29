@@ -62,22 +62,28 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                             <% HttpCookie cookieIndex = HttpContext.Current.Request.Cookies["Thesis"];
-                                if(cookieIndex["Type"]=="Admin")
+                                if (cookieIndex["Type"] == "Admin")
                                 { %>
-                               <a href="/Web/AdminProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>Profile
+                            <a href="/Web/AdminProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>&nbsp;Profile
                             </a>
-                            <% }else if(cookieIndex["Type"]=="Teacher") { %>
-                             <a href="/Web/TeacherProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>Profile
+                            <% }
+                                else if (cookieIndex["Type"] == "Teacher")
+                                { %>
+                            <a href="/Web/TeacherProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>&nbsp;Profile
                             </a>
-                            <% }else if(cookieIndex["Type"]=="Student") { %>
-                             <a href="/Web/StudentProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>Profile
+                            <% }
+                                else if (cookieIndex["Type"] == "Student")
+                                { %>
+                            <a href="/Web/StudentProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>&nbsp;Profile
                             </a>
-                            <% }else if(cookieIndex["Type"]=="Coordinator") { %>
-                             <a href="/Web/CoordinatorList.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>Profile
+                            <% }
+                                else if (cookieIndex["Type"] == "Coordinator")
+                                { %>
+                            <a href="/Web/CoordinateProfile.aspx" class="dropdown-item" runat="server">
+                                <i class="fas fa-user"></i>&nbsp;`Profile
                             </a>
                             <% } %>
                             <a onserverclick="OnServerClick" class="dropdown-item" runat="server">
@@ -103,10 +109,10 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="../DashboardFile/avatar.svg" class="img-circle elevation-2" alt="User Image">
+                            <img src='<%=cookieIndex["Picture"].ToString() %>' class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">Mr. X</a>
+                            <a href="#" class="d-block"><%=cookieIndex["Name"].ToString() %></a>
                         </div>
                     </div>
                     <!-- Sidebar Menu -->
@@ -114,6 +120,8 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                            <% if (cookieIndex["Type"] == "Admin")
+                                { %>
                             <li class="nav-item" style="font-size: 16px;">
                                 <a href="/Web/AddDepartment.aspx" class="nav-link">
                                     <i class="nav-icon far fa-building"></i>
@@ -203,6 +211,88 @@
                                     </li>
                                 </ul>
                             </li>
+                            <%}
+                                else if (cookieIndex["Type"] == "Teacher")
+                                { %>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/ViewStudentReq.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-graduation-cap"></i>
+                                    <p>
+                                        Student Request
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/SupervisedStudentList.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-user-graduate"></i>
+                                    <p>
+                                        Accepted Student List
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/ViewStudentReport.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-book-reader"></i>
+                                    <p>
+                                        Student Progress Report
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/FinalReports.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-book-open"></i>
+                                    <p>
+                                        Final Reports
+                                    </p>
+                                </a>
+                            </li>
+                            <%}
+                                else if (cookieIndex["Type"] == "Student")
+                                { %>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/FinalReports.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-book-open"></i>
+                                    <p>
+                                        Final Reports
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/SearchSupervisor.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-user-tie"></i>
+                                    <p>
+                                        Supervisor List
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/SendProgressReport.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Send Progress Report
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/UploadFinalReport.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-upload"></i>
+                                    <p>
+                                        Upload Final Report
+                                    </p>
+                                </a>
+                            </li>
+                            <% }
+                                else if (cookieIndex["Type"] == "Coordinator")
+                                { %>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/ViewAllStudentReq.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Student Request List
+                                    </p>
+                                </a>
+                            </li>
+                            <% } %>
                         </ul>
                     </nav>
                 </div>

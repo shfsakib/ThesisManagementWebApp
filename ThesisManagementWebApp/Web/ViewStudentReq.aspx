@@ -23,7 +23,7 @@
             </div>
             <div class="row pt-3">
                 <div class="col-12  justify-content-center table-responsive">
-                    <asp:gridview id="gridStudent" width="100%" class="table table-hover table-bordered table-striped" onpageindexchanging="gridStudent_OnPageIndexChanging" autogeneratecolumns="False" showheader="False" showheaderwhenempty="True" emptydatatext="No Request Found" allowpaging="True" pagesize="30" runat="server">
+                    <asp:gridview id="gridStudent" width="100%" class="table table-hover table-bordered table-striped" onpageindexchanging="gridStudent_OnPageIndexChanging" OnRowDataBound="gridStudent_OnRowDataBound" autogeneratecolumns="False" showheader="False" showheaderwhenempty="True" emptydatatext="No Request Found" allowpaging="True" pagesize="30" runat="server">
                         <Columns>
                             <asp:TemplateField HeaderText="">
                                 <ItemTemplate>
@@ -32,6 +32,7 @@
                                             <asp:Image runat="server" Style="width: 125px; height: 125px" ImageUrl='<%#Image(Eval("Picture").ToString())%>'></asp:Image>
                                         </div>
                                         <div class="col-9">
+                                            <asp:HiddenField ID="HiddenField2" runat="server" Value='<%#Eval("Status")%>' />
                                             <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("StudentId")%>' />
                                             <asp:Label ID="Label1" runat="server" Style="font-size: 25px; font-weight: bold;" Text='<%#Eval("Name")%>'></asp:Label>
                                              <span class="d-block"><i class="far fa-id-card"></i>&nbsp;&nbsp;<asp:Label ID="Label9" runat="server" Text='<%#Eval("IdNo")%>'></asp:Label>

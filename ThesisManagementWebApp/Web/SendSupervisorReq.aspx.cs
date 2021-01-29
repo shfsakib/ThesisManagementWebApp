@@ -27,6 +27,10 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
+                if (func.TypeCookie() != "Student")
+                {
+                    Response.Redirect("/Web/Login.aspx");
+                }
                 if (Request.QueryString["RId"] == null)
                 {
                     Response.Redirect("/Web/SearchSupervisor.aspx");
@@ -68,7 +72,7 @@ namespace ThesisManagementWebApp.Web
             else if (IsReqExist(func.UserIdCookie()))
             {
 
-                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('You have already sent supervise request. Wait for previous approval or contact with thesis coordinator.');setTimeout(function(){window.open('/Web/SearchSupervisor.aspx')},2500)", true);
+                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('You have already sent supervise request. Wait for previous approval or contact with thesis coordinator.');setTimeout(function(){location.replace('/Web/SearchSupervisor.aspx')},2500)", true);
             }
             else
             {
@@ -99,7 +103,7 @@ namespace ThesisManagementWebApp.Web
                     bool ans = func.SendEmail("thesisdemo21@gmail.com", txtEmail.Text, "Request", "<h3>Hello Teacher,</h3><br/>Your have a request from a student name=" + func.NameCookie() + ",Email=" + func.EmailCookie() + " for supervise his/her project. Please check his request.", "Thesis2021");
                     if (ans)
                     {
-                        ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request sent successfully. Wait for approval.');setTimeout(function(){window.open('/Web/SearchSupervisor.aspx')},2500)", true);
+                        ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request sent successfully. Wait for approval.');setTimeout(function(){location.replace('/Web/SearchSupervisor.aspx')},2500)", true);
 
                     }
                 }

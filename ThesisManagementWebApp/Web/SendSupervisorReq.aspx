@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6 justify-content-center">
-                <asp:Button ID="btnSave" OnClick="btnSave_OnClick" runat="server" class="btn btn-primary mt-1 w-100" Text="Save" />
+                <asp:Button ID="btnSave" OnClick="btnSave_OnClick" runat="server" class="btn btn-primary mt-1 w-100" Text="Send" />
             </div>
             <div class="col-lg-3"></div>
         </div>

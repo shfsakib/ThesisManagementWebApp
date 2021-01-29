@@ -27,7 +27,10 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-                
+                if (func.TypeCookie()!="Admin")
+                {
+                    Response.Redirect("/Web/Login.aspx");
+                }
             }
         }
         private bool IsEmail(string email)

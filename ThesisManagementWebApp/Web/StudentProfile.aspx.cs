@@ -27,6 +27,10 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
+                if (func.TypeCookie() != "Student")
+                {
+                    Response.Redirect("/Web/Login.aspx");
+                }
                 func.BindDropDown(ddlDepartment, "Select", $"SELECT DepartmentId Id,DepartmentName Name FROM DepartmentInfo ORDER BY DepartmentName ASC");
                 Load();
             }

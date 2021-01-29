@@ -26,6 +26,10 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
+                if (func.TypeCookie() != "Student")
+                {
+                    Response.Redirect("/Web/Login.aspx");
+                }
                 Load();
             }
         }
@@ -73,7 +77,7 @@ FROM            Registration INNER JOIN
         {
             LinkButton linkButton = (LinkButton)sender;
             HiddenField regId = (HiddenField)linkButton.Parent.FindControl("HiddenField1");
-            Response.Write("<script>window.open ('/Web/SendSupervisorReq.aspx?RId=" + regId.Value + "','_blank');</script>");
+            Response.Write("<script>window.open('/Web/SendSupervisorReq.aspx?RId=" + regId.Value + "','_blank');</script>");
         }
 
         protected void ddlType_OnSelectedIndexChanged(object sender, EventArgs e)

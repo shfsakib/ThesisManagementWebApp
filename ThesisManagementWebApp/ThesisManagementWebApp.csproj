@@ -162,6 +162,7 @@
     <Content Include="Web\CoordinateProfile.aspx" />
     <Content Include="Web\CoordinatorApproval.aspx" />
     <Content Include="Web\CoordinatorList.aspx" />
+    <Content Include="Web\FinalReports.aspx" />
     <Content Include="Web\SearchSupervisor.aspx" />
     <Content Include="Web\SendProgressReport.aspx" />
     <Content Include="Web\SendSupervisorReq.aspx" />
@@ -169,10 +170,13 @@
     <Content Include="Web\StudentApproval.aspx" />
     <Content Include="Web\StudentList.aspx" />
     <Content Include="Web\StudentProfile.aspx" />
+    <Content Include="Web\SupervisedStudentList.aspx" />
     <Content Include="Web\TeacherApproval.aspx" />
     <Content Include="Web\TeacherProfile.aspx" />
     <Content Include="Web\TeachersList.aspx" />
+    <Content Include="Web\UploadFinalReport.aspx" />
     <Content Include="Web\ViewAllStudentReq.aspx" />
+    <Content Include="Web\ViewStudentReport.aspx" />
     <Content Include="Web\ViewStudentReq.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -191,6 +195,7 @@
   <ItemGroup>
     <Compile Include="DAL\Gateway\DepartmentGateway.cs" />
     <Compile Include="DAL\Gateway\RegistrationGateway.cs" />
+    <Compile Include="DAL\Gateway\ReportGateway.cs" />
     <Compile Include="DAL\Gateway\RequestGateway.cs" />
     <Compile Include="DAL\Model\DepartmentModel.cs" />
     <Compile Include="DAL\Model\RegistrationModel.cs" />
@@ -257,6 +262,13 @@
     <Compile Include="Web\Dashboard.Master.designer.cs">
       <DependentUpon>Dashboard.Master</DependentUpon>
     </Compile>
+    <Compile Include="Web\FinalReports.aspx.cs">
+      <DependentUpon>FinalReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\FinalReports.aspx.designer.cs">
+      <DependentUpon>FinalReports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,6 +325,13 @@
     <Compile Include="Web\StudentProfile.aspx.designer.cs">
       <DependentUpon>StudentProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\SupervisedStudentList.aspx.cs">
+      <DependentUpon>SupervisedStudentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SupervisedStudentList.aspx.designer.cs">
+      <DependentUpon>SupervisedStudentList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\TeacherApproval.aspx.cs">
       <DependentUpon>TeacherApproval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -334,12 +353,26 @@
     <Compile Include="Web\TeachersList.aspx.designer.cs">
       <DependentUpon>TeachersList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\UploadFinalReport.aspx.cs">
+      <DependentUpon>UploadFinalReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UploadFinalReport.aspx.designer.cs">
+      <DependentUpon>UploadFinalReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\ViewAllStudentReq.aspx.cs">
       <DependentUpon>ViewAllStudentReq.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\ViewAllStudentReq.aspx.designer.cs">
       <DependentUpon>ViewAllStudentReq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\ViewStudentReport.aspx.cs">
+      <DependentUpon>ViewStudentReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\ViewStudentReport.aspx.designer.cs">
+      <DependentUpon>ViewStudentReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\ViewStudentReq.aspx.cs">
       <DependentUpon>ViewStudentReq.aspx</DependentUpon>
