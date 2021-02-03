@@ -55,5 +55,31 @@ namespace ThesisManagementWebApp.DAL.Gateway
             }
             return result;
         }
+        internal bool UpdateDepartment(DepartmentModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("UPDATE DepartmentInfo SET DepartmentName=@DepartmentName WHERE DepartmentId=@DepartmentId", con);
+                cmd.Parameters.AddWithValue("@DepartmentName", ob.DepartmentName);
+                cmd.Parameters.AddWithValue("@DepartmentId", ob.DepartmentId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

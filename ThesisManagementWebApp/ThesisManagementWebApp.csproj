@@ -174,6 +174,7 @@
     <Content Include="Web\TeacherApproval.aspx" />
     <Content Include="Web\TeacherProfile.aspx" />
     <Content Include="Web\TeachersList.aspx" />
+    <Content Include="Web\UpdateDepartment.aspx" />
     <Content Include="Web\UploadFinalReport.aspx" />
     <Content Include="Web\ViewAllStudentReq.aspx" />
     <Content Include="Web\ViewStudentReport.aspx" />
@@ -352,6 +353,13 @@
     </Compile>
     <Compile Include="Web\TeachersList.aspx.designer.cs">
       <DependentUpon>TeachersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\UpdateDepartment.aspx.cs">
+      <DependentUpon>UpdateDepartment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UpdateDepartment.aspx.designer.cs">
+      <DependentUpon>UpdateDepartment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\UploadFinalReport.aspx.cs">
       <DependentUpon>UploadFinalReport.aspx</DependentUpon>

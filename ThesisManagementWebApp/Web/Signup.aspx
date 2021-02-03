@@ -183,13 +183,13 @@
                             </div>
                         </asp:Panel>
                         <div class="row row-space">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Upload Picture.</label>
                                     <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
                                     <label class="label">Password</label>
                                     <asp:TextBox ID="txtPass"  TextMode="Password" runat="server" autocomplete="off" class="input--style-4 w-100 h-50" placeholder="*********" MaxLength="20"></asp:TextBox>
@@ -215,7 +215,7 @@
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button id="btnSave" class="btn btn--radius-2 btn--blue" runat="server" onserverclick="OnServerClick" type="submit">Submit</button>
+                            <button id="btnSave" class="btn btn--radius-2 btn--blue" runat="server" onserverclick="OnServerClick" type="submit">Sign up</button>
                         </div>
                          <div class="row row-space">
                             <div class="col-12">

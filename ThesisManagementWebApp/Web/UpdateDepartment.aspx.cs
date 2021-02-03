@@ -11,12 +11,12 @@ using ThesisManagementWebApp.DAL.Model;
 
 namespace ThesisManagementWebApp.Web
 {
-    public partial class AddDepartment : System.Web.UI.Page
+    public partial class UpdateDepartment : System.Web.UI.Page
     {
         private DepartmentModel departmentModel;
         private DepartmentGateway departmentGateway;
         private Function func;
-        public AddDepartment()
+        public UpdateDepartment()
         {
             func = Function.GetInstance();
             departmentModel = DepartmentModel.GetInstance();
@@ -31,48 +31,39 @@ namespace ThesisManagementWebApp.Web
                 {
                     Response.Redirect("/Web/Login.aspx");
                 }
+                if (Request.QueryString["DId"]==null)
+                {
+                    Response.Redirect("/Web/AddDepartment.aspx");
+                }
                 Load();
             }
         }
 
         private void Load()
         {
-            func.LoadGrid(gridDepartment,@"SELECT * FROM DepartmentInfo ORDER BY DepartmentName ASC");
+            txtDepartmentName.Text =
+                func.IsExist(
+                    $@"SELECT DepartmentName from DepartmentInfo Where DepartmentId='{Request.QueryString["DId"]}'");
         }
-
-        private bool IsDapartmentExist(string department)
-        {
-            bool a = false;
-            string x = func.IsExist($"SELECT DepartmentName FROM DepartmentInfo WHERE DepartmentName='{department}'");
-            if (x!="")
-            {
-                a = true;
-            }
-            return a;
-        }
-        protected void btnSave_OnClick(object sender, EventArgs e)
+        protected void btnUpdate_OnClick(object sender, EventArgs e)
         {
             if (txtDepartmentName.Text == "")
             {
                 lblMessage.Text = "Department name is required";
                 lblMessage.ForeColor = Color.Red;
             }
-            else if (IsDapartmentExist(txtDepartmentName.Text))
-            {
-                lblMessage.Text = "Department name already exist";
-                lblMessage.ForeColor = Color.Red;
-            }
-            else
+           else
             {
                 departmentModel.DepartmentName = txtDepartmentName.Text;
-                departmentModel.InTime = func.Date();
-                bool a = departmentGateway.SaveDepartment(departmentModel);
+                departmentModel.DepartmentId = Convert.ToInt32(Request.QueryString["DId"]);
+                bool a = departmentGateway.UpdateDepartment(departmentModel);
                 if (a)
                 {
-                    lblMessage.Text = "Department saved successfully";
+                    lblMessage.Text = "Department updated successfully";
                     lblMessage.ForeColor = Color.Green;
                     txtDepartmentName.Text = "";
-                    Load();
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "setTimeout(function(){location.replace('/Web/AddDepartment.aspx')},2500)", true);
+
                 }
                 else
                 {
@@ -80,19 +71,6 @@ namespace ThesisManagementWebApp.Web
                     lblMessage.ForeColor = Color.Red;
                 }
             }
-        }
-
-        protected void gridDepartment_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gridDepartment.PageIndex = e.NewPageIndex;
-            Load();
-        }
-
-        protected void lnkUpdate_OnClick(object sender, EventArgs e)
-        {
-            LinkButton linkButton = (LinkButton) sender;
-            HiddenField deptId = (HiddenField) linkButton.Parent.FindControl("HiddenField1");
-            Response.Redirect("/Web/UpdateDepartment.aspx?DId="+deptId.Value);
         }
     }
 }
