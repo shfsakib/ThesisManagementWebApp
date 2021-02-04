@@ -20,7 +20,7 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-                if (func.TypeCookie()=="")
+                if (func.TypeCookie()==null)
                 {
                     Response.Redirect("/Web/Login.aspx");
                 }

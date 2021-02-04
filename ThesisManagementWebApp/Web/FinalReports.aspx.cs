@@ -22,7 +22,7 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-                if (func.TypeCookie() == "Admin" || func.TypeCookie()=="Coordinator")
+                if (func.TypeCookie() == "Admin" || func.TypeCookie()== "Coordinator" )
                 {
                     Response.Redirect("/Web/Login.aspx");
                 }

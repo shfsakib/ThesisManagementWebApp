@@ -100,6 +100,7 @@
   <ItemGroup>
     <Content Include="DashboardFile\avatar.svg" />
     <Content Include="DashboardFile\DummyPic.png" />
+    <Content Include="DashboardFile\file.png" />
     <Content Include="DashboardFile\Login\css\main.css" />
     <Content Include="DashboardFile\Login\css\util.css" />
     <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -130,6 +131,57 @@
     <Content Include="DashboardFile\Signup\vendor\select2\select2.min.css" />
     <Content Include="DashboardFile\Signup\vendor\select2\select2.min.js" />
     <Content Include="DashboardFile\tmsfav.ico" />
+    <Content Include="DashboardFile\Website\css\aos.css" />
+    <Content Include="DashboardFile\Website\css\bootstrap-datepicker.css" />
+    <Content Include="DashboardFile\Website\css\bootstrap.min.css" />
+    <Content Include="DashboardFile\Website\css\images\ui-bg_glass_75_d0e5f5_1x400.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-bg_glass_85_dfeffc_1x400.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-bg_glass_95_fef1ec_1x400.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-bg_gloss-wave_55_5c9ccc_500x100.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-bg_inset-hard_100_f5f8f9_1x100.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_217bc0_256x240.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_2e83ff_256x240.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_469bdd_256x240.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_6da8d5_256x240.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_cd0a0a_256x240.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_d8e7f3_256x240.html" />
+    <Content Include="DashboardFile\Website\css\images\ui-icons_f9bd01_256x240.html" />
+    <Content Include="DashboardFile\Website\css\jquery-ui.css" />
+    <Content Include="DashboardFile\Website\css\jquery.fancybox.min.css" />
+    <Content Include="DashboardFile\Website\css\owl.carousel.min.css" />
+    <Content Include="DashboardFile\Website\css\owl.theme.default.min.css" />
+    <Content Include="DashboardFile\Website\css\owl.video.play.html" />
+    <Content Include="DashboardFile\Website\css\style.css" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\flaticon.css" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\Flaticon.svg" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\flaticon.css" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="DashboardFile\Website\fonts\icomoon\fonts\icomoon1a44.svg" />
+    <Content Include="DashboardFile\Website\fonts\icomoon\style.css" />
+    <Content Include="DashboardFile\Website\images\hero_1.jpg" />
+    <Content Include="DashboardFile\Website\images\hero_2.jpg" />
+    <Content Include="DashboardFile\Website\images\illustration.png" />
+    <Content Include="DashboardFile\Website\images\person_1.jpg" />
+    <Content Include="DashboardFile\Website\images\person_2.jpg" />
+    <Content Include="DashboardFile\Website\images\person_3.jpg" />
+    <Content Include="DashboardFile\Website\images\protect.png" />
+    <Content Include="DashboardFile\Website\images\symptoms.png" />
+    <Content Include="DashboardFile\Website\images\symptom_cough.png" />
+    <Content Include="DashboardFile\Website\images\symptom_headache.png" />
+    <Content Include="DashboardFile\Website\images\symptom_high-fever.png" />
+    <Content Include="DashboardFile\Website\images\symptom_sore-troath.png" />
+    <Content Include="DashboardFile\Website\js\aos.js" />
+    <Content Include="DashboardFile\Website\js\bootstrap.min.js" />
+    <Content Include="DashboardFile\Website\js\isotope.pkgd.min.js" />
+    <Content Include="DashboardFile\Website\js\jquery-3.3.1.min.js" />
+    <Content Include="DashboardFile\Website\js\jquery-ui.js" />
+    <Content Include="DashboardFile\Website\js\jquery.countdown.min.js" />
+    <Content Include="DashboardFile\Website\js\jquery.easing.1.3.js" />
+    <Content Include="DashboardFile\Website\js\jquery.fancybox.min.js" />
+    <Content Include="DashboardFile\Website\js\jquery.sticky.js" />
+    <Content Include="DashboardFile\Website\js\main.js" />
+    <Content Include="DashboardFile\Website\js\owl.carousel.min.js" />
+    <Content Include="DashboardFile\Website\js\popper.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -157,12 +209,18 @@
     <Content Include="WebService.asmx" />
     <Content Include="Web\AddAdmin.aspx" />
     <Content Include="Web\AddDepartment.aspx" />
+    <Content Include="Web\AddNotice.aspx" />
+    <Content Include="Web\AddResource.aspx" />
     <Content Include="Web\AdminList.aspx" />
     <Content Include="Web\AdminProfile.aspx" />
     <Content Include="Web\CoordinateProfile.aspx" />
     <Content Include="Web\CoordinatorApproval.aspx" />
     <Content Include="Web\CoordinatorList.aspx" />
     <Content Include="Web\FinalReports.aspx" />
+    <Content Include="Web\Notice.aspx" />
+    <Content Include="Web\NoticeList.aspx" />
+    <Content Include="Web\ResourceList.aspx" />
+    <Content Include="Web\Resources.aspx" />
     <Content Include="Web\SearchSupervisor.aspx" />
     <Content Include="Web\SendProgressReport.aspx" />
     <Content Include="Web\SendSupervisorReq.aspx" />
@@ -179,6 +237,19 @@
     <Content Include="Web\ViewAllStudentReq.aspx" />
     <Content Include="Web\ViewStudentReport.aspx" />
     <Content Include="Web\ViewStudentReq.aspx" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\Flaticon.eot" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\Flaticon.ttf" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\Flaticon.woff" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\Flaticon.woff2" />
+    <Content Include="DashboardFile\Website\fonts\flaticon-covid\font\Flaticond41d.eot" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="DashboardFile\Website\fonts\flaticon\font\Flaticond41d.eot" />
+    <Content Include="DashboardFile\Website\fonts\icomoon\fonts\icomoon1a44.eot" />
+    <Content Include="DashboardFile\Website\fonts\icomoon\fonts\icomoon1a44.ttf" />
+    <Content Include="DashboardFile\Website\fonts\icomoon\fonts\icomoon1a44.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -186,6 +257,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Web\Dashboard.Master" />
+    <Content Include="Web\Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -195,13 +267,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Gateway\DepartmentGateway.cs" />
+    <Compile Include="DAL\Gateway\NoticeGateway.cs" />
     <Compile Include="DAL\Gateway\RegistrationGateway.cs" />
     <Compile Include="DAL\Gateway\ReportGateway.cs" />
     <Compile Include="DAL\Gateway\RequestGateway.cs" />
+    <Compile Include="DAL\Gateway\ResourceGateway.cs" />
     <Compile Include="DAL\Model\DepartmentModel.cs" />
+    <Compile Include="DAL\Model\NoticeModel.cs" />
     <Compile Include="DAL\Model\RegistrationModel.cs" />
     <Compile Include="DAL\Model\ReportModel.cs" />
     <Compile Include="DAL\Model\RequestModel.cs" />
+    <Compile Include="DAL\Model\ResourceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
@@ -220,6 +296,20 @@
     </Compile>
     <Compile Include="Web\AddDepartment.aspx.designer.cs">
       <DependentUpon>AddDepartment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\AddNotice.aspx.cs">
+      <DependentUpon>AddNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\AddNotice.aspx.designer.cs">
+      <DependentUpon>AddNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\AddResource.aspx.cs">
+      <DependentUpon>AddResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\AddResource.aspx.designer.cs">
+      <DependentUpon>AddResource.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\AdminList.aspx.cs">
       <DependentUpon>AdminList.aspx</DependentUpon>
@@ -277,6 +367,34 @@
     <Compile Include="Web\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\NoticeList.aspx.cs">
+      <DependentUpon>NoticeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\NoticeList.aspx.designer.cs">
+      <DependentUpon>NoticeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\ResourceList.aspx.cs">
+      <DependentUpon>ResourceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\ResourceList.aspx.designer.cs">
+      <DependentUpon>ResourceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Resources.aspx.cs">
+      <DependentUpon>Resources.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Resources.aspx.designer.cs">
+      <DependentUpon>Resources.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\SearchSupervisor.aspx.cs">
       <DependentUpon>SearchSupervisor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +422,13 @@
     </Compile>
     <Compile Include="Web\Signup.aspx.designer.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="Web\StudentApproval.aspx.cs">
       <DependentUpon>StudentApproval.aspx</DependentUpon>

@@ -211,6 +211,52 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-file"></i>
+                                    <p>
+                                        Resource Info
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/Web/AddResource.aspx" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Add Resource</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Web/ResourceList.aspx" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Resource List</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                             <li class="nav-item" style="font-size: 16px;">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-clipboard-list"></i>
+                                    <p>
+                                        Notice Info
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/Web/AddNotice.aspx" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Add Notice</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/Web/NoticeList.aspx" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Notice List</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <%}
                                 else if (cookieIndex["Type"] == "Teacher")
                                 { %>
