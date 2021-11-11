@@ -41,7 +41,7 @@
   function getAttrRegexp(attr) {
     var regexp = attrRegexpCache[attr];
     if (regexp) return regexp;
-    return attrRegexpCache[attr] = new RegExp("\\s+" + attr + "\\s*=\\s*('|\")?([^'\"]+)('|\")?\\s*");
+    return attrRegexpCache[attr] = new RegExp("\\s+{ attr + "\\s*=\\s*('|\")?([^'\"]+)('|\")?\\s*");
   }
 
   function getAttrValue(text, attr) {
@@ -50,7 +50,7 @@
   }
 
   function getTagRegexp(tagName, anchored) {
-    return new RegExp((anchored ? "^" : "") + "<\/\s*" + tagName + "\s*>", "i");
+    return new RegExp((anchored ? "^" : "") + "<\/\s*{ tagName + "\s*>", "i");
   }
 
   function addTags(from, to) {

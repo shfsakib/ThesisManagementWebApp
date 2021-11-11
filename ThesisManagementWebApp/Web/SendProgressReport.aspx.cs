@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -38,9 +38,14 @@ namespace ThesisManagementWebApp.Web
                 }
                 txtName.Text = func.IsExist($@"SELECT Registration.Name FROM ReqSupervisor INNER JOIN Registration ON ReqSupervisor.SupervisorId = Registration.RegistrationId WHERE ReqSupervisor.StudentId='{func.UserIdCookie()}'");
                 txtEmail.Text = func.IsExist($@"SELECT Registration.Email FROM ReqSupervisor INNER JOIN Registration ON ReqSupervisor.SupervisorId = Registration.RegistrationId WHERE ReqSupervisor.StudentId='{func.UserIdCookie()}'");
+                Load();
             }
         }
 
+        private void Load()
+        {
+            func.LoadGrid(gridReport,$@"SELECT * FROM Report WHERE StudentId='{func.UserIdCookie()}' ORDER BY ReportId DESC");
+        }
         private bool IsAssigned()
         {
             bool ans = false;
@@ -91,7 +96,7 @@ namespace ThesisManagementWebApp.Web
                 if (a)
                 {
                     Refresh();
-                    bool ans = func.SendEmail("thesisdemo21@gmail.com", txtEmail.Text, "Progress Report", "<h3>Hello Teacher,</h3><br/>A student name=" + func.NameCookie() + ",Email=" + func.EmailCookie() + " send you his/her/their progress report. Please check his report.", "Thesis2021");
+                    bool ans = func.SendEmail("thesisdemo21@gmail.com", txtEmail.Text, "Progress Report", "<h3>Hello Teacher,</h3><br/>A student name=" + func.NameCookie() + ",Email= "+ func.EmailCookie() + " send you his/her/their progress report. Please check his report.", "Thesis2021");
                     if (ans)
                     {
                         ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Report sent successfully.');", true);
@@ -104,6 +109,23 @@ namespace ThesisManagementWebApp.Web
         private void Refresh()
         {
             txtName.Text = txtEmail.Text = txtSubject.Text = txtDescription.Text = "";
+        }
+
+        protected void gridReport_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridReport.PageIndex = e.NewPageIndex;
+            Load();
+        }
+
+        protected void lnkRemove_OnClick(object sender, EventArgs e)
+        {
+            LinkButton linkButton = (LinkButton) sender;
+            HiddenField hiddenReportId = (HiddenField) linkButton.Parent.FindControl("hiddenReportId");
+            bool ans = func.Execute($@"DELETE FROM REPORT WHERE ReportId='{hiddenReportId.Value}'");
+            if (ans)
+            {
+                Load();
+            }
         }
     }
 }

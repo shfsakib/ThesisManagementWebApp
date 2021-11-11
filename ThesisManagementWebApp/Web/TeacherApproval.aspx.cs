@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -36,8 +36,8 @@ namespace ThesisManagementWebApp.Web
 
         private void Load()
         {
-            func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.DOB, Registration.Gender, Registration.Address, Registration.Type, Registration.Picture, Registration.Designation, 
-                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
+            func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,   Registration.Gender,  Registration.Type, Registration.Picture, Registration.Designation, 
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Interest,Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
 FROM            Registration INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='I' ORDER BY Registration.RegistrationId ASC");
         }

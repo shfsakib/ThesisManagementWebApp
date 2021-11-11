@@ -17,6 +17,7 @@
                     <asp:DropDownList ID="ddlType" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlType_OnSelectedIndexChanged" runat="server">
                         <asp:ListItem>Project</asp:ListItem>
                         <asp:ListItem>Thesis</asp:ListItem>
+                        <asp:ListItem>Both</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-lg-5 justify-content-center">

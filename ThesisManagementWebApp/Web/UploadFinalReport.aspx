@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6 justify-content-center">
-                <span>Upload your report (.pdf*,.zip*)</span>
+                <span>Upload your report (.pdf*,.zip*)</span><br/>
                 <asp:FileUpload ID="fileReport" accept=".pdf,.zip" runat="server" />
             </div>
             <div class="col-lg-3"></div>

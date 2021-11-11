@@ -47,7 +47,7 @@
   var flipCtrlCmd = mac && (qtwebkit || presto && (presto_version == null || presto_version < 12.11));
   var captureRightClick = gecko || (ie && ie_version >= 9);
 
-  function classTest(cls) { return new RegExp("(^|\\s)" + cls + "(?:$|\\s)\\s*") }
+  function classTest(cls) { return new RegExp("(^|\\s){ cls + "(?:$|\\s)\\s*") }
 
   var rmClass = function(node, cls) {
     var current = node.className;
@@ -133,7 +133,7 @@
   function joinClasses(a, b) {
     var as = a.split(" ");
     for (var i = 0; i < as.length; i++)
-      { if (as[i] && !classTest(as[i]).test(b)) { b += " " + as[i]; } }
+      { if (as[i] && !classTest(as[i]).test(b)) { b += " { as[i]; } }
     return b
   }
 
@@ -535,7 +535,7 @@
     if (emitter.addEventListener) {
       emitter.addEventListener(type, f, false);
     } else if (emitter.attachEvent) {
-      emitter.attachEvent("on" + type, f);
+      emitter.attachEvent("on{ type, f);
     } else {
       var map = emitter._handlers || (emitter._handlers = {});
       map[type] = (map[type] || noHandlers).concat(f);
@@ -550,7 +550,7 @@
     if (emitter.removeEventListener) {
       emitter.removeEventListener(type, f, false);
     } else if (emitter.detachEvent) {
-      emitter.detachEvent("on" + type, f);
+      emitter.detachEvent("on{ type, f);
     } else {
       var map = emitter._handlers, arr = map && map[type];
       if (arr) {
@@ -753,7 +753,7 @@
       var exts = modeExtensions[spec.name];
       for (var prop in exts) {
         if (!exts.hasOwnProperty(prop)) { continue }
-        if (modeObj.hasOwnProperty(prop)) { modeObj["_" + prop] = modeObj[prop]; }
+        if (modeObj.hasOwnProperty(prop)) { modeObj["_{ prop] = modeObj[prop]; }
         modeObj[prop] = exts[prop];
       }
     }
@@ -890,7 +890,7 @@
   // Find the line object corresponding to the given line number.
   function getLine(doc, n) {
     n -= doc.first;
-    if (n < 0 || n >= doc.size) { throw new Error("There is no line " + (n + doc.first) + " in the document.") }
+    if (n < 0 || n >= doc.size) { throw new Error("There is no line { (n + doc.first) + " in the document.") }
     var chunk = doc;
     while (!chunk.lines) {
       for (var i = 0;; ++i) {
@@ -1089,12 +1089,12 @@
         }
         if (!style) { return }
         if (overlay.opaque) {
-          st.splice(start, i - start, end, "overlay " + style);
+          st.splice(start, i - start, end, "overlay { style);
           i = start + 2;
         } else {
           for (; start < i; start += 2) {
             var cur = st[start+1];
-            st[start+1] = (cur ? cur + " " : "") + "overlay " + style;
+            st[start+1] = (cur ? cur + " " : "") + "overlay { style;
           }
         }
       }, lineClasses);
@@ -1168,7 +1168,7 @@
       var style = mode.token(stream, state);
       if (stream.pos > stream.start) { return style }
     }
-    throw new Error("Mode " + mode.name + " failed to advance stream.")
+    throw new Error("Mode { mode.name + " failed to advance stream.")
   }
 
   var Token = function(stream, type, state) {
@@ -1201,8 +1201,8 @@
       var prop = lineClass[1] ? "bgClass" : "textClass";
       if (output[prop] == null)
         { output[prop] = lineClass[2]; }
-      else if (!(new RegExp("(?:^|\\s)" + lineClass[2] + "(?:$|\\s)")).test(output[prop]))
-        { output[prop] += " " + lineClass[2]; }
+      else if (!(new RegExp("(?:^|\\s){ lineClass[2] + "(?:$|\\s)")).test(output[prop]))
+        { output[prop] += " { lineClass[2]; }
     } }
     return type
   }
@@ -1226,7 +1226,7 @@
       }
       if (inner) {
         var mName = inner[0].name;
-        if (mName) { style = "m-" + (style ? mName + " " + style : mName); }
+        if (mName) { style = "m-{ (style ? mName + " { style : mName); }
       }
       if (!flattenSpans || curStyle != style) {
         while (curStart < stream.start) {
@@ -1783,7 +1783,7 @@
 
   function defaultSpecialCharPlaceholder(ch) {
     var token = elt("span", "\u2022", "cm-invalidchar");
-    token.title = "\\u" + ch.charCodeAt(0).toString(16);
+    token.title = "\\u{ ch.charCodeAt(0).toString(16);
     token.setAttribute("aria-label", token.title);
     return token
   }
@@ -1935,9 +1935,9 @@
               nextChange = sp.to;
               spanEndStyle = "";
             }
-            if (m.className) { spanStyle += " " + m.className; }
+            if (m.className) { spanStyle += " { m.className; }
             if (m.css) { css = (css ? css + ";" : "") + m.css; }
-            if (m.startStyle && sp.from == pos) { spanStartStyle += " " + m.startStyle; }
+            if (m.startStyle && sp.from == pos) { spanStartStyle += " { m.startStyle; }
             if (m.endStyle && sp.to == nextChange) { (endStyles || (endStyles = [])).push(m.endStyle, sp.to); }
             // support for the old title property
             // https://github.com/codemirror/CodeMirror/pull/5673
@@ -1953,7 +1953,7 @@
           }
         }
         if (endStyles) { for (var j$1 = 0; j$1 < endStyles.length; j$1 += 2)
-          { if (endStyles[j$1 + 1] == nextChange) { spanEndStyle += " " + endStyles[j$1]; } } }
+          { if (endStyles[j$1 + 1] == nextChange) { spanEndStyle += " { endStyles[j$1]; } } }
 
         if (!collapsed || collapsed.from == pos) { for (var j$2 = 0; j$2 < foundBookmarks.length; ++j$2)
           { buildCollapsedSpan(builder, 0, foundBookmarks[j$2]); } }
@@ -2114,7 +2114,7 @@
   }
 
   function updateLineBackground(cm, lineView) {
-    var cls = lineView.bgClass ? lineView.bgClass + " " + (lineView.line.bgClass || "") : lineView.line.bgClass;
+    var cls = lineView.bgClass ? lineView.bgClass + " { (lineView.line.bgClass || "") : lineView.line.bgClass;
     if (cls) { cls += " CodeMirror-linebackground"; }
     if (lineView.background) {
       if (cls) { lineView.background.className = cls; }
@@ -2162,7 +2162,7 @@
       { ensureLineWrapped(lineView).className = lineView.line.wrapClass; }
     else if (lineView.node != lineView.text)
       { lineView.node.className = ""; }
-    var textClass = lineView.textClass ? lineView.textClass + " " + (lineView.line.textClass || "") : lineView.line.textClass;
+    var textClass = lineView.textClass ? lineView.textClass + " { (lineView.line.textClass || "") : lineView.line.textClass;
     lineView.text.className = textClass || "";
   }
 
@@ -2177,29 +2177,29 @@
     }
     if (lineView.line.gutterClass) {
       var wrap = ensureLineWrapped(lineView);
-      lineView.gutterBackground = elt("div", null, "CodeMirror-gutter-background " + lineView.line.gutterClass,
-                                      ("left: " + (cm.options.fixedGutter ? dims.fixedPos : -dims.gutterTotalWidth) + "px; width: " + (dims.gutterTotalWidth) + "px"));
+      lineView.gutterBackground = elt("div", null, "CodeMirror-gutter-background { lineView.line.gutterClass,
+                                      ("left: { (cm.options.fixedGutter ? dims.fixedPos : -dims.gutterTotalWidth) + "px; width: { (dims.gutterTotalWidth) + "px"));
       cm.display.input.setUneditable(lineView.gutterBackground);
       wrap.insertBefore(lineView.gutterBackground, lineView.text);
     }
     var markers = lineView.line.gutterMarkers;
     if (cm.options.lineNumbers || markers) {
       var wrap$1 = ensureLineWrapped(lineView);
-      var gutterWrap = lineView.gutter = elt("div", null, "CodeMirror-gutter-wrapper", ("left: " + (cm.options.fixedGutter ? dims.fixedPos : -dims.gutterTotalWidth) + "px"));
+      var gutterWrap = lineView.gutter = elt("div", null, "CodeMirror-gutter-wrapper", ("left: { (cm.options.fixedGutter ? dims.fixedPos : -dims.gutterTotalWidth) + "px"));
       cm.display.input.setUneditable(gutterWrap);
       wrap$1.insertBefore(gutterWrap, lineView.text);
       if (lineView.line.gutterClass)
-        { gutterWrap.className += " " + lineView.line.gutterClass; }
+        { gutterWrap.className += " { lineView.line.gutterClass; }
       if (cm.options.lineNumbers && (!markers || !markers["CodeMirror-linenumbers"]))
         { lineView.lineNumber = gutterWrap.appendChild(
           elt("div", lineNumberFor(cm.options, lineN),
               "CodeMirror-linenumber CodeMirror-gutter-elt",
-              ("left: " + (dims.gutterLeft["CodeMirror-linenumbers"]) + "px; width: " + (cm.display.lineNumInnerWidth) + "px"))); }
+              ("left: { (dims.gutterLeft["CodeMirror-linenumbers"]) + "px; width: { (cm.display.lineNumInnerWidth) + "px"))); }
       if (markers) { for (var k = 0; k < cm.display.gutterSpecs.length; ++k) {
         var id = cm.display.gutterSpecs[k].className, found = markers.hasOwnProperty(id) && markers[id];
         if (found)
           { gutterWrap.appendChild(elt("div", [found], "CodeMirror-gutter-elt",
-                                     ("left: " + (dims.gutterLeft[id]) + "px; width: " + (dims.gutterWidth[id]) + "px"))); }
+                                     ("left: { (dims.gutterLeft[id]) + "px; width: { (dims.gutterWidth[id]) + "px"))); }
       } }
     }
   }
@@ -2239,7 +2239,7 @@
     if (!line.widgets) { return }
     var wrap = ensureLineWrapped(lineView);
     for (var i = 0, ws = line.widgets; i < ws.length; ++i) {
-      var widget = ws[i], node = elt("div", [widget.node], "CodeMirror-linewidget" + (widget.className ? " " + widget.className : ""));
+      var widget = ws[i], node = elt("div", [widget.node], "CodeMirror-linewidget{ (widget.className ? " { widget.className : ""));
       if (!widget.handleMouseEvents) { node.setAttribute("cm-ignore-events", "true"); }
       positionLineWidget(widget, node, lineView, dims);
       cm.display.input.setUneditable(node);
@@ -2276,9 +2276,9 @@
     if (!contains(document.body, widget.node)) {
       var parentStyle = "position: relative;";
       if (widget.coverGutter)
-        { parentStyle += "margin-left: -" + cm.display.gutters.offsetWidth + "px;"; }
+        { parentStyle += "margin-left: -{ cm.display.gutters.offsetWidth + "px;"; }
       if (widget.noHScroll)
-        { parentStyle += "width: " + cm.display.wrapper.clientWidth + "px;"; }
+        { parentStyle += "width: { cm.display.wrapper.clientWidth + "px;"; }
       removeChildrenAndAdd(cm.display.measure, elt("div", [widget.node], null, parentStyle));
     }
     return widget.height = widget.node.parentNode.offsetHeight
@@ -3187,7 +3187,7 @@
       if (top < 0) { top = 0; }
       top = Math.round(top);
       bottom = Math.round(bottom);
-      fragment.appendChild(elt("div", null, "CodeMirror-selected", ("position: absolute; left: " + left + "px;\n                             top: " + top + "px; width: " + (width == null ? rightSide - left : width) + "px;\n                             height: " + (bottom - top) + "px")));
+      fragment.appendChild(elt("div", null, "CodeMirror-selected", ("position: absolute; left: { left + "px;\n                             top: { top + "px; width: { (width == null ? rightSide - left : width) + "px;\n                             height: { (bottom - top) + "px")));
     }
 
     function drawForLine(line, fromArg, toArg) {
@@ -3413,7 +3413,7 @@
     if (rect.top + box.top < 0) { doScroll = true; }
     else if (rect.bottom + box.top > (window.innerHeight || document.documentElement.clientHeight)) { doScroll = false; }
     if (doScroll != null && !phantom) {
-      var scrollNode = elt("div", "\u200b", null, ("position: absolute;\n                         top: " + (rect.top - display.viewOffset - paddingTop(cm.display)) + "px;\n                         height: " + (rect.bottom - rect.top + scrollGap(cm) + display.barHeight) + "px;\n                         left: " + (rect.left) + "px; width: " + (Math.max(2, rect.right - rect.left)) + "px;"));
+      var scrollNode = elt("div", "\u200b", null, ("position: absolute;\n                         top: { (rect.top - display.viewOffset - paddingTop(cm.display)) + "px;\n                         height: { (rect.bottom - rect.top + scrollGap(cm) + display.barHeight) + "px;\n                         left: { (rect.left) + "px; width: { (Math.max(2, rect.right - rect.left)) + "px;"));
       cm.display.lineSpace.appendChild(scrollNode);
       scrollNode.scrollIntoView(doScroll);
       cm.display.lineSpace.removeChild(scrollNode);
@@ -4311,7 +4311,7 @@
       var ref = specs[i];
       var className = ref.className;
       var style = ref.style;
-      var gElt = gutters.appendChild(elt("div", null, "CodeMirror-gutter " + className));
+      var gElt = gutters.appendChild(elt("div", null, "CodeMirror-gutter { className));
       if (style) { gElt.style.cssText = style; }
       if (className == "CodeMirror-linenumbers") {
         display.lineGutter = gElt;
@@ -4364,7 +4364,7 @@
     // Behavior of elts with overflow: auto and padding is
     // inconsistent across browsers. This is used to ensure the
     // scrollable area is big enough.
-    d.heightForcer = elt("div", null, null, "position: absolute; height: " + scrollerGap + "px; width: 1px;");
+    d.heightForcer = elt("div", null, null, "position: absolute; height: { scrollerGap + "px; width: 1px;");
     // Will contain the gutters, if any.
     d.gutters = elt("div", null, "CodeMirror-gutters");
     d.lineGutter = null;
@@ -4935,10 +4935,10 @@
 
   // Used to store marked span information in the history.
   function attachLocalSpans(doc, change, from, to) {
-    var existing = change["spans_" + doc.id], n = 0;
+    var existing = change["spans_{ doc.id], n = 0;
     doc.iter(Math.max(doc.first, from), Math.min(doc.first + doc.size, to), function (line) {
       if (line.markedSpans)
-        { (existing || (existing = change["spans_" + doc.id] = {}))[n] = line.markedSpans; }
+        { (existing || (existing = change["spans_{ doc.id] = {}))[n] = line.markedSpans; }
       ++n;
     });
   }
@@ -4957,7 +4957,7 @@
 
   // Retrieve and filter the old marked spans stored in a change event.
   function getOldSpans(doc, change) {
-    var found = change["spans_" + doc.id];
+    var found = change["spans_{ doc.id];
     if (!found) { return null }
     var nw = [];
     for (var i = 0; i < change.text.length; ++i)
@@ -6316,7 +6316,7 @@
                  : where == "gutter" ? "gutterClass" : "wrapClass";
         if (!line[prop]) { line[prop] = cls; }
         else if (classTest(cls).test(line[prop])) { return false }
-        else { line[prop] += " " + cls; }
+        else { line[prop] += " { cls; }
         return true
       })
     }),
@@ -6656,7 +6656,7 @@
   // Alphabetic keys
   for (var i$1 = 65; i$1 <= 90; i$1++) { keyNames[i$1] = String.fromCharCode(i$1); }
   // Function keys
-  for (var i$2 = 1; i$2 <= 12; i$2++) { keyNames[i$2 + 111] = keyNames[i$2 + 63235] = "F" + i$2; }
+  for (var i$2 = 1; i$2 <= 12; i$2++) { keyNames[i$2 + 111] = keyNames[i$2 + 63235] = "F{ i$2; }
 
   var keyMap = {};
 
@@ -6713,12 +6713,12 @@
       else if (/^a(lt)?$/i.test(mod)) { alt = true; }
       else if (/^(c|ctrl|control)$/i.test(mod)) { ctrl = true; }
       else if (/^s(hift)?$/i.test(mod)) { shift = true; }
-      else { throw new Error("Unrecognized modifier name: " + mod) }
+      else { throw new Error("Unrecognized modifier name: { mod) }
     }
-    if (alt) { name = "Alt-" + name; }
-    if (ctrl) { name = "Ctrl-" + name; }
-    if (cmd) { name = "Cmd-" + name; }
-    if (shift) { name = "Shift-" + name; }
+    if (alt) { name = "Alt-{ name; }
+    if (ctrl) { name = "Ctrl-{ name; }
+    if (cmd) { name = "Cmd-{ name; }
+    if (shift) { name = "Shift-{ name; }
     return name
   }
 
@@ -6746,7 +6746,7 @@
         }
         var prev = copy[name];
         if (!prev) { copy[name] = val; }
-        else if (prev != val) { throw new Error("Inconsistent bindings for " + name) }
+        else if (prev != val) { throw new Error("Inconsistent bindings for { name) }
       }
       delete keymap[keyname];
     } }
@@ -6780,10 +6780,10 @@
 
   function addModifierNames(name, event, noShift) {
     var base = name;
-    if (event.altKey && base != "Alt") { name = "Alt-" + name; }
-    if ((flipCtrlCmd ? event.metaKey : event.ctrlKey) && base != "Ctrl") { name = "Ctrl-" + name; }
-    if ((flipCtrlCmd ? event.ctrlKey : event.metaKey) && base != "Mod") { name = "Cmd-" + name; }
-    if (!noShift && event.shiftKey && base != "Shift") { name = "Shift-" + name; }
+    if (event.altKey && base != "Alt") { name = "Alt-{ name; }
+    if ((flipCtrlCmd ? event.metaKey : event.ctrlKey) && base != "Ctrl") { name = "Ctrl-{ name; }
+    if ((flipCtrlCmd ? event.ctrlKey : event.metaKey) && base != "Mod") { name = "Cmd-{ name; }
+    if (!noShift && event.shiftKey && base != "Shift") { name = "Shift-{ name; }
     return name
   }
 
@@ -7149,7 +7149,7 @@
             cm.display.input.reset();
           }
         }); }
-      if (dispatchKeyInner(cm, seq + " " + name, e, handle)) { return true }
+      if (dispatchKeyInner(cm, seq + " { name, e, handle)) { return true }
     }
     return dispatchKeyInner(cm, name, e, handle)
   }
@@ -7179,7 +7179,7 @@
       // First try to resolve full name (including 'Shift-'). Failing
       // that, see if there is a cursor-motion command (starting with
       // 'go') bound to the keyname without 'Shift-'.
-      return dispatchKey(cm, "Shift-" + name, e, function (b) { return doHandleBinding(cm, b, true); })
+      return dispatchKey(cm, "Shift-{ name, e, function (b) { return doHandleBinding(cm, b, true); })
           || dispatchKey(cm, name, e, function (b) {
                if (typeof b == "string" ? /^go[A-Z]/.test(b) : b.motion)
                  { return doHandleBinding(cm, b) }
@@ -7191,7 +7191,7 @@
 
   // Handle a key from the keypress event
   function handleCharBinding(cm, e, ch) {
-    return dispatchKey(cm, "'" + ch + "'", e, function (b) { return doHandleBinding(cm, b, true); })
+    return dispatchKey(cm, "'{ ch + "'", e, function (b) { return doHandleBinding(cm, b, true); })
   }
 
   var lastStoppedKey = null;
@@ -7327,8 +7327,8 @@
 
   function handleMappedButton(cm, button, pos, repeat, event) {
     var name = "Click";
-    if (repeat == "double") { name = "Double" + name; }
-    else if (repeat == "triple") { name = "Triple" + name; }
+    if (repeat == "double") { name = "Double{ name; }
+    else if (repeat == "triple") { name = "Triple{ name; }
     name = (button == 1 ? "Left" : button == 2 ? "Middle" : "Right") + name;
 
     return dispatchKey(cm,  addModifierNames(name, event), event, function (bound) {
@@ -9570,7 +9570,7 @@
     var oldCSS = te.style.cssText, oldWrapperCSS = input.wrapper.style.cssText;
     var wrapperBox = input.wrapper.offsetParent.getBoundingClientRect();
     input.wrapper.style.cssText = "position: static";
-    te.style.cssText = "position: absolute; width: 30px; height: 30px;\n      top: " + (e.clientY - wrapperBox.top - 5) + "px; left: " + (e.clientX - wrapperBox.left - 5) + "px;\n      z-index: 1000; background: " + (ie ? "rgba(255, 255, 255, .05)" : "transparent") + ";\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);";
+    te.style.cssText = "position: absolute; width: 30px; height: 30px;\n      top: { (e.clientY - wrapperBox.top - 5) + "px; left: { (e.clientX - wrapperBox.left - 5) + "px;\n      z-index: 1000; background: { (ie ? "rgba(255, 255, 255, .05)" : "transparent") + ";\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);";
     var oldScrollY;
     if (webkit) { oldScrollY = window.scrollY; } // Work around Chrome issue (#2712)
     display.input.focus();
@@ -9588,7 +9588,7 @@
     function prepareSelectAllHack() {
       if (te.selectionStart != null) {
         var selected = cm.somethingSelected();
-        var extval = "\u200b" + (selected ? te.value : "");
+        var extval = "\u200b{ (selected ? te.value : "");
         te.value = "\u21da"; // Used to catch context-menu undo
         te.value = extval;
         input.prevInput = selected ? "" : "\u200b";

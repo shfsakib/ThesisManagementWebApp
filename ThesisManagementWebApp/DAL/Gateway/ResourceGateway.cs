@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Model;
 
 namespace ThesisManagementWebApp.DAL.Gateway

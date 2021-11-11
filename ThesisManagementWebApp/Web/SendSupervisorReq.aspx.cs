@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -100,7 +100,7 @@ namespace ThesisManagementWebApp.Web
                 bool a = requestGateway.InsertReq(requestModel);
                 if (a)
                 {
-                    bool ans = func.SendEmail("thesisdemo21@gmail.com", txtEmail.Text, "Request", "<h3>Hello Teacher,</h3><br/>Your have a request from a student name=" + func.NameCookie() + ",Email=" + func.EmailCookie() + " for supervise his/her project. Please check his request.", "Thesis2021");
+                    bool ans = func.SendEmail("thesisdemo21@gmail.com", txtEmail.Text, "Request", "<h3>Hello Teacher,</h3><br/>Your have a request from a student name=" + func.NameCookie() + ",Email= "+ func.EmailCookie() + " for supervise his/her project. Please check his request.", "Thesis2021");
                     if (ans)
                     {
                         ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request sent successfully. Wait for approval.');setTimeout(function(){location.replace('/Web/SearchSupervisor.aspx')},2500)", true);

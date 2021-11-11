@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -103,152 +103,116 @@ namespace ThesisManagementWebApp.Web
         {
             if (txtName.Text == "")
             {
-                lblMessage.Text = "Name is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Name is required");
+
             }
             else if (txtEmail.Text == "")
             {
-                lblMessage.Text = "Email is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Email is required");
+
             }
             else if (txtMobile.Text == "")
             {
-                lblMessage.Text = "Mobile no is required";
-                lblMessage.ForeColor = Color.Red;
-            }
-            else if (txtDob.Text == "")
-            {
-                lblMessage.Text = "Date of birth is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Mobile no is required");
             }
             else if (ddlGender.Text == "Select")
             {
-                lblMessage.Text = "Gender is required";
-                lblMessage.ForeColor = Color.Red;
-            }
-            else if (txtAddress.Text == "")
-            {
-                lblMessage.Text = "Address is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Gender is required");
             }
             else if (ddlType.Text == "Select")
             {
-                lblMessage.Text = "Type is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Type is required");
+
             }
             else if (txtPass.Text == "")
             {
-                lblMessage.Text = "Password is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Password is required");
+
             }
             else if (IsEmail(txtEmail.Text))
             {
-                lblMessage.Text = "Email already exist";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Email already exist");
+
             }
             else if (IsNumber(txtMobile.Text))
             {
-                lblMessage.Text = "Mobile no already exist";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Mobile no. already exist");
+
             }
             else
             {
+                string pic = "";
+                string deptId = "0";
+                string designation = "";
+
                 ViewState["RegId"] = func.GenerateId("Select Max(RegistrationId) FROM Registration");
-                registrationModel.RegistrationId = ViewState["RegId"].ToString();
-                registrationModel.Name = txtName.Text;
-                registrationModel.Email = txtEmail.Text;
-                registrationModel.MobileNo = txtMobile.Text;
-                registrationModel.DOB = txtDob.Text;
-                registrationModel.Gender = ddlGender.Text;
-                registrationModel.Address = txtAddress.Text;
-                registrationModel.Password = txtPass.Text;
-                registrationModel.Type = ddlType.Text;
                 if (filePic.HasFile)
                 {
                     string imagePath = Server.MapPath("/photos/") + ViewState["RegId"].ToString() + ".png";
                     filePic.PostedFile.SaveAs(imagePath);
-                    registrationModel.Picture = "/photos/" + ViewState["RegId"].ToString() + ".png";
+                    pic = "/photos/" + ViewState["RegId"].ToString() + ".png";
                 }
                 else
                 {
-                    registrationModel.Picture = "";
+                    pic = "/DashboardFile/avatar.svg";
                 }
                 if (ddlType.Text == "Teacher")
                 {
                     if (ddlDepartment.SelectedIndex == -1)
                     {
-                        lblMessage.Text = "Department is required";
-                        lblMessage.ForeColor = Color.Red;
+                        func.PopAlert(this, "Department is required");
+
                     }
                     else if (IsId(txtTeacherId.Text))
                     {
-                        lblMessage.Text = "Teacher id already exist";
-                        lblMessage.ForeColor = Color.Red;
+                        func.PopAlert(this, "Teacher id already exist");
                     }
-                    else
-                    {
 
-                        registrationModel.DepartmentId = Convert.ToInt32(ddlDepartment.SelectedValue);
-                        registrationModel.Designation = txtDesignation.Text;
-                        registrationModel.FreeScheduleFrom = txtTimeFrom.Text;
-                        registrationModel.FreeScheduleTo = txtTimeTo.Text;
-                        registrationModel.IdNo = txtTeacherId.Text;
-                        registrationModel.Preffer = ddlPreffer.Text;
-                    }
+                    deptId = ddlDepartment.SelectedValue;
+                    designation = txtDesignation.Text;
+                    ViewState["id"] = txtStdntId.Text;
                 }
                 else if (ddlType.Text == "Student")
                 {
                     if (ddlStudentDepartment.SelectedIndex == -1)
                     {
-                        lblMessage.Text = "Department is required";
-                        lblMessage.ForeColor = Color.Red;
+                        func.PopAlert(this, "Department is required");
+
                     }
                     else if (IsId(txtStdntId.Text))
                     {
-                        lblMessage.Text = "Student id already exist";
-                        lblMessage.ForeColor = Color.Red;
+                        func.PopAlert(this, "Student Id already exist");
+
                     }
-                    else
-                    {
-                        registrationModel.DepartmentId = Convert.ToInt32(ddlStudentDepartment.SelectedValue);
-                        registrationModel.Designation = "";
-                        registrationModel.FreeScheduleFrom = "";
-                        registrationModel.FreeScheduleTo = "";
-                        registrationModel.IdNo = txtStdntId.Text;
-                        registrationModel.Preffer = "";
-                    }
+
+                    deptId = ddlStudentDepartment.SelectedValue;
+                    ViewState["id"] = txtTeacherId.Text;
                 }
                 else if (ddlType.Text == "Coordinator")
                 {
                     if (IsId(txtCOId.Text))
                     {
-                        lblMessage.Text = "Coordinator id already exist";
-                        lblMessage.ForeColor = Color.Red;
+                        func.PopAlert(this, "Coordinator id already exist");
+
                     }
-                    else
-                    {
-                        registrationModel.DepartmentId = 0;
-                        registrationModel.Designation = txtCoDesignation.Text;
-                        registrationModel.FreeScheduleFrom = "";
-                        registrationModel.FreeScheduleTo = "";
-                        registrationModel.IdNo = txtCOId.Text;
-                        registrationModel.Preffer = "";
-                    }
+                    designation = txtCoDesignation.Text;
+                    ViewState["id"] = txtCOId.Text;
 
                 }
-                registrationModel.Status = "I";
-                registrationModel.InTime = func.Date();
-                bool a = registrationGateway.Register(registrationModel);
+
+                bool a = func.Execute($@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Gender,Batch,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Preffer,Interest,Password,Status,InTime) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlGender.SelectedValue}','{txtBatch.Text}','{ddlType.SelectedValue}','{pic}','{deptId}','{designation}','{txtTimeFrom.Text}','{txtTimeTo.Text}','{ ViewState["id"]}','{ddlPreffer.SelectedValue}','{txtTopic.Text}','{txtPass.Text}','I','{func.Date()}')");
                 if (a)
                 {
+
+                    Response.Write("<script language=javascript>alert('Registered successfully');</script>");
                     lblMessage.Text = "Registered successfully";
                     lblMessage.ForeColor = Color.Green;
-                    btnSave.Focus();
                     Refresh();
                 }
                 else
                 {
-                    lblMessage.Text = "Registration failed";
+                    Response.Write("<script language=javascript>alert('Failed to register');</script>");
+                    lblMessage.Text = "Failed to register";
                     lblMessage.ForeColor = Color.Red;
                 }
             }
@@ -259,14 +223,14 @@ namespace ThesisManagementWebApp.Web
             txtName.Text =
                 txtEmail.Text =
                     txtMobile.Text =
-                        txtDob.Text =
-                            txtAddress.Text =
+                        txtBatch.Text =
+                            txtTopic.Text =
                                 txtTeacherId.Text =
                                     txtDesignation.Text =
                                         txtTimeFrom.Text =
-                                            txtTimeTo.Text = txtStdntId.Text = txtCOId.Text = txtCoDesignation.Text = "";
+                                            txtTimeTo.Text = txtStdntId.Text = txtCOId.Text = txtCoDesignation.Text = lblMessage.Text = "";
             ddlType.SelectedIndex =
-                ddlDepartment.SelectedIndex = ddlGender.SelectedIndex = ddlPreffer.SelectedIndex = ddlStudentDepartment.SelectedIndex = -1;
+                ddlDepartment.SelectedIndex = ddlGender.SelectedIndex = ddlPreffer.SelectedIndex = ddlPreffer.SelectedIndex = ddlStudentDepartment.SelectedIndex = -1;
         }
     }
 }

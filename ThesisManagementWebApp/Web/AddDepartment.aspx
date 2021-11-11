@@ -5,35 +5,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Department Info</h1>
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="card card-body m-3">
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4 justify-content-center">
-                <span>Department Name</span>
-                <asp:TextBox ID="txtDepartmentName" class="form-control-lg w-100 mt-1" placeholder="CSE,EEE etc" runat="server"></asp:TextBox>
+        <div class="row card-header mb-2">
+            <div class="col-sm-6">
+                <h3 class="m-0">Department Info</h3>
             </div>
-            <div class="col-lg-4"></div>
         </div>
         <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4 justify-content-center">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 justify-content-center">
+                <span>Department Name</span>
+                <asp:TextBox ID="txtDepartmentName" class="form-control" placeholder="CSE,EEE etc" runat="server"></asp:TextBox>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 justify-content-center">
                 <asp:Label ID="lblMessage" runat="server" Text="" Style="font-size: 16px;"></asp:Label>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-3"></div>
         </div>
         <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4 justify-content-center">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 justify-content-center">
                 <asp:Button ID="btnSave" runat="server" OnClick="btnSave_OnClick" class="btn btn-primary mt-1 w-100" autocomplete="off" Text="Save" />
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-3"></div>
         </div>
         <div class="row pt-3">
             <div class="col-lg-2"></div>
@@ -48,7 +49,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkUpdate"  class="btn btn-primary mt-1" OnClick="lnkUpdate_OnClick" runat="server" title="Update"><i class="fas fa-edit fa-lg"></i></asp:LinkButton>
+                            <asp:LinkButton ID="lnkUpdate"  class="btn mt-1" OnClick="lnkUpdate_OnClick" runat="server" title="Update"><i class="fas fa-edit"></i></asp:LinkButton>
                            </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

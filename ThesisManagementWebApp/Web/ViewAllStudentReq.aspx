@@ -5,19 +5,31 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Student Request List</h1>
-                </div>
-            </div>
         </div>
         <div class="card card-body m-3">
-            <div class="row">
-
-                <div class="col-5 justify-content-center">
-                    <asp:TextBox runat="server" AutoPostBack="True" OnTextChanged="txtSearch_OnTextChanged" autocomplete="off" ID="txtSearch" placeholder="Search by Student's name, mobile no, email" class="form-control w-100"></asp:TextBox>
+            <div class="row card-header mb-2">
+                <div class="col-sm-6">
+                    <h3 class="m-0">Student Request List</h3>
                 </div>
-                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 justify-content-center">
+                    <asp:DropDownList ID="ddlStudent" class="form-control select2" runat="server"></asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:DropDownList ID="ddlBatch" class="form-control w-100" runat="server">
+                    </asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:DropDownList ID="ddlSection" class="form-control" runat="server">
+                        <asp:ListItem>Section</asp:ListItem>
+                        <asp:ListItem>Male</asp:ListItem>
+                        <asp:ListItem>Female</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:LinkButton ID="lnkSearch" class="btn btn-warning text-white" OnClick="lnkSearch_OnClick" runat="server">Search</asp:LinkButton>
+                </div>
             </div>
             <div class="col-3">
             </div>
@@ -66,7 +78,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.css.map" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" />
 
-    <script>
+    <%--<script>
         $(document).ready(function () {
             $("#<%=txtSearch.ClientID %>").autocomplete({
                 source: function (request, response) {
@@ -75,7 +87,7 @@
                         type: "POST",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        data: "{ 'txt' : '" + $("#<%=txtSearch.ClientID %>").val() + "'}",
+                        data: "{ 'txt' : '{ $("#<%=txtSearch.ClientID %>").val() + "'}",
                         dataFilter: function (data) { return data; },
                         success: function (data) {
                             response($.map(data.d, function (item) {
@@ -107,7 +119,7 @@
                         type: "POST",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        data: "{ 'txt' : '" + $("#<%=txtSearch.ClientID %>").val() + "'}",
+                        data: "{ 'txt' : '{ $("#<%=txtSearch.ClientID %>").val() + "'}",
                         dataFilter: function (data) { return data; },
                         success: function (data) {
                             response($.map(data.d, function (item) {
@@ -131,5 +143,5 @@
                 minLength: 1,
             });
         };
-    </script>
+    </script>--%>
 </asp:Content>

@@ -58,15 +58,6 @@ namespace ThesisManagementWebApp.Web {
         protected global::System.Web.UI.WebControls.Label lblMobile;
         
         /// <summary>
-        /// lblDob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDob;
-        
-        /// <summary>
         /// lblGender control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace ThesisManagementWebApp.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGender;
-        
-        /// <summary>
-        /// lblAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddress;
         
         /// <summary>
         /// txtName control.
@@ -112,15 +94,6 @@ namespace ThesisManagementWebApp.Web {
         protected global::System.Web.UI.WebControls.TextBox txtMobile;
         
         /// <summary>
-        /// txtDob control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDob;
-        
-        /// <summary>
         /// ddlGender control.
         /// </summary>
         /// <remarks>
@@ -128,15 +101,6 @@ namespace ThesisManagementWebApp.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
-        
-        /// <summary>
-        /// txtAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
         
         /// <summary>
         /// ddlDepartment control.

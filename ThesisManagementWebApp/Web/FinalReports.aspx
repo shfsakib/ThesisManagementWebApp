@@ -63,7 +63,7 @@
                         type: "POST",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        data: "{ 'txt' : '" + $("#<%=txtSearch.ClientID %>").val() + "','type':'" + $("#<%=ddlType.ClientID %>").val() + "'}",
+                        data: "{ 'txt' : '{ $("#<%=txtSearch.ClientID %>").val() + "','type':'{ $("#<%=ddlType.ClientID %>").val() + "'}",
                         dataFilter: function (data) { return data; },
                         success: function (data) {
                             response($.map(data.d, function (item) {
@@ -95,7 +95,7 @@
                         type: "POST",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        data: "{ 'txt' : '" + $("#<%=txtSearch.ClientID %>").val() + "','type':'" + $("#<%=ddlType.ClientID %>").val() + "'}",
+                        data: "{ 'txt' : '{ $("#<%=txtSearch.ClientID %>").val() + "','type':'{ $("#<%=ddlType.ClientID %>").val() + "'}",
                         dataFilter: function (data) { return data; },
                         success: function (data) {
                             response($.map(data.d, function (item) {

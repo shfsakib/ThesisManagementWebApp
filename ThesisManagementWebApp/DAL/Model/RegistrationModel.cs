@@ -25,6 +25,7 @@ namespace ThesisManagementWebApp.DAL.Model
         public string DOB { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
+        public string Batch { get; set; }
         public string Type { get; set; }
         public string Picture { get; set; }
         public int DepartmentId { get; set; }
@@ -33,6 +34,7 @@ namespace ThesisManagementWebApp.DAL.Model
         public string FreeScheduleTo { get; set; }
         public string IdNo { get; set; }
         public string Preffer { get; set; }
+        public string Interest { get; set; }
         public string Password { get; set; }
         public string Status { get; set; }
         public string InTime { get; set; }

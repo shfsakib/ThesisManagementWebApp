@@ -30,43 +30,34 @@
                 <div class="row pt-4">
                     <div class="col-lg-6">
                         Name:
-                        <asp:label id="lblName" style="font-size: 15px;" runat="server" text="Name"></asp:label>
+                        <asp:Label ID="lblName" Style="font-size: 15px;" runat="server" Text="Name"></asp:Label>
                     </div>
                     <div class="col-lg-6">
                         Email:
-                        <asp:label id="lblEmail" style="font-size: 15px;" runat="server" text="Email"></asp:label>
+                        <asp:Label ID="lblEmail" Style="font-size: 15px;" runat="server" Text="Email"></asp:Label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         Id No:
-                        <asp:label id="lblId" style="font-size: 15px;" runat="server" text="Id"></asp:label>
+                        <asp:Label ID="lblId" Style="font-size: 15px;" runat="server" Text="Id"></asp:Label>
                     </div>
                     <div class="col-lg-6">
                         Contact no.:
-                        <asp:label id="lblMobile" style="font-size: 15px;" runat="server" text="Mobile"></asp:label>
+                        <asp:Label ID="lblMobile" Style="font-size: 15px;" runat="server" Text="Mobile"></asp:Label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                        Date of Birth:
-                        <asp:label id="lblDob" style="font-size: 15px;" runat="server" text="dob"></asp:label>
-                    </div>
                     <div class="col-lg-6">
                         Gender:
-                        <asp:label id="lblGender" style="font-size: 15px;" runat="server" text="lblGender"></asp:label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        Address:
-                        <asp:label id="lblAddress" style="font-size: 15px;" runat="server" text="Address"></asp:label>
+                        <asp:Label ID="lblGender" Style="font-size: 15px;" runat="server" Text="lblGender"></asp:Label>
                     </div>
                     <div class="col-lg-6">
                         Designation:
-                        <asp:label id="lblDesignation" style="font-size: 15px;" runat="server" text="Designation"></asp:label>
+                        <asp:Label ID="lblDesignation" Style="font-size: 15px;" runat="server" Text="Designation"></asp:Label>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -125,55 +116,48 @@
             <div class="row modelBody pt-3">
                 <div class="col-6">
                     <label class="label">Name</label>
-                    <asp:textbox id="txtName" runat="server" autocomplete="off" class="form-control" placeholder="Mr. X,Mrs. Y"></asp:textbox>
+                    <asp:TextBox ID="txtName" runat="server" autocomplete="off" class="form-control" placeholder="Mr. X,Mrs. Y"></asp:TextBox>
                 </div>
                 <div class="col-6">
                     <label class="label">Email</label>
-                    <asp:textbox id="txtEmail" runat="server" autocomplete="off" class="form-control w-100" placeholder="example@example.com"></asp:textbox>
+                    <asp:TextBox ID="txtEmail" runat="server" autocomplete="off" class="form-control w-100" placeholder="example@example.com"></asp:TextBox>
                 </div>
                 <div class="col-6">
                     <label class="label">Mobile no.</label>
-                    <asp:textbox id="txtMobile" runat="server" autocomplete="off" class="form-control w-100" placeholder="01XXXXXXXXX"></asp:textbox>
+                    <asp:TextBox ID="txtMobile" runat="server" autocomplete="off" class="form-control w-100" placeholder="01XXXXXXXXX"></asp:TextBox>
                 </div>
-                <div class="col-6">
-                    <label class="label">Date of Birth</label>
-                    <asp:textbox id="txtDob" runat="server" textmode="Date" autocomplete="off" class="form-control w-100" placeholder="mm/dd/yyyy"></asp:textbox>
-                </div>
+                
                 <div class="col-12">
                     <label class="label">Gender</label>
-                    <asp:dropdownlist id="ddlGender" class="form-control" runat="server">
+                    <asp:DropDownList ID="ddlGender" class="form-control" runat="server">
                         <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>Male</asp:ListItem>
                         <asp:ListItem>Female</asp:ListItem>
-                    </asp:dropdownlist>
-                </div>
-                <div class="col-12">
-                    <label class="label">Address</label>
-                    <asp:textbox id="txtAddress" textmode="MultiLine" height="80px" runat="server" autocomplete="off" class="form-control w-100 h-50" placeholder="House no, Area, District, Division"></asp:textbox>
+                    </asp:DropDownList>
                 </div>
                 <div class="col-6">
                     <label class="label">Designation</label>
-                    <asp:textbox id="txtDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="BSc.,MSc.,PhD."></asp:textbox>
+                    <asp:TextBox ID="txtDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="BSc.,MSc.,PhD."></asp:TextBox>
                 </div>
                 <div class="col-6">
                     <label class="label">Id No.</label>
-                    <asp:textbox id="txtTeacherId" runat="server" autocomplete="off" class="form-control w-100" placeholder="XXX XXX XXX"></asp:textbox>
+                    <asp:TextBox ID="txtTeacherId" runat="server" autocomplete="off" class="form-control w-100" placeholder="XXX XXX XXX"></asp:TextBox>
 
                 </div>
-              <div class="col-12">
+                <div class="col-12">
                     <label class="label">Password</label>
-                    <asp:textbox id="txtPass" runat="server" autocomplete="off" class="form-control w-100 h-50" placeholder="*********" maxlength="20"></asp:textbox>
+                    <asp:TextBox ID="txtPass" runat="server" autocomplete="off" class="form-control w-100 h-50" placeholder="*********" MaxLength="20"></asp:TextBox>
                 </div>
                 <div class="col-12">
-                    <label class="label">Profile Picure</label>
-                    <asp:fileupload id="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
+                    <label class="label">Profile Picure</label><br/>
+                    <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
                 </div>
                 <div class="col-6 mt-1">
                     <label class="label"></label>
-                    <asp:image id="imgPic" style="border: 1px solid #d3d3d3; border-radius: 5px; width: 200px; height: 200px;" imageurl="../DashboardFile/DummyPic.png" runat="server" />
+                    <asp:Image ID="imgPic" Style="border: 1px solid #d3d3d3; border-radius: 5px; width: 200px; height: 200px;" ImageUrl="../DashboardFile/DummyPic.png" runat="server" />
                 </div>
                 <div class="col-12 pt-2">
-                    <asp:linkbutton id="btnUpdate" onclick="btnUpdate_OnClick" class="btn btn-primary" style="width: 100%;" runat="server">Update</asp:linkbutton>
+                    <asp:LinkButton ID="btnUpdate" OnClick="btnUpdate_OnClick" class="btn btn-primary" Style="width: 100%;" runat="server">Update</asp:LinkButton>
                 </div>
             </div>
         </div>

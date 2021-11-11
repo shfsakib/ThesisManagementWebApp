@@ -48,21 +48,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                        Date of Birth:
-                        <asp:Label ID="lblDob" Style="font-size: 15px;" runat="server" Text="dob"></asp:Label>
-                    </div>
+                     
                     <div class="col-lg-6">
                         Gender:
                         <asp:Label ID="lblGender" Style="font-size: 15px;" runat="server" Text="lblGender"></asp:Label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        Address:
-                        <asp:Label ID="lblAddress" Style="font-size: 15px;" runat="server" Text="Address"></asp:Label>
-                    </div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
@@ -131,10 +122,7 @@
                     <label class="label">Mobile no.</label>
                     <asp:TextBox ID="txtMobile" runat="server" autocomplete="off" class="form-control w-100" placeholder="01XXXXXXXXX"></asp:TextBox>
                 </div>
-                <div class="col-6">
-                    <label class="label">Date of Birth</label>
-                    <asp:TextBox ID="txtDob" runat="server" TextMode="Date" autocomplete="off" class="form-control w-100" placeholder="mm/dd/yyyy"></asp:TextBox>
-                </div>
+               
                 <div class="col-12">
                     <label class="label">Gender</label>
                     <asp:DropDownList ID="ddlGender" class="form-control" runat="server">
@@ -143,10 +131,7 @@
                         <asp:ListItem>Female</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <div class="col-12">
-                    <label class="label">Address</label>
-                    <asp:TextBox ID="txtAddress" TextMode="MultiLine" Height="80px" runat="server" autocomplete="off" class="form-control w-100 h-50" placeholder="House no, Area, District, Division"></asp:TextBox>
-                </div>
+              
                 <div class="col-6">
                     <label class="label">Department</label>
                     <asp:DropDownList ID="ddlDepartment" class="form-control w-100" runat="server">

@@ -1,17 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web/Dashboard.Master" AutoEventWireup="true" CodeBehind="SendProgressReport.aspx.cs" Inherits="ThesisManagementWebApp.Web.SendProgressReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Send Progress Report</h1>
-                </div>
-            </div>
         </div>
     </div>
     <div class="card card-body m-3">
+        <div class="row card-header mb-2 pl-2">
+            <div class="col-sm-6 pl-0">
+                <h3 class="m-0">Send Progress Report</h3>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6 justify-content-center">
@@ -66,6 +67,39 @@
             </div>
             <div class="col-lg-3"></div>
         </div>
-
+        <div class="row">
+            <div class="col-12 table-responsive mt-3">
+                <asp:GridView ID="gridReport" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridReport_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Report Found" AllowPaging="True" PageSize="30" runat="server">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Subject">
+                            <ItemTemplate>
+                                <asp:Label ID="Label9" runat="server" Text='<%#Eval("Subject")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Description">
+                            <ItemTemplate>
+                                <asp:HiddenField ID="hiddenReportId" runat="server" Value='<%#Eval("ReportId")%>' />
+                                <asp:Label ID="Label1" runat="server" Text='<%#Eval("Description")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="FileName">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%#Eval("FileName")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="SendTime">
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%#Eval("SendTime")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Action">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkRemove" class="btn btn-danger mt-1" OnClick="lnkRemove_OnClick" runat="server" title="Remove"><i class="fas fa-trash-alt fa-lg"></i></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
     </div>
 </asp:Content>

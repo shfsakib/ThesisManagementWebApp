@@ -4,38 +4,31 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
-using ThesisManagementWebApp.DAL.Gateway;
-using ThesisManagementWebApp.DAL.Model;
 
 namespace ThesisManagementWebApp.Web
 {
-    public partial class Notice : System.Web.UI.Page
+    public partial class Notice1 : System.Web.UI.Page
     {
         private Function func;
-        private NoticeGateway noticeGateway;
-        private NoticeModel noticeModel;
-        public Notice()
+
+        public Notice1()
         {
-            func = Function.GetInstance();
-            noticeModel = NoticeModel.GetInstance();
-            noticeGateway = NoticeGateway.GetInstance();
+            func=Function.GetInstance();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
                 Load();
             }
         }
         private void Load()
         {
-            func.LoadGrid(gridResource, "SELECT * FROM Notice ORDER BY NoticeId DESC");
+            func.LoadGrid(gridNotice, "SELECT * FROM Notice ORDER BY NoticeId DESC");
         }
-        protected void gridResource_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gridNotice_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gridResource.PageIndex = e.NewPageIndex;
+            gridNotice.PageIndex = e.NewPageIndex;
             Load();
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -35,7 +35,7 @@ namespace ThesisManagementWebApp.Web
         }
         private void Load()
         {
-            func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.DOB, Registration.Gender, Registration.Address, Registration.Type, Registration.Picture, Registration.Designation, 
+            func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Gender, Registration.Interest, Registration.Type, Registration.Picture, Registration.Designation, 
                          Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
 FROM            Registration INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='"+ddlStatus.SelectedValue+"' ORDER BY Registration.RegistrationId ASC");
@@ -55,12 +55,12 @@ FROM            Registration INNER JOIN
             bool a = registrationGateway.UpdateUser(registrationModel);
             if (a)
             {
-                Response.Write("<script language=javascript>alert('Registration accpeted successfully');</script>");
+                Response.Write("<script language=javascript>alert('Activated successfully');</script>");
                 Load();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Failed to accept');</script>");
+                Response.Write("<script language=javascript>alert('Failed to active');</script>");
             }
         }
 
@@ -73,12 +73,12 @@ FROM            Registration INNER JOIN
             bool a = registrationGateway.UpdateUser(registrationModel);
             if (a)
             {
-                Response.Write("<script language=javascript>alert('Registration rejected successfully');</script>");
+                Response.Write("<script language=javascript>alert('Inactivated successfully');</script>");
                 Load();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Failed to reject');</script>");
+                Response.Write("<script language=javascript>alert('Failed to inactive');</script>");
             }
         }
 
@@ -105,16 +105,6 @@ FROM            Registration INNER JOIN
         {
             Load();
         }
-        public string Image(string img)
-        {
-            if (img == "")
-            {
-                return "../DashBoardFile/DummyPic.png";
-            }
-            else
-            {
-                return img;
-            }
-        }
+        
     }
 }

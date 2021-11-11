@@ -5,11 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Profile</h1>
-                </div>
-            </div>
         </div>
     </div>
     <style>
@@ -18,6 +13,11 @@
         }
     </style>
     <div class="card card-body m-3">
+        <div class="row card-header mb-2">
+            <div class="col-sm-6">
+                <h3 class="m-0">Profile</h3>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12 p-3">
                 <div class="row pb-4 text-center">
@@ -38,25 +38,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                        Date of Birth:
-                        <asp:Label ID="lblDob" Style="font-size: 15px;" runat="server" Text="dob"></asp:Label>
-                    </div>
+
                     <div class="col-lg-6">
                         Gender:
                         <asp:Label ID="lblGender" Style="font-size: 15px;" runat="server" Text="lblGender"></asp:Label>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-6">
                         Contact no.:
                         <asp:Label ID="lblMobile" Style="font-size: 15px;" runat="server" Text="Mobile"></asp:Label>
                     </div>
-                    <div class="col-lg-6">
-                        Address:
-                        <asp:Label ID="lblAddress" Style="font-size: 15px;" runat="server" Text="Address"></asp:Label>
-                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -89,6 +81,10 @@
             overflow-x: hidden;
             overflow-y: auto;
         }
+
+            .EditModel::-webkit-scrollbar-thumb {
+                width: 3px !important;
+            }
 
         .modelHead {
             width: calc(100%);
@@ -125,10 +121,7 @@
                     <label class="label">Mobile no.</label>
                     <asp:TextBox ID="txtMobile" runat="server" autocomplete="off" class="form-control w-100" placeholder="01XXXXXXXXX"></asp:TextBox>
                 </div>
-                <div class="col-6">
-                    <label class="label">Date of Birth</label>
-                    <asp:TextBox ID="txtDob" runat="server" TextMode="Date" autocomplete="off" class="form-control w-100" placeholder="mm/dd/yyyy"></asp:TextBox>
-                </div>
+
                 <div class="col-12">
                     <label class="label">Gender</label>
                     <asp:DropDownList ID="ddlGender" class="form-control" runat="server">
@@ -137,16 +130,13 @@
                         <asp:ListItem>Female</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <div class="col-12">
-                    <label class="label">Address</label>
-                    <asp:TextBox ID="txtAddress" TextMode="MultiLine" Height="80px" runat="server" autocomplete="off" class="form-control w-100 h-50" placeholder="House no, Area, District, Division"></asp:TextBox>
-                </div>
+
                 <div class="col-12">
                     <label class="label">Password</label>
                     <asp:TextBox ID="txtPass" runat="server" autocomplete="off" class="form-control w-100 h-50" placeholder="*********" MaxLength="20"></asp:TextBox>
                 </div>
                 <div class="col-12">
-                    <label class="label">Profile Picure</label>
+                    <label class="label">Profile Picure</label><br />
                     <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
                 </div>
                 <div class="col-6 mt-1">

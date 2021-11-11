@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -26,7 +26,7 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-                if (func.TypeCookie() != "Admin" )
+                if (func.TypeCookie() != "Admin")
                 {
                     Response.Redirect("/Web/Login.aspx");
                 }
@@ -35,7 +35,8 @@ namespace ThesisManagementWebApp.Web
         }
         private void Load()
         {
-            func.LoadGrid(gridStudent, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.DOB, Registration.Gender, Registration.Address, Registration.Type, Registration.Picture, Registration.Designation, 
+            func.BindDropDown(ddlBatch, "Batch", $@"SELECT DISTINCT Batch Name,Batch Id FROM Registration WHERE DATALENGTH(Batch)>0 ORDER BY Batch ASC");
+            func.LoadGrid(gridStudent, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.Gender, Registration.Batch , Registration.Type, Registration.Picture, Registration.Designation, 
                          Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
 FROM            Registration INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Student' AND Registration.Status='" + ddlStatus.SelectedValue + "' ORDER BY Registration.RegistrationId ASC");
@@ -79,12 +80,12 @@ FROM            Registration INNER JOIN
             bool a = registrationGateway.UpdateUser(registrationModel);
             if (a)
             {
-                Response.Write("<script language=javascript>alert('Registration accpeted successfully');</script>");
+                Response.Write("<script language=javascript>alert('Activated successfully');</script>");
                 Load();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Failed to accept');</script>");
+                Response.Write("<script language=javascript>alert('Failed to active');</script>");
             }
         }
 
@@ -97,23 +98,41 @@ FROM            Registration INNER JOIN
             bool a = registrationGateway.UpdateUser(registrationModel);
             if (a)
             {
-                Response.Write("<script language=javascript>alert('Registration rejected successfully');</script>");
+                Response.Write("<script language=javascript>alert('Inactivated successfully');</script>");
                 Load();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Failed to reject');</script>");
+                Response.Write("<script language=javascript>alert('Failed to inactive');</script>");
             }
         }
-        public string Image(string img)
+
+        protected void lnkSearch_OnClick(object sender, EventArgs e)
         {
-            if (img == "")
+            if (ddlBatch.SelectedIndex > 0 && ddlSection.SelectedIndex > 0)
             {
-                return "../DashBoardFile/DummyPic.png";
+                func.LoadGrid(gridStudent, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.Gender, Registration.Batch , Registration.Type, Registration.Picture, Registration.Designation, 
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
+FROM            Registration INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Student' AND Registration.Status='{ ddlStatus.SelectedValue }' AND Registration.Batch='{ddlBatch.SelectedValue}' AND Registration.Gender='{ddlSection.SelectedValue}' ORDER BY Registration.RegistrationId ASC");
+            }
+            else if (ddlBatch.SelectedIndex > 0 && ddlSection.SelectedIndex <= 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.Gender, Registration.Batch , Registration.Type, Registration.Picture, Registration.Designation, 
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
+FROM            Registration INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Student' AND Registration.Status='{ ddlStatus.SelectedValue  }' AND Registration.Batch='{ddlBatch.SelectedValue}'  ORDER BY Registration.RegistrationId ASC");
+            }
+            else if (ddlSection.SelectedIndex > 0 && ddlBatch.SelectedIndex <= 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.Gender, Registration.Batch , Registration.Type, Registration.Picture, Registration.Designation, 
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
+FROM            Registration INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Student' AND Registration.Status='{ ddlStatus.SelectedValue }' AND Registration.Gender='{ddlSection.SelectedValue}'  ORDER BY Registration.RegistrationId ASC");
             }
             else
             {
-                return img;
+                Load();
             }
         }
     }

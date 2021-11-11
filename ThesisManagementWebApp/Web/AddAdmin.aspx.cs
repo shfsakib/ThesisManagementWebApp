@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -55,88 +55,66 @@ namespace ThesisManagementWebApp.Web
         }
         protected void btnSave_OnClick(object sender, EventArgs e)
         {
-            if (txtName.Text=="")
+            if (txtName.Text == "")
             {
-                lblMessage.Text = "Name is required";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Name is required");
+
             }
-            else if (txtEmail.Text=="")
+            else if (txtEmail.Text == "")
             {
-                lblMessage.Text = "Email is required";
-                lblMessage.ForeColor = Color.Red;
-            }else if (txtMobile.Text=="")
+                func.PopAlert(this, "Email is required");
+
+            }
+            else if (txtMobile.Text == "")
             {
-                lblMessage.Text = "Mobile is required";
-                lblMessage.ForeColor = Color.Red;
-            }else if (IsEmail(txtEmail.Text))
+                func.PopAlert(this, "Mobile no is required");
+            }
+            else if (ddlGender.Text == "Select")
             {
-                lblMessage.Text = "Email already exist";
-                lblMessage.ForeColor = Color.Red;
+                func.PopAlert(this, "Gender is required");
+            } 
+            else if (txtPass.Text == "")
+            {
+                func.PopAlert(this, "Password is required");
+
+            }
+            else if (IsEmail(txtEmail.Text))
+            {
+                func.PopAlert(this, "Email already exist");
+
             }
             else if (IsNumber(txtMobile.Text))
             {
-                lblMessage.Text = "Mobile no already exist";
-                lblMessage.ForeColor = Color.Red;
-            }else if (txtDob.Text == "")
-            {
-                lblMessage.Text = "Date of birth is required";
-                lblMessage.ForeColor = Color.Red;
-            }
-            else if (ddlGender.Text=="Select")
-            {
-                lblMessage.Text = "Gender is required";
-                lblMessage.ForeColor = Color.Red;
-            }
-            else if (txtAddress.Text=="")
-            {
-                lblMessage.Text = "Address is required";
-                lblMessage.ForeColor = Color.Red;
-            }else if (txtPass.Text=="")
-            {
-                lblMessage.Text = "Password is required";
-                lblMessage.ForeColor = Color.Red;
-            }
+                func.PopAlert(this, "Mobile no. already exist");
+
+            } 
             else
             {
                 ViewState["RegId"] = func.GenerateId("Select Max(RegistrationId) FROM Registration");
-                registrationModel.RegistrationId = ViewState["RegId"].ToString();
-                registrationModel.Name = txtName.Text;
-                registrationModel.Email = txtEmail.Text;
-                registrationModel.MobileNo = txtMobile.Text;
-                registrationModel.DOB = txtDob.Text;
-                registrationModel.Gender = ddlGender.Text;
-                registrationModel.Address = txtAddress.Text;
-                registrationModel.Password = txtPass.Text;
-                registrationModel.Type = "Admin";
+                string pic = "";
                 if (filePic.HasFile)
                 {
                     string imagePath = Server.MapPath("/photos/") + ViewState["RegId"].ToString() + ".png";
                     filePic.PostedFile.SaveAs(imagePath);
-                    registrationModel.Picture = "/photos/" + ViewState["RegId"].ToString() + ".png";
+                    pic = "/photos/" + ViewState["RegId"].ToString() + ".png";
                 }
                 else
                 {
-                    registrationModel.Picture = "";
+                    pic = "/DashboardFile/avatar.svg";
                 }
-                registrationModel.DepartmentId = 0;
-                registrationModel.Designation = "";
-                registrationModel.FreeScheduleFrom = "";
-                registrationModel.FreeScheduleTo = "";
-                registrationModel.IdNo = "";
-                registrationModel.Preffer = "";
-                registrationModel.Status = "A";
-                registrationModel.InTime = func.Date();
-                bool a = registrationGateway.Register(registrationModel);
+                
+                bool a = func.Execute($@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Gender,Batch,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Preffer,Interest,Password,Status,InTime) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlGender.SelectedValue}','','Admin','{pic}','0','','','','','','','{txtPass.Text}','A','{func.Date()}')");
                 if (a)
                 {
-                    lblMessage.Text = "Registered successfully";
+                    Response.Write("<script language=javascript>alert('Added successfully');</script>");
+                    lblMessage.Text = "Added successfully";
                     lblMessage.ForeColor = Color.Green;
-                    btnSave.Focus();
-                    Refresh();
+                    Refresh(); 
                 }
                 else
                 {
-                    lblMessage.Text = "Registration failed";
+                    Response.Write("<script language=javascript>alert('Failed to add');</script>");
+                    lblMessage.Text = "Failed to add";
                     lblMessage.ForeColor = Color.Red;
                 }
             }
@@ -144,7 +122,7 @@ namespace ThesisManagementWebApp.Web
 
         private void Refresh()
         {
-            txtName.Text = txtEmail.Text = txtMobile.Text = txtDob.Text = txtAddress.Text = txtPass.Text = "";
+            txtName.Text = txtEmail.Text = txtMobile.Text =  txtPass.Text = "";
             ddlGender.SelectedIndex = -1;
         }
     }

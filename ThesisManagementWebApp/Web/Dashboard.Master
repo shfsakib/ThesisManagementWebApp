@@ -7,7 +7,7 @@
     <title>TMS</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/DashboardFile/tmsfav.ico" type="image/x-icon" />
+    <link rel="icon" href="/DashboardFile/Website/images/logo.png" type="image/x-icon" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback" />
     <!-- Font Awesome -->
@@ -65,29 +65,29 @@
                                 if (cookieIndex["Type"] == "Admin")
                                 { %>
                             <a href="/Web/AdminProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>&nbsp;Profile
+                                <i class="far fa-user"></i>&nbsp;&nbsp;Profile
                             </a>
                             <% }
                                 else if (cookieIndex["Type"] == "Teacher")
                                 { %>
                             <a href="/Web/TeacherProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>&nbsp;Profile
+                                <i class="far fa-user"></i>&nbsp;&nbsp;Profile
                             </a>
                             <% }
                                 else if (cookieIndex["Type"] == "Student")
                                 { %>
                             <a href="/Web/StudentProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>&nbsp;Profile
+                                <i class="far fa-user"></i>&nbsp;&nbsp;Profile
                             </a>
                             <% }
                                 else if (cookieIndex["Type"] == "Coordinator")
                                 { %>
                             <a href="/Web/CoordinateProfile.aspx" class="dropdown-item" runat="server">
-                                <i class="fas fa-user"></i>&nbsp;`Profile
+                                <i class="far fa-user"></i>&nbsp;&nbsp;Profile
                             </a>
                             <% } %>
                             <a onserverclick="OnServerClick" class="dropdown-item" runat="server">
-                                <i class="fas fa-sign-out-alt"></i>Log out
+                                <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log out
                             </a>
 
                         </div>
@@ -97,9 +97,9 @@
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100vh;">
                 <!-- Brand Logo -->
-                <a href="index3.html" class="brand-link">
+                <a href="/Web/Login.aspx" class="brand-link">
                     <img src="../DashboardFile/logo.svg" alt="TMS" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">TMS</span>
                 </a>
@@ -108,12 +108,50 @@
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src='<%=cookieIndex["Picture"].ToString() %>' class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block"><%=cookieIndex["Name"].ToString() %></a>
-                        </div>
+                        <% if (cookieIndex["Type"] == "Admin")
+                            { %>
+                        <a href="/Web/AdminProfile.aspx">
+                            <div class="image">
+                                <img src='<%=cookieIndex["Picture"].ToString() %>' class="img-circle elevation-2" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a href="/Web/AdminProfile.aspx" class="d-block" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%=cookieIndex["Name"].ToString() %></a>
+                            </div>
+                        </a>
+                        <% }
+                            else if (cookieIndex["Type"] == "Teacher")
+                            { %>
+                        <a href="/Web/TeacherProfile.aspx">
+                            <div class="image">
+                                <img src='<%=cookieIndex["Picture"].ToString() %>' class="img-circle elevation-2" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a href="/Web/TeacherProfile.aspx" class="d-block" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%=cookieIndex["Name"].ToString() %></a>
+                            </div>
+                        </a>
+                        <% }
+                            else if (cookieIndex["Type"] == "Student")
+                            { %>
+                        <a href="/Web/StudentProfile.aspx">
+                            <div class="image">
+                                <img src='<%=cookieIndex["Picture"].ToString() %>' class="img-circle elevation-2" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a href="/Web/StudentProfile.aspx" class="d-block" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%=cookieIndex["Name"].ToString() %></a>
+                            </div>
+                        </a>
+                        <% }
+                            else if (cookieIndex["Type"] == "Coordinator")
+                            { %>
+                        <a href="/Web/CoordinateProfile.aspx">
+                            <div class="image">
+                                <img src='<%=cookieIndex["Picture"].ToString() %>' class="img-circle elevation-2" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a href="/Web/CoordinateProfile.aspx" class="d-block" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%=cookieIndex["Name"].ToString() %></a>
+                            </div>
+                        </a>
+                        <% } %>
                     </div>
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
@@ -234,7 +272,7 @@
                                     </li>
                                 </ul>
                             </li>
-                             <li class="nav-item" style="font-size: 16px;">
+                            <li class="nav-item" style="font-size: 16px;">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-clipboard-list"></i>
                                     <p>
@@ -256,6 +294,14 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/document-list.aspx" class="nav-link">
+                                    <i class="nav-icon far fa-file-alt"></i>
+                                    <p>
+                                        Document list
+                                    </p>
+                                </a>
                             </li>
                             <%}
                                 else if (cookieIndex["Type"] == "Teacher")
@@ -320,6 +366,14 @@
                                 </a>
                             </li>
                             <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/send-documents.aspx" class="nav-link">
+                                    <i class="nav-icon fas fa-file-alt"></i>
+                                    <p>
+                                        Send Documents
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
                                 <a href="/Web/UploadFinalReport.aspx" class="nav-link">
                                     <i class="nav-icon fas fa-upload"></i>
                                     <p>
@@ -335,6 +389,14 @@
                                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                     <p>
                                         Student Request List
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="font-size: 16px;">
+                                <a href="/Web/document-list.aspx" class="nav-link">
+                                    <i class="nav-icon far fa-file-alt"></i>
+                                    <p>
+                                        Document list
                                     </p>
                                 </a>
                             </li>
@@ -387,6 +449,10 @@
                             padding: 10px;
                             color: white;
                         }
+
+                table, label, span, input[type="file"] {
+                    font-size: 16px !important;
+                }
             </style>
             <div class="content-wrapper">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -419,6 +485,16 @@
             });
             $('.btnEdit').click(function () {
                 $('.ModalBg').css("display", "block");
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="../DashboardFile/select2.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            $('.select2').select2({
+                closeOnSelect: false
             });
         });
     </script>

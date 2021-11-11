@@ -5,19 +5,32 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Student Report List</h1>
-                </div>
-            </div>
+             
         </div>
         <div class="card card-body m-3">
-            <div class="row">
-
-                <div class="col-5 justify-content-center">
-                    <asp:TextBox runat="server" AutoPostBack="True" OnTextChanged="txtSearch_OnTextChanged" autocomplete="off" ID="txtSearch" placeholder="Search by Student's name, mobile no, email" class="form-control w-100"></asp:TextBox>
+            <div class="row card-header mb-2 pl-2">
+                <div class="col-sm-6 pl-0">
+                    <h3 class="m-0">Student Progress Report</h3>
                 </div>
-                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 justify-content-center">
+                    <asp:DropDownList ID="ddlStudent" class="form-control select2" runat="server"></asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:DropDownList ID="ddlBatch" class="form-control w-100" runat="server">
+                    </asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:DropDownList ID="ddlSection" class="form-control" runat="server">
+                        <asp:ListItem>Section</asp:ListItem>
+                        <asp:ListItem>Male</asp:ListItem>
+                        <asp:ListItem>Female</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:LinkButton ID="lnkSearch" class="btn btn-warning text-white" OnClick="lnkSearch_OnClickch_OnClick" runat="server">Search</asp:LinkButton>
+                </div>
             </div>
             <div class="col-3">
             </div>
@@ -36,7 +49,7 @@
                                             <asp:Label ID="Label1" runat="server" Style="font-size: 25px; font-weight: bold;" Text='<%#Eval("Name")%>'></asp:Label>
                                             <span class="d-block"><i class="far fa-id-card"></i>&nbsp;&nbsp;<asp:Label ID="Label9" runat="server" Text='<%#Eval("IdNo")%>'></asp:Label>
                                             </span>
-                                            <span class="d-block"><i class="far fa-envelope"></i>&nbsp;&nbsp;<asp:Label ID="Label5" runat="server" Text='<%#Eval("Email")%>'></asp:Label>
+                                            <span class="d-block"><i class="far fa-envelope"></i>&nbsp;&nbsp;<asp:Label ID="lblEmail" runat="server" Text='<%#Eval("Email")%>'></asp:Label>
                                             </span>
                                             <span class="d-block"><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<asp:Label ID="Label13" runat="server" Text='<%#Eval("MobileNo")%>'></asp:Label>
                                             </span>
@@ -48,6 +61,12 @@
                                             </span>
                                             <span class="d-block"><i class="fas fa-paperclip"></i>&nbsp;&nbsp;<asp:Label ID="Label4" runat="server" Text='<%#Eval("FileName")%>'></asp:Label>
                                                 <a href='<%#Eval("Attachment") %>' title="Download"><i class="fas fa-download"></i></a>
+                                            </span>
+                                            <span class="d-block pt-2">
+                                                <asp:TextBox ID="txtReview" CssClass="form-control" Height="100px" placeholder="write your review about this report" TextMode="MultiLine" runat="server"></asp:TextBox>
+                                            </span>
+                                            <span class="d-block pt-2 text-right">
+                                                <asp:Button ID="btnSend" class="btn btn-primary" OnClick="btnSend_OnClick" runat="server" Text="Send Feedback" />
                                             </span>
                                         </div>
                                     </div>
@@ -66,70 +85,5 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.css.map" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" />
 
-    <script>
-        $(document).ready(function () {
-            $("#<%=txtSearch.ClientID %>").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "/WebService.asmx/GetStudent",
-                        type: "POST",
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        data: "{ 'txt' : '" + $("#<%=txtSearch.ClientID %>").val() + "'}",
-                        dataFilter: function (data) { return data; },
-                        success: function (data) {
-                            response($.map(data.d, function (item) {
-                                return {
-                                    label: item,
-                                    value: item
-                                };
-                            }));
-                        },
-                        error: function (result) {
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'warning',
-                                title: 'Student not found',
-                                showConfirmButton: true,
-                                timer: 6000
-                            });
-                        }
-                    });
-                },
-                minLength: 1,
-            });
-        });
-        function pageLoad() {
-            $("#<%=txtSearch.ClientID %>").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "/WebService.asmx/GetStudent",
-                        type: "POST",
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        data: "{ 'txt' : '" + $("#<%=txtSearch.ClientID %>").val() + "'}",
-                        dataFilter: function (data) { return data; },
-                        success: function (data) {
-                            response($.map(data.d, function (item) {
-                                return {
-                                    label: item,
-                                    value: item
-                                };
-                            }));
-                        },
-                        error: function (result) {
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'warning',
-                                title: 'Student not found',
-                                showConfirmButton: true,
-                                timer: 6000
-                            });
-                        }
-                    });
-                },
-                minLength: 1,
-            });
-        };
-    </script>
+     
 </asp:Content>

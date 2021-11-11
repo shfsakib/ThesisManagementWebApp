@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -26,7 +26,7 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-                if (func.TypeCookie() != "Teacher" )
+                if (func.TypeCookie() != "Teacher")
                 {
                     Response.Redirect("/Web/Login.aspx");
                 }
@@ -36,23 +36,19 @@ namespace ThesisManagementWebApp.Web
         }
         private void Load()
         {
+
             func.LoadGrid(gridStudent, @"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, Registration.IdNo, ReqSupervisor.StudentId,ReqSupervisor.FileName, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.Attachment, ReqSupervisor.Status, ReqSupervisor.ReqTime, Registration.Name,
                           Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
 FROM            ReqSupervisor INNER JOIN
                          Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.Status='I' AND ReqSupervisor.SupervisorId='" + func.UserIdCookie() + "' ORDER BY  ReqSupervisor.ReqId ASC");
+            func.BindDropDown(ddlBatch, "Batch", $@"SELECT DISTINCT Batch Name,Batch Id FROM Registration WHERE DATALENGTH(Batch)>0 ORDER BY Batch ASC");
+            func.BindDropDown(ddlStudent, "SEarch student by name,email & mobile no", $@"SELECT        Registration.Name + ' | ' + Registration.Email + ' | ' + Registration.MobileNo AS Name, Registration.RegistrationId AS Id
+FROM            Registration INNER JOIN
+                         ReqSupervisor ON Registration.RegistrationId = ReqSupervisor.StudentId WHERE Type='Student' AND ReqSupervisor.SupervisorId='{func.UserIdCookie()}' ORDER BY Name ASC");
         }
 
 
-        protected void txtSearch_OnTextChanged(object sender, EventArgs e)
-        {
-            func.LoadGrid(gridStudent, @"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, Registration.IdNo, ReqSupervisor.StudentId,ReqSupervisor.FileName, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.Attachment, ReqSupervisor.Status, ReqSupervisor.ReqTime, Registration.Name,
-                          Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
-FROM            ReqSupervisor INNER JOIN
-                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.Status='I' AND ReqSupervisor.SupervisorId='" + func.UserIdCookie() + "' AND Name +' | '+Email LIKE '%" + txtSearch.Text + "%' ORDER BY  ReqSupervisor.ReqId ASC");
-
-        }
 
         protected void gridStudent_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -90,13 +86,13 @@ FROM            ReqSupervisor INNER JOIN
             bool a = requestGateway.DeleteReq(requestModel);
             if (a)
             {
-                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request removed successfully');", true);
+                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request rejected successfully');", true);
 
                 Load();
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request removed failed');", true);
+                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Request rejected failed');", true);
 
             }
         }
@@ -125,15 +121,77 @@ FROM            ReqSupervisor INNER JOIN
 
         protected void gridStudent_OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType==DataControlRowType.DataRow)
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                HiddenField status = (HiddenField) e.Row.FindControl("HiddenField2");
-                LinkButton lnkAccept = (LinkButton) e.Row.FindControl("lnkAccept");
-                LinkButton lnkReject = (LinkButton) e.Row.FindControl("lnkReject");
-                if (status.Value=="A")
+                HiddenField status = (HiddenField)e.Row.FindControl("HiddenField2");
+                LinkButton lnkAccept = (LinkButton)e.Row.FindControl("lnkAccept");
+                LinkButton lnkReject = (LinkButton)e.Row.FindControl("lnkReject");
+                if (status.Value == "A")
                 {
                     lnkReject.Visible = lnkAccept.Visible = false;
                 }
+            }
+        }
+
+        protected void lnkSearch_OnClick(object sender, EventArgs e)
+        {
+            if (ddlBatch.SelectedIndex > 0 && ddlSection.SelectedIndex > 0 && ddlStudent.SelectedIndex > 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, ReqSupervisor.StudentId, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.FileName, ReqSupervisor.Attachment, ReqSupervisor.Status, 
+                         ReqSupervisor.ReqTime, Registration.Name, Registration.Email, Registration.MobileNo, Registration.IdNo, DepartmentInfo.DepartmentName AS Department, Registration_1.Name AS TeacherName, 
+                         Registration_1.Email AS TeacherEmail, Registration.Picture
+FROM            ReqSupervisor INNER JOIN
+                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId INNER JOIN
+                         Registration AS Registration_1 ON ReqSupervisor.SupervisorId = Registration_1.RegistrationId WHERE  Registration.Name +' | '+Registration.Email+' | '+Registration.MobileNo LIKE '%{ ddlStudent.SelectedItem.ToString() }%' AND Registration.Type='Student' AND Registration.Status='A' AND Registration.Batch='{ddlBatch.SelectedValue}' AND Registration.Gender='{ddlSection.SelectedValue}' ORDER BY  ReqSupervisor.ReqId ASC");
+            }
+            else if (ddlBatch.SelectedIndex > 0 && ddlSection.SelectedIndex <= 0 && ddlStudent.SelectedIndex > 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, ReqSupervisor.StudentId, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.FileName, ReqSupervisor.Attachment, ReqSupervisor.Status, 
+                         ReqSupervisor.ReqTime, Registration.Name, Registration.Email, Registration.MobileNo, Registration.IdNo, DepartmentInfo.DepartmentName AS Department, Registration_1.Name AS TeacherName, 
+                         Registration_1.Email AS TeacherEmail, Registration.Picture
+FROM            ReqSupervisor INNER JOIN
+                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId INNER JOIN
+                         Registration AS Registration_1 ON ReqSupervisor.SupervisorId = Registration_1.RegistrationId WHERE  Registration.Name +' | '+Registration.Email+' | '+Registration.MobileNo LIKE '%{ ddlStudent.SelectedItem.ToString() }%' AND Registration.Type='Student' AND Registration.Status='A' AND Registration.Batch='{ddlBatch.SelectedValue}'  ORDER BY  ReqSupervisor.ReqId ASC");
+            }
+            else if (ddlBatch.SelectedIndex <= 0 && ddlSection.SelectedIndex > 0 && ddlStudent.SelectedIndex > 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, ReqSupervisor.StudentId, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.FileName, ReqSupervisor.Attachment, ReqSupervisor.Status, 
+                         ReqSupervisor.ReqTime, Registration.Name, Registration.Email, Registration.MobileNo, Registration.IdNo, DepartmentInfo.DepartmentName AS Department, Registration_1.Name AS TeacherName, 
+                         Registration_1.Email AS TeacherEmail, Registration.Picture
+FROM            ReqSupervisor INNER JOIN
+                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId INNER JOIN
+                         Registration AS Registration_1 ON ReqSupervisor.SupervisorId = Registration_1.RegistrationId WHERE  Registration.Name +' | '+Registration.Email+' | '+Registration.MobileNo LIKE '%{ ddlStudent.SelectedItem.ToString() }%' AND Registration.Type='Student' AND Registration.Status='A' AND Registration.Gender='{ddlSection.SelectedValue}' ORDER BY  ReqSupervisor.ReqId ASC");
+            }
+            else if (ddlBatch.SelectedIndex <= 0 && ddlSection.SelectedIndex <= 0 && ddlStudent.SelectedIndex > 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, Registration.IdNo, ReqSupervisor.StudentId,ReqSupervisor.FileName, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.Attachment, ReqSupervisor.Status, ReqSupervisor.ReqTime, Registration.Name,
+                          Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
+FROM            ReqSupervisor INNER JOIN
+                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE  Registration.Name +' | '+Registration.Email+' | '+Registration.MobileNo LIKE '%{ ddlStudent.SelectedItem.ToString() }%' AND Registration.Type='Student' AND Registration.Status='A' ORDER BY  ReqSupervisor.ReqId ASC");
+            }
+            else if (ddlBatch.SelectedIndex <= 0 && ddlSection.SelectedIndex > 0 && ddlStudent.SelectedIndex <= 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, Registration.IdNo, ReqSupervisor.StudentId,ReqSupervisor.FileName, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.Attachment, ReqSupervisor.Status, ReqSupervisor.ReqTime, Registration.Name,
+                          Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
+FROM            ReqSupervisor INNER JOIN
+                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE  Registration.Gender='{ddlSection.SelectedValue}' AND Registration.Type='Student' AND Registration.Status='A' ORDER BY  ReqSupervisor.ReqId ASC");
+            }
+            else if (ddlBatch.SelectedIndex > 0 && ddlSection.SelectedIndex <= 0 && ddlStudent.SelectedIndex <= 0)
+            {
+                func.LoadGrid(gridStudent, $@"SELECT        ReqSupervisor.ReqId, ReqSupervisor.SupervisorId, Registration.IdNo, ReqSupervisor.StudentId,ReqSupervisor.FileName, ReqSupervisor.Subject, ReqSupervisor.Description, ReqSupervisor.Attachment, ReqSupervisor.Status, ReqSupervisor.ReqTime, Registration.Name,
+                          Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
+FROM            ReqSupervisor INNER JOIN
+                         Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE  Registration.Batch='{ddlSection.SelectedValue}' AND Registration.Type='Student' AND Registration.Status='A' ORDER BY  ReqSupervisor.ReqId ASC");
+            }
+            else
+            {
+                Load();
             }
         }
     }

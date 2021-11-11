@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Model;
 
 namespace ThesisManagementWebApp.DAL.Gateway
@@ -38,14 +38,12 @@ namespace ThesisManagementWebApp.DAL.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,DOB,Gender,Address,Type,Picture,DepartmentId,Designation,Preffer,FreeScheduleFrom,FreeScheduleTo,IdNo,Status,Password,InTime) VALUES(@RegistrationId,@Name,@Email,@MobileNo,@DOB,@Gender,@Address,@Type,@Picture,@DepartmentId,@Designation,@Preffer,@FreeScheduleFrom,@FreeScheduleTo,@IdNo,@Status,@Password,@InTime)", con);
+                cmd = new SqlCommand("INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Gender,Type,Picture,DepartmentId,Designation,Preffer,FreeScheduleFrom,FreeScheduleTo,IdNo,Status,Password,InTime) VALUES(@RegistrationId,@Name,@Email,@MobileNo,@DOB,@Gender,@Address,@Type,@Picture,@DepartmentId,@Designation,@Preffer,@FreeScheduleFrom,@FreeScheduleTo,@IdNo,@Status,@Password,@InTime)", con);
                 cmd.Parameters.AddWithValue("@RegistrationId", ob.RegistrationId);
                 cmd.Parameters.AddWithValue("@Name", ob.Name);
                 cmd.Parameters.AddWithValue("@Email", ob.Email);
                 cmd.Parameters.AddWithValue("@MobileNo", ob.MobileNo);
-                cmd.Parameters.AddWithValue("@DOB", ob.DOB);
                 cmd.Parameters.AddWithValue("@Gender", ob.Gender);
-                cmd.Parameters.AddWithValue("@Address", ob.Address);
                 cmd.Parameters.AddWithValue("@Preffer", ob.Preffer);
                 cmd.Parameters.AddWithValue("@Password", ob.Password);
                 cmd.Parameters.AddWithValue("@Type", ob.Type);
@@ -131,13 +129,12 @@ namespace ThesisManagementWebApp.DAL.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE Registration SET Name=@Name,Email=@Email,MobileNo=@MobileNo,DOB=@DOB,Gender=@Gender,Address=@Address,Picture=@Picture,DepartmentId=@DepartmentId,Designation=@Designation,FreeScheduleFrom=@FreeScheduleFrom,FreeScheduleTo=@FreeScheduleTo,IdNo=@IdNo,Preffer=@Preffer,Password=@Password WHERE RegistrationId=@RegistrationId", con);
+                cmd = new SqlCommand("UPDATE Registration SET Name=@Name,Email=@Email,MobileNo=@MobileNo,Gender=@Gender,Batch=@Batch,Picture=@Picture,DepartmentId=@DepartmentId,Designation=@Designation,FreeScheduleFrom=@FreeScheduleFrom,FreeScheduleTo=@FreeScheduleTo,IdNo=@IdNo,Preffer=@Preffer,Interest=@Interest,Password=@Password WHERE RegistrationId=@RegistrationId", con);
                 cmd.Parameters.AddWithValue("@Name", ob.Name);
                 cmd.Parameters.AddWithValue("@Email", ob.Email);
                 cmd.Parameters.AddWithValue("@MobileNo", ob.MobileNo);
-                cmd.Parameters.AddWithValue("@DOB", ob.DOB);
                 cmd.Parameters.AddWithValue("@Gender", ob.Gender);
-                cmd.Parameters.AddWithValue("@Address", ob.Address);
+                cmd.Parameters.AddWithValue("@Batch", ob.Batch);
                 cmd.Parameters.AddWithValue("@Picture", ob.Picture);
                 cmd.Parameters.AddWithValue("@DepartmentId", ob.DepartmentId);
                 cmd.Parameters.AddWithValue("@Designation", ob.Designation);
@@ -145,6 +142,7 @@ namespace ThesisManagementWebApp.DAL.Gateway
                 cmd.Parameters.AddWithValue("@FreeScheduleTo", ob.FreeScheduleTo);
                 cmd.Parameters.AddWithValue("@IdNo", ob.IdNo);
                 cmd.Parameters.AddWithValue("@Preffer", ob.Preffer);
+                cmd.Parameters.AddWithValue("@Interest", ob.Interest);
                 cmd.Parameters.AddWithValue("@Password", ob.Password);
                 cmd.Parameters.AddWithValue("@RegistrationId", ob.RegistrationId);
 
@@ -155,7 +153,7 @@ namespace ThesisManagementWebApp.DAL.Gateway
                 if (con.State != ConnectionState.Closed)
                     con.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 transaction.Rollback();
             }

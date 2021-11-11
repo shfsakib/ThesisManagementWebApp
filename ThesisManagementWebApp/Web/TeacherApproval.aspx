@@ -5,19 +5,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Teacher's Approval</h1>
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="card card-body m-3">
+        <div class="row card-header mb-2">
+            <div class="col-sm-6">
+                <h3 class="m-0">Teachers Approval</h3>
+            </div>
+        </div>
         <div class="row pt-3"> 
             <div class="col-lg-12  justify-content-center table-responsive">
                 <asp:gridview id="gridTeacher" width="100%" class="table table-hover table-bordered table-striped" onpageindexchanging="gridTeacher_OnPageIndexChanging" autogeneratecolumns="False" showheader="True" showheaderwhenempty="True" emptydatatext="No Teacher Info Found" allowpaging="True" pagesize="30" runat="server">
                 <Columns>
-                    <asp:TemplateField HeaderText="University_Id">
+                    <asp:TemplateField HeaderText="Teacher_Id">
                         <ItemTemplate>
                             <asp:Label ID="Label9" runat="server" Text='<%#Eval("IdNo")%>'></asp:Label>
                         </ItemTemplate>
@@ -38,21 +39,13 @@
                             <asp:Label ID="Label3" runat="server" Text='<%#Eval("MobileNo")%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="DOB">
-                        <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%#Eval("DOB")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                     
                     <asp:TemplateField HeaderText="Gender">
                         <ItemTemplate>
                             <asp:Label ID="Label5" runat="server" Text='<%#Eval("Gender")%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Address">
-                        <ItemTemplate>
-                            <asp:Label ID="Label6" runat="server" Text='<%#Eval("Address")%>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    
                     <asp:TemplateField HeaderText="Department">
                         <ItemTemplate>
                             <asp:Label ID="Label7" runat="server" Text='<%#Eval("Department")%>'></asp:Label>
@@ -68,6 +61,11 @@
                             <asp:Label ID="Label8" runat="server" Text='<%#Eval("FreeScheduleFrom")+" - "+Eval("FreeScheduleTo")%>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Interested_Topic">
+                        <ItemTemplate>
+                            <asp:Label ID="LabelTopic" runat="server" Text='<%#Eval("Interest")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Preffer">
                         <ItemTemplate>
                             <asp:Label ID="Label10" runat="server" Text='<%#Eval("Preffer")%>'></asp:Label>
@@ -80,8 +78,8 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkAccpet"  class="btn btn-primary mt-1" OnClick="lnkAccpet_OnClick" runat="server" title="Accpet"><i class="fas fa-check fa-lg"></i></asp:LinkButton>
-                            <asp:LinkButton ID="lnkReject"  class="btn btn-danger mt-1" OnClick="lnkReject_OnClick" runat="server" title="Reject"><i class="fas fa-times fa-lg"></i></asp:LinkButton>
+                            <asp:LinkButton ID="lnkAccpet"  class="btn mt-1" OnClick="lnkAccpet_OnClick" runat="server" title="Accpet"><i class="fas fa-check fa-lg"></i></asp:LinkButton>
+                            <asp:LinkButton ID="lnkReject"  class="btn mt-1" OnClick="lnkReject_OnClick" runat="server" title="Reject"><i class="fas fa-times fa-lg"></i></asp:LinkButton>
                            </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -76,12 +76,12 @@ namespace ThesisManagementWebApp.Web
             bool a = registrationGateway.UpdateUser(registrationModel);
             if (a)
             {
-                Response.Write("<script language=javascript>alert('Registration accpeted successfully');</script>");
+                Response.Write("<script language=javascript>alert('Activated successfully');</script>");
                 Load();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Failed to accept');</script>");
+                Response.Write("<script language=javascript>alert('Failed to active');</script>");
             }
         }
 
@@ -94,24 +94,14 @@ namespace ThesisManagementWebApp.Web
             bool a = registrationGateway.UpdateUser(registrationModel);
             if (a)
             {
-                Response.Write("<script language=javascript>alert('Registration rejected successfully');</script>");
+                Response.Write("<script language=javascript>alert('Inactivated successfully');</script>");
                 Load();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Failed to reject');</script>");
+                Response.Write("<script language=javascript>alert('Failed to inactive');</script>");
             }
         }
-        public string Image(string img)
-        {
-            if (img == "")
-            {
-                return "../DashBoardFile/DummyPic.png";
-            }
-            else
-            {
-                return img;
-            }
-        }
+        
     }
 }

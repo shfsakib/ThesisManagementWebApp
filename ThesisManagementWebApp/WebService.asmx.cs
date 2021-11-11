@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.Services; 
-using BitsSoftware;
+using System.Web.Services;
+using ThesisManagementWebApp;
+
 
 namespace TicketBookingSystem
 {
@@ -39,7 +40,7 @@ namespace TicketBookingSystem
             try
             {
 
-                string query = @"SELECT Name +' | '+Email txt FROM Registration WHERE Name +' | '+Email +' | '+MobileNo LIKE '%" + txt + "%' AND Type='Teacher'";
+                string query = @"SELECT Name +' | '+Email txt FROM Registration WHERE Name +' | '+Email +' | '+MobileNo LIKE '%"+ txt + "%' AND Type='Teacher'";
                 using (cmd = new SqlCommand(query, con))
                 {
                     if (con.State != System.Data.ConnectionState.Open) con.Open();
@@ -60,7 +61,7 @@ namespace TicketBookingSystem
             try
             {
 
-                string query = @"SELECT Name +' | '+Email txt FROM Registration WHERE Name +' | '+Email +' | '+MobileNo LIKE '%" + txt + "%' AND Type='Student'";
+                string query = @"SELECT Name +' | '+Email txt FROM Registration WHERE Name +' | '+Email +' | '+MobileNo LIKE '%"+ txt + "%' AND Type='Student'";
                 using (cmd = new SqlCommand(query, con))
                 {
                     if (con.State != System.Data.ConnectionState.Open) con.Open();
@@ -81,7 +82,7 @@ namespace TicketBookingSystem
             try
             {
 
-                string query = @"SELECT FileName txt FROM Report WHERE FileName LIKE '%" + txt + "%' AND Type='"+type+"'";
+                string query = @"SELECT FileName txt FROM Report WHERE FileName LIKE '%"+ txt + "%' AND Type='"+type+"'";
                 using (cmd = new SqlCommand(query, con))
                 {
                     if (con.State != System.Data.ConnectionState.Open) con.Open();

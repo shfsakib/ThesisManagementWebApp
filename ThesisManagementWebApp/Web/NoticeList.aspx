@@ -5,17 +5,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Notice List</h1>
-                </div>
-            </div>
+             
         </div>
     </div>
     <div class="card card-body m-3">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 justify-content-center table-responsive">
+        <div class="row card-header mb-2">
+            <div class="col-sm-6">
+                <h3 class="m-0">Notice List</h3>
+            </div>
+        </div> <div class="row"> 
+            <div class="col-lg-12 justify-content-center table-responsive">
                 <asp:gridview id="gridResource" width="100%" class="table table-hover table-bordered table-striped" onpageindexchanging="gridResource_OnPageIndexChanging" autogeneratecolumns="False" showheader="True" showheaderwhenempty="True" emptydatatext="No Notice Found" allowpaging="True" pagesize="30" runat="server">
                     <Columns>
                         <asp:TemplateField HeaderText="Notice">
@@ -36,8 +35,7 @@
                         </asp:TemplateField>
                     </Columns>
             </asp:gridview>
-            </div>
-            <div class="col-lg-2"></div>
+            </div> 
         </div>
     </div>
 </asp:Content>

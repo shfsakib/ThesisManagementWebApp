@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BitsSoftware;
+
 using ThesisManagementWebApp.DAL.Gateway;
 using ThesisManagementWebApp.DAL.Model;
 
@@ -40,9 +40,8 @@ namespace ThesisManagementWebApp.Web
             lblName.Text = txtName.Text = func.IsExist($"SELECT NAME FROM Registration WHERE RegistrationId='{ownId}'");
             lblEmail.Text = txtEmail.Text = func.IsExist($"SELECT Email FROM Registration WHERE RegistrationId='{ownId}'");
             lblMobile.Text = txtMobile.Text = func.IsExist($"SELECT MobileNo FROM Registration WHERE RegistrationId='{ownId}'");
-            lblDob.Text = txtDob.Text = func.IsExist($"SELECT DOB FROM Registration WHERE RegistrationId='{ownId}'");
-            lblGender.Text = ddlGender.Text = func.IsExist($"SELECT Gender FROM Registration WHERE RegistrationId='{ownId}'");
-            lblAddress.Text = txtAddress.Text = func.IsExist($"SELECT Address FROM Registration WHERE RegistrationId='{ownId}'");
+             lblGender.Text = ddlGender.Text = func.IsExist($"SELECT Gender FROM Registration WHERE RegistrationId='{ownId}'");
+             
              ViewState["img"] = func.IsExist($"SELECT Picture FROM Registration WHERE RegistrationId='{ownId}'");
             imgPic.ImageUrl = imgDiv.Src = func.IsExist($"SELECT Picture FROM Registration WHERE RegistrationId='{ownId}'");
             txtPass.Text = func.IsExist($"SELECT Password FROM Registration WHERE RegistrationId='{ownId}'");
@@ -64,59 +63,42 @@ namespace ThesisManagementWebApp.Web
                 ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Mobile no is required');", true);
 
             }
-            else if (txtDob.Text == "")
-            {
-                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Date of birth is required');", true);
-
-            }
+            
             else if (ddlGender.Text == "Select")
             {
                 ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Gender is required');", true);
 
             }
-            else if (txtAddress.Text == "")
-            {
-                ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Address is required');", true);
-
-            }
+             
             else if (txtPass.Text == "")
             {
                 ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Password is required');", true);
             }
             else
             {
-                registrationModel.RegistrationId = func.UserIdCookie();
-                registrationModel.Name = txtName.Text;
-                registrationModel.Email = txtEmail.Text;
-                registrationModel.MobileNo = txtMobile.Text;
-                registrationModel.DOB = txtDob.Text;
-                registrationModel.Gender = ddlGender.Text;
-                registrationModel.Address = txtAddress.Text;
-                registrationModel.Password = txtPass.Text;
-                registrationModel.Type = "Admin";
+                string pic = ""; 
                 if (filePic.HasFile)
                 {
                     string imagePath = Server.MapPath("/photos/") + func.UserIdCookie() + ".png";
                     filePic.PostedFile.SaveAs(imagePath);
-                    registrationModel.Picture = "/photos/" + func.UserIdCookie() + ".png";
+                    pic = "/photos/" + func.UserIdCookie() + ".png";
                 }
                 else
                 {
-                    registrationModel.Picture = ViewState["img"].ToString();
-                }
-                registrationModel.DepartmentId = 0;
-                registrationModel.Designation = "";
-                registrationModel.FreeScheduleFrom = "";
-                registrationModel.FreeScheduleTo = "";
-                registrationModel.IdNo = "";
-                registrationModel.Preffer = "";
-                bool ans = registrationGateway.UpdateProfile(registrationModel);
+                    pic = ViewState["img"].ToString();
+                } 
+                bool ans = func.Execute(
+                    $@"UPDATE Registration SET Name='{txtName.Text}',Email='{txtEmail.Text}',MobileNo='{txtMobile.Text}',Gender='{ddlGender.SelectedValue}',Picture='{pic}',Password='{txtPass.Text}' WHERE RegistrationId='{func.UserIdCookie()}'");
                 if (ans)
                 {
                     ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Updated successfully');", true);
                     Load();
-                    imgPic.ImageUrl = imgDiv.Src = "/photos/" + func.UserIdCookie() + ".png";
+                    imgPic.ImageUrl = imgDiv.Src = func.IsExist($"SELECT Picture FROM Registration WHERE RegistrationId='{func.UserIdCookie()}'"); ;
 
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Failed to update');", true);
                 }
             }
         }

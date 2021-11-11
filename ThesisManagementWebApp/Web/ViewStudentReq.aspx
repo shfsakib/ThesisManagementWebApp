@@ -5,25 +5,35 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Student Request List</h1>
-                </div>
-            </div>
         </div>
         <div class="card card-body m-3">
-            <div class="row">
-
-                <div class="col-5 justify-content-center">
-                    <asp:textbox runat="server" autopostback="True" ontextchanged="txtSearch_OnTextChanged" autocomplete="off" id="txtSearch" placeholder="Search by Student's name, mobile no, email" class="form-control w-100"></asp:textbox>
+            <div class="row card-header mb-2 pl-2">
+                <div class="col-sm-6 pl-0">
+                    <h3 class="m-0">Student Request List</h3>
                 </div>
-                <div class="col-4"></div>
             </div>
-            <div class="col-3">
+            <div class="row">
+                <div class="col-5 justify-content-center">
+                    <asp:DropDownList ID="ddlStudent" class="form-control select2" runat="server"></asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:DropDownList ID="ddlBatch" class="form-control w-100" runat="server">
+                    </asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:DropDownList ID="ddlSection" class="form-control" runat="server">
+                        <asp:ListItem>Section</asp:ListItem>
+                        <asp:ListItem>Male</asp:ListItem>
+                        <asp:ListItem>Female</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="col-lg-2 justify-content-center">
+                    <asp:LinkButton ID="lnkSearch" class="btn btn-warning text-white" OnClick="lnkSearch_OnClick" runat="server">Search</asp:LinkButton>
+                </div>
             </div>
             <div class="row pt-3">
                 <div class="col-12  justify-content-center table-responsive">
-                    <asp:gridview id="gridStudent" width="100%" class="table table-hover table-bordered table-striped" onpageindexchanging="gridStudent_OnPageIndexChanging" OnRowDataBound="gridStudent_OnRowDataBound" autogeneratecolumns="False" showheader="False" showheaderwhenempty="True" emptydatatext="No Request Found" allowpaging="True" pagesize="30" runat="server">
+                    <asp:GridView ID="gridStudent" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridStudent_OnPageIndexChanging" OnRowDataBound="gridStudent_OnRowDataBound" AutoGenerateColumns="False" ShowHeader="False" ShowHeaderWhenEmpty="True" EmptyDataText="No Request Found" AllowPaging="True" PageSize="30" runat="server">
                         <Columns>
                             <asp:TemplateField HeaderText="">
                                 <ItemTemplate>
@@ -35,21 +45,21 @@
                                             <asp:HiddenField ID="HiddenField2" runat="server" Value='<%#Eval("Status")%>' />
                                             <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("StudentId")%>' />
                                             <asp:Label ID="Label1" runat="server" Style="font-size: 25px; font-weight: bold;" Text='<%#Eval("Name")%>'></asp:Label>
-                                             <span class="d-block"><i class="far fa-id-card"></i>&nbsp;&nbsp;<asp:Label ID="Label9" runat="server" Text='<%#Eval("IdNo")%>'></asp:Label>
-                                            </span> 
+                                            <span class="d-block"><i class="far fa-id-card"></i>&nbsp;&nbsp;<asp:Label ID="Label9" runat="server" Text='<%#Eval("IdNo")%>'></asp:Label>
+                                            </span>
                                             <span class="d-block"><i class="far fa-envelope"></i>&nbsp;&nbsp;<asp:Label ID="Label5" runat="server" Text='<%#Eval("Email")%>'></asp:Label>
                                             </span>
                                             <span class="d-block"><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;<asp:Label ID="Label13" runat="server" Text='<%#Eval("MobileNo")%>'></asp:Label>
                                             </span>
                                             <span class="d-block"><i class="fas fa-building"></i>&nbsp;&nbsp;<asp:Label ID="Label14" runat="server" Text='<%#Eval("Department")%>'></asp:Label>
                                             </span>
-                                             <span class="d-block"><i class="fas fa-book-reader"></i>&nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text='<%#Eval("Subject")%>'></asp:Label>
+                                            <span class="d-block"><i class="fas fa-book-reader"></i>&nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text='<%#Eval("Subject")%>'></asp:Label>
                                             </span>
-                                             <span class="d-block"><i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" style="font-size: 15px;" Text='<%#Eval("Description")%>'></asp:Label>
+                                            <span class="d-block"><i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Style="font-size: 15px;" Text='<%#Eval("Description")%>'></asp:Label>
                                             </span>
-                                             <span class="d-block"><i class="fas fa-paperclip"></i>&nbsp;&nbsp;<asp:Label ID="Label4" runat="server" Text='<%#Eval("FileName")%>'></asp:Label>
-                                              <a href='<%#Eval("Attachment") %>' title="Download"><i class="fas fa-download"></i></a>
-                                                   </span>
+                                            <span class="d-block"><i class="fas fa-paperclip"></i>&nbsp;&nbsp;<asp:Label ID="Label4" runat="server" Text='<%#Eval("FileName")%>'></asp:Label>
+                                                <a href='<%#Eval("Attachment") %>' title="Download"><i class="fas fa-download"></i></a>
+                                            </span>
                                             <span class="d-block">
                                                 <asp:LinkButton ID="lnkAccept" class="btn btn-primary mt-1" OnClick="lnkAccept_OnClick" runat="server"><i class="fas fa-check"></i>&nbsp;Accept</asp:LinkButton>
                                                 <asp:LinkButton ID="lnkReject" class="btn btn-danger mt-1" OnClick="lnkReject_OnClick" runat="server"><i class="fas fa-times"></i>&nbsp;Reject</asp:LinkButton>
@@ -60,7 +70,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
-                    </asp:gridview>
+                    </asp:GridView>
                 </div>
             </div>
 
@@ -72,7 +82,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.css.map" integrity="sha512-uq8QcHBpT8VQcWfwrVcH/n/B6ELDwKAdX4S/I3rYSwYldLVTs7iII2p6ieGCM13QTPEKZvItaNKBin9/3cjPAg==" crossorigin="anonymous" />
 
-    <script>
+    <%--<script>
         $(document).ready(function () {
             $("#<%=txtSearch.ClientID %>").autocomplete({
                 source: function (request, response) {
@@ -137,5 +147,5 @@
                 minLength: 1,
             });
         };
-    </script>
+    </script>--%>
 </asp:Content>

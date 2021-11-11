@@ -1030,9 +1030,9 @@ var FullCalendar = (function (exports) {
         var hours = Math.floor(abs / 60);
         var mins = Math.round(abs % 60);
         if (doIso) {
-            return sign + padStart(hours, 2) + ":" + padStart(mins, 2);
+            return sign + padStart(hours, 2) + ":{ padStart(mins, 2);
         }
-        return "GMT" + sign + hours + (mins ? ":" + padStart(mins, 2) : '');
+        return "GMT{ sign + hours + (mins ? ":{ padStart(mins, 2) : '');
     }
 
     // TODO: new util arrayify?
@@ -1364,7 +1364,7 @@ var FullCalendar = (function (exports) {
         });
         // IE11 doesn't include UTC/GMT in the original string, so append to end
         if (!replaced) {
-            s += " " + tzoStr;
+            s += " { tzoStr;
         }
         return s;
     }
@@ -2475,7 +2475,7 @@ var FullCalendar = (function (exports) {
     function buildEventRangeKey(eventRange) {
         return eventRange.instance
             ? eventRange.instance.instanceId
-            : eventRange.def.defId + ":" + eventRange.range.start.toISOString();
+            : eventRange.def.defId + ":{ eventRange.range.start.toISOString();
         // inverse-background events don't have specific instances. TODO: better solution
     }
 
@@ -2874,7 +2874,7 @@ var FullCalendar = (function (exports) {
                 currentDataManager.emitter.on(handlerName, handler);
             }
             else {
-                console.warn("Unknown listener name '" + handlerName + "'");
+                console.warn("Unknown listener name '{ handlerName + "'");
             }
         };
         CalendarApi.prototype.off = function (handlerName, handler) {
@@ -3108,7 +3108,7 @@ var FullCalendar = (function (exports) {
             else if (sourceInput != null) { // an ID. accepts a number too
                 var sourceApi = this.getEventSourceById(sourceInput); // TODO: use an internal function
                 if (!sourceApi) {
-                    console.warn("Could not find an event source with ID \"" + sourceInput + "\""); // TODO: test
+                    console.warn("Could not find an event source with ID \"{ sourceInput + "\""); // TODO: test
                     return null;
                 }
                 eventSource = sourceApi.internalEventSource;
@@ -3263,7 +3263,7 @@ var FullCalendar = (function (exports) {
                 });
             }
             else {
-                console.warn("Could not set prop '" + name + "'. Use setExtendedProp instead.");
+                console.warn("Could not set prop '{ name + "'. Use setExtendedProp instead.");
             }
         };
         EventApi.prototype.setExtendedProp = function (name, val) {
@@ -3708,7 +3708,7 @@ var FullCalendar = (function (exports) {
     function parse(str) {
         var m = ISO_RE.exec(str);
         if (m) {
-            var marker = new Date(Date.UTC(Number(m[1]), m[3] ? Number(m[3]) - 1 : 0, Number(m[5] || 1), Number(m[7] || 0), Number(m[8] || 0), Number(m[10] || 0), m[12] ? Number("0." + m[12]) * 1000 : 0));
+            var marker = new Date(Date.UTC(Number(m[1]), m[3] ? Number(m[3]) - 1 : 0, Number(m[5] || 1), Number(m[7] || 0), Number(m[8] || 0), Number(m[10] || 0), m[12] ? Number("0.{ m[12]) * 1000 : 0));
             if (isValidDate(marker)) {
                 var timeZoneOffset = null;
                 if (m[13]) {
@@ -4416,7 +4416,7 @@ var FullCalendar = (function (exports) {
     function getDayClassNames(meta, theme) {
         var classNames = [
             'fc-day',
-            "fc-day-" + DAY_IDS[meta.dow],
+            "fc-day-{ DAY_IDS[meta.dow],
         ];
         if (meta.isDisabled) {
             classNames.push('fc-day-disabled');
@@ -4441,7 +4441,7 @@ var FullCalendar = (function (exports) {
     function getSlotClassNames(meta, theme) {
         var classNames = [
             'fc-slot',
-            "fc-slot-" + DAY_IDS[meta.dow],
+            "fc-slot-{ DAY_IDS[meta.dow],
         ];
         if (meta.isDisabled) {
             classNames.push('fc-slot-disabled');
@@ -4899,7 +4899,7 @@ var FullCalendar = (function (exports) {
                 className = this.iconClasses[buttonName];
             }
             if (className) {
-                return this.baseIconClass + " " + className;
+                return this.baseIconClass + " { className;
             }
             return '';
         };
@@ -4908,7 +4908,7 @@ var FullCalendar = (function (exports) {
             if (this.iconOverrideCustomButtonOption) {
                 className = customButtonProps[this.iconOverrideCustomButtonOption];
                 if (className) {
-                    return this.baseIconClass + " " + this.applyIconOverridePrefix(className);
+                    return this.baseIconClass + " { this.applyIconOverridePrefix(className);
                 }
             }
             return '';
@@ -5783,7 +5783,7 @@ var FullCalendar = (function (exports) {
             var options = context.options;
             var hookProps = { view: context.viewApi };
             var customClassNames = this.normalizeClassNames(options.viewClassNames, hookProps);
-            return (createElement(MountHook, { hookProps: hookProps, didMount: options.viewDidMount, willUnmount: options.viewWillUnmount, elRef: props.elRef }, function (rootElRef) { return props.children(rootElRef, ["fc-" + props.viewSpec.type + "-view", 'fc-view'].concat(customClassNames)); }));
+            return (createElement(MountHook, { hookProps: hookProps, didMount: options.viewDidMount, willUnmount: options.viewWillUnmount, elRef: props.elRef }, function (rootElRef) { return props.children(rootElRef, ["fc-{ props.viewSpec.type + "-view", 'fc-view'].concat(customClassNames)); }));
         };
         return ViewRoot;
     }(BaseComponent));
@@ -6600,7 +6600,7 @@ var FullCalendar = (function (exports) {
     function encodeParams(params) {
         var parts = [];
         for (var key in params) {
-            parts.push(encodeURIComponent(key) + "=" + encodeURIComponent(params[key]));
+            parts.push(encodeURIComponent(key) + "={ encodeURIComponent(params[key]));
         }
         return parts.join('&');
     }
@@ -7263,7 +7263,7 @@ var FullCalendar = (function (exports) {
         CalendarDataManager.prototype._computeCurrentViewData = function (viewType, optionsData, optionOverrides, dynamicOptionOverrides) {
             var viewSpec = optionsData.viewSpecs[viewType];
             if (!viewSpec) {
-                throw new Error("viewType \"" + viewType + "\" is not available. Please make sure you've loaded all neccessary plugins");
+                throw new Error("viewType \"{ viewType + "\" is not available. Please make sure you've loaded all neccessary plugins");
             }
             var _a = this.processRawViewOptions(viewSpec, optionsData.pluginHooks, optionsData.localeDefaults, optionOverrides, dynamicOptionOverrides), refinedOptions = _a.refinedOptions, extra = _a.extra;
             warnUnknownOptions(extra);
@@ -7403,8 +7403,8 @@ var FullCalendar = (function (exports) {
     }
     function warnUnknownOptions(options, viewName) {
         for (var optionName in options) {
-            console.warn("Unknown option '" + optionName + "'" +
-                (viewName ? " for view '" + viewName + "'" : ''));
+            console.warn("Unknown option '{ optionName + "'{
+                (viewName ? " for view '{ viewName + "'" : ''));
         }
     }
 
@@ -7561,7 +7561,7 @@ var FullCalendar = (function (exports) {
                 }
                 else {
                     var ariaAttrs = buttonIcon ? { 'aria-label': buttonName } : {};
-                    var buttonClasses = ["fc-" + buttonName + "-button", theme.getClass('button')];
+                    var buttonClasses = ["fc-{ buttonName + "-button", theme.getClass('button')];
                     if (buttonName === props.activeButton) {
                         buttonClasses.push(theme.getClass('buttonActive'));
                     }
@@ -7966,7 +7966,7 @@ var FullCalendar = (function (exports) {
             var classNames = [
                 'fc',
                 forPrint ? 'fc-media-print' : 'fc-media-screen',
-                "fc-direction-" + options.direction,
+                "fc-direction-{ options.direction,
                 props.theme.getClass('root'),
             ];
             if (!getCanVGrowWithinCell()) {
@@ -8654,7 +8654,7 @@ var FullCalendar = (function (exports) {
     function getSectionClassNames(sectionConfig, wholeTableVGrow) {
         var classNames = [
             'fc-scrollgrid-section',
-            "fc-scrollgrid-section-" + sectionConfig.type,
+            "fc-scrollgrid-section-{ sectionConfig.type,
             sectionConfig.className,
         ];
         if (wholeTableVGrow && sectionConfig.liquid && sectionConfig.maxHeight == null) {
@@ -8773,7 +8773,7 @@ var FullCalendar = (function (exports) {
                 reportRowHeightChange: function () { },
             });
             return (createElement("td", { ref: chunkConfig.elRef },
-                createElement("div", { className: "fc-scroller-harness" + (isLiquid ? ' fc-scroller-harness-liquid' : '') },
+                createElement("div", { className: "fc-scroller-harness{ (isLiquid ? ' fc-scroller-harness-liquid' : '') },
                     createElement(Scroller, { ref: this.scrollerRefs.createRef(sectionI), elRef: this.scrollerElRefs.createRef(sectionI), overflowY: overflowY, overflowX: !props.liquid ? 'visible' : 'hidden' /* natural height? */, maxHeight: sectionConfig.maxHeight, liquid: isLiquid, liquidIsAbsolute // because its within a harness
                         : true }, content))));
         };
@@ -8986,7 +8986,7 @@ var FullCalendar = (function (exports) {
     }(BaseComponent));
 
     function renderFill(fillType) {
-        return (createElement("div", { className: "fc-" + fillType }));
+        return (createElement("div", { className: "fc-{ fillType }));
     }
     var BgEvent = function (props) { return (createElement(EventRoot, { defaultContent: renderInnerContent$1, seg: props.seg /* uselesss i think */, timeText: "", disableDragging: true, disableResizing: true, isDragging: false, isResizing: false, isDateSelecting: false, isSelected: false, isPast: props.isPast, isFuture: props.isFuture, isToday: props.isToday }, function (rootElRef, classNames, innerElRef, innerContent, hookProps) { return (createElement("div", { ref: rootElRef, className: ['fc-bg-event'].concat(classNames).join(' '), style: {
             backgroundColor: hookProps.backgroundColor,
@@ -12241,7 +12241,7 @@ var FullCalendar = (function (exports) {
         if (typeof moreLinkTextInput === 'function') {
             return moreLinkTextInput;
         }
-        return function (num) { return "+" + num + " " + moreLinkTextInput; };
+        return function (num) { return "+{ num + " { moreLinkTextInput; };
     }
     function isSegAllDay(seg) {
         return seg.eventRange.def.allDay;

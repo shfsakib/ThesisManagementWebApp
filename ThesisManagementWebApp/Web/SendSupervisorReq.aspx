@@ -5,14 +5,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Send Supervision Request</h1>
-                </div>
-            </div>
         </div>
     </div>
     <div class="card card-body m-3">
+        <div class="row card-header mb-2 pl-2">
+            <div class="col-sm-6 pl-0">
+                <h3 class="m-0">Send Supervisor Request</h3>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6 justify-content-center">

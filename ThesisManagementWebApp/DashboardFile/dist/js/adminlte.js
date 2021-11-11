@@ -26,13 +26,13 @@
 
   var NAME = 'CardRefresh';
   var DATA_KEY = 'lte.cardrefresh';
-  var EVENT_KEY = "." + DATA_KEY;
+  var EVENT_KEY = ".{ DATA_KEY;
   var JQUERY_NO_CONFLICT = $__default['default'].fn[NAME];
-  var EVENT_LOADED = "loaded" + EVENT_KEY;
-  var EVENT_OVERLAY_ADDED = "overlay.added" + EVENT_KEY;
-  var EVENT_OVERLAY_REMOVED = "overlay.removed" + EVENT_KEY;
+  var EVENT_LOADED = "loaded{ EVENT_KEY;
+  var EVENT_OVERLAY_ADDED = "overlay.added{ EVENT_KEY;
+  var EVENT_OVERLAY_REMOVED = "overlay.removed{ EVENT_KEY;
   var CLASS_NAME_CARD = 'card';
-  var SELECTOR_CARD = "." + CLASS_NAME_CARD;
+  var SELECTOR_CARD = ".{ CLASS_NAME_CARD;
   var SELECTOR_DATA_REFRESH = '[data-card-widget="card-refresh"]';
   var Default = {
     source: '',
@@ -180,13 +180,13 @@
 
   var NAME$1 = 'CardWidget';
   var DATA_KEY$1 = 'lte.cardwidget';
-  var EVENT_KEY$1 = "." + DATA_KEY$1;
+  var EVENT_KEY$1 = ".{ DATA_KEY$1;
   var JQUERY_NO_CONFLICT$1 = $__default['default'].fn[NAME$1];
-  var EVENT_EXPANDED = "expanded" + EVENT_KEY$1;
-  var EVENT_COLLAPSED = "collapsed" + EVENT_KEY$1;
-  var EVENT_MAXIMIZED = "maximized" + EVENT_KEY$1;
-  var EVENT_MINIMIZED = "minimized" + EVENT_KEY$1;
-  var EVENT_REMOVED = "removed" + EVENT_KEY$1;
+  var EVENT_EXPANDED = "expanded{ EVENT_KEY$1;
+  var EVENT_COLLAPSED = "collapsed{ EVENT_KEY$1;
+  var EVENT_MAXIMIZED = "maximized{ EVENT_KEY$1;
+  var EVENT_MINIMIZED = "minimized{ EVENT_KEY$1;
+  var EVENT_REMOVED = "removed{ EVENT_KEY$1;
   var CLASS_NAME_CARD$1 = 'card';
   var CLASS_NAME_COLLAPSED = 'collapsed-card';
   var CLASS_NAME_COLLAPSING = 'collapsing-card';
@@ -196,7 +196,7 @@
   var SELECTOR_DATA_REMOVE = '[data-card-widget="remove"]';
   var SELECTOR_DATA_COLLAPSE = '[data-card-widget="collapse"]';
   var SELECTOR_DATA_MAXIMIZE = '[data-card-widget="maximize"]';
-  var SELECTOR_CARD$1 = "." + CLASS_NAME_CARD$1;
+  var SELECTOR_CARD$1 = ".{ CLASS_NAME_CARD$1;
   var SELECTOR_CARD_HEADER = '.card-header';
   var SELECTOR_CARD_BODY = '.card-body';
   var SELECTOR_CARD_FOOTER = '.card-footer';
@@ -228,11 +228,11 @@
     _proto.collapse = function collapse() {
       var _this = this;
 
-      this._parent.addClass(CLASS_NAME_COLLAPSING).children(SELECTOR_CARD_BODY + ", " + SELECTOR_CARD_FOOTER).slideUp(this._settings.animationSpeed, function () {
+      this._parent.addClass(CLASS_NAME_COLLAPSING).children(SELECTOR_CARD_BODY + ", { SELECTOR_CARD_FOOTER).slideUp(this._settings.animationSpeed, function () {
         _this._parent.addClass(CLASS_NAME_COLLAPSED).removeClass(CLASS_NAME_COLLAPSING);
       });
 
-      this._parent.find("> " + SELECTOR_CARD_HEADER + " " + this._settings.collapseTrigger + " ." + this._settings.collapseIcon).addClass(this._settings.expandIcon).removeClass(this._settings.collapseIcon);
+      this._parent.find("> { SELECTOR_CARD_HEADER + " { this._settings.collapseTrigger + " .{ this._settings.collapseIcon).addClass(this._settings.expandIcon).removeClass(this._settings.collapseIcon);
 
       this._element.trigger($__default['default'].Event(EVENT_COLLAPSED), this._parent);
     };
@@ -240,11 +240,11 @@
     _proto.expand = function expand() {
       var _this2 = this;
 
-      this._parent.addClass(CLASS_NAME_EXPANDING).children(SELECTOR_CARD_BODY + ", " + SELECTOR_CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
+      this._parent.addClass(CLASS_NAME_EXPANDING).children(SELECTOR_CARD_BODY + ", { SELECTOR_CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
         _this2._parent.removeClass(CLASS_NAME_COLLAPSED).removeClass(CLASS_NAME_EXPANDING);
       });
 
-      this._parent.find("> " + SELECTOR_CARD_HEADER + " " + this._settings.collapseTrigger + " ." + this._settings.expandIcon).addClass(this._settings.collapseIcon).removeClass(this._settings.expandIcon);
+      this._parent.find("> { SELECTOR_CARD_HEADER + " { this._settings.collapseTrigger + " .{ this._settings.expandIcon).addClass(this._settings.collapseIcon).removeClass(this._settings.expandIcon);
 
       this._element.trigger($__default['default'].Event(EVENT_EXPANDED), this._parent);
     };
@@ -265,7 +265,7 @@
     };
 
     _proto.maximize = function maximize() {
-      this._parent.find(this._settings.maximizeTrigger + " ." + this._settings.maximizeIcon).addClass(this._settings.minimizeIcon).removeClass(this._settings.maximizeIcon);
+      this._parent.find(this._settings.maximizeTrigger + " .{ this._settings.maximizeIcon).addClass(this._settings.minimizeIcon).removeClass(this._settings.maximizeIcon);
 
       this._parent.css({
         height: this._parent.height(),
@@ -287,9 +287,9 @@
     };
 
     _proto.minimize = function minimize() {
-      this._parent.find(this._settings.maximizeTrigger + " ." + this._settings.minimizeIcon).addClass(this._settings.maximizeIcon).removeClass(this._settings.minimizeIcon);
+      this._parent.find(this._settings.maximizeTrigger + " .{ this._settings.minimizeIcon).addClass(this._settings.maximizeIcon).removeClass(this._settings.minimizeIcon);
 
-      this._parent.css('cssText', "height: " + this._parent[0].style.height + " !important; width: " + this._parent[0].style.width + " !important; transition: all .15s;").delay(10).queue(function () {
+      this._parent.css('cssText', "height: { this._parent[0].style.height + " !important; width: { this._parent[0].style.width + " !important; transition: all .15s;").delay(10).queue(function () {
         var $element = $__default['default'](this);
         $element.removeClass(CLASS_NAME_MAXIMIZED);
         $__default['default']('html').removeClass(CLASS_NAME_MAXIMIZED);
@@ -406,10 +406,10 @@
 
   var NAME$2 = 'ControlSidebar';
   var DATA_KEY$2 = 'lte.controlsidebar';
-  var EVENT_KEY$2 = "." + DATA_KEY$2;
+  var EVENT_KEY$2 = ".{ DATA_KEY$2;
   var JQUERY_NO_CONFLICT$2 = $__default['default'].fn[NAME$2];
-  var EVENT_COLLAPSED$1 = "collapsed" + EVENT_KEY$2;
-  var EVENT_EXPANDED$1 = "expanded" + EVENT_KEY$2;
+  var EVENT_COLLAPSED$1 = "collapsed{ EVENT_KEY$2;
+  var EVENT_EXPANDED$1 = "expanded{ EVENT_KEY$2;
   var SELECTOR_CONTROL_SIDEBAR = '.control-sidebar';
   var SELECTOR_CONTROL_SIDEBAR_CONTENT = '.control-sidebar-content';
   var SELECTOR_DATA_TOGGLE = '[data-widget="control-sidebar"]';
@@ -548,7 +548,7 @@
       var navbarFixed = ($body.hasClass(CLASS_NAME_NAVBAR_FIXED) || $body.hasClass(CLASS_NAME_NAVBAR_SM_FIXED) || $body.hasClass(CLASS_NAME_NAVBAR_MD_FIXED) || $body.hasClass(CLASS_NAME_NAVBAR_LG_FIXED) || $body.hasClass(CLASS_NAME_NAVBAR_XL_FIXED)) && $__default['default'](SELECTOR_HEADER).css('position') === 'fixed';
       var footerFixed = ($body.hasClass(CLASS_NAME_FOOTER_FIXED) || $body.hasClass(CLASS_NAME_FOOTER_SM_FIXED) || $body.hasClass(CLASS_NAME_FOOTER_MD_FIXED) || $body.hasClass(CLASS_NAME_FOOTER_LG_FIXED) || $body.hasClass(CLASS_NAME_FOOTER_XL_FIXED)) && $__default['default'](SELECTOR_FOOTER).css('position') === 'fixed';
       var $controlSidebar = $__default['default'](SELECTOR_CONTROL_SIDEBAR);
-      var $controlsidebarContent = $__default['default'](SELECTOR_CONTROL_SIDEBAR + ", " + SELECTOR_CONTROL_SIDEBAR + " " + SELECTOR_CONTROL_SIDEBAR_CONTENT);
+      var $controlsidebarContent = $__default['default'](SELECTOR_CONTROL_SIDEBAR + ", { SELECTOR_CONTROL_SIDEBAR + " { SELECTOR_CONTROL_SIDEBAR_CONTENT);
 
       if (positions.top === 0 && positions.bottom === 0) {
         $controlSidebar.css({
@@ -599,7 +599,7 @@
         }
       }
 
-      var $controlSidebar = $__default['default'](SELECTOR_CONTROL_SIDEBAR + " " + SELECTOR_CONTROL_SIDEBAR_CONTENT);
+      var $controlSidebar = $__default['default'](SELECTOR_CONTROL_SIDEBAR + " { SELECTOR_CONTROL_SIDEBAR_CONTENT);
       $controlSidebar.css('height', sidebarHeight);
 
       if (typeof $__default['default'].fn.overlayScrollbars !== 'undefined') {
@@ -674,9 +674,9 @@
 
   var NAME$3 = 'DirectChat';
   var DATA_KEY$3 = 'lte.directchat';
-  var EVENT_KEY$3 = "." + DATA_KEY$3;
+  var EVENT_KEY$3 = ".{ DATA_KEY$3;
   var JQUERY_NO_CONFLICT$3 = $__default['default'].fn[NAME$3];
-  var EVENT_TOGGLED = "toggled" + EVENT_KEY$3;
+  var EVENT_TOGGLED = "toggled{ EVENT_KEY$3;
   var SELECTOR_DATA_TOGGLE$1 = '[data-widget="chat-pane-toggle"]';
   var SELECTOR_DIRECT_CHAT = '.direct-chat';
   var CLASS_NAME_DIRECT_CHAT_OPEN = 'direct-chat-contacts-open';
@@ -850,13 +850,13 @@
    */
 
 
-  $__default['default'](SELECTOR_DROPDOWN_MENU + " " + SELECTOR_DROPDOWN_TOGGLE).on('click', function (event) {
+  $__default['default'](SELECTOR_DROPDOWN_MENU + " { SELECTOR_DROPDOWN_TOGGLE).on('click', function (event) {
     event.preventDefault();
     event.stopPropagation();
 
     Dropdown._jQueryInterface.call($__default['default'](this), 'toggleSubmenu');
   });
-  $__default['default'](SELECTOR_NAVBAR + " " + SELECTOR_DROPDOWN_TOGGLE).on('click', function (event) {
+  $__default['default'](SELECTOR_NAVBAR + " { SELECTOR_DROPDOWN_TOGGLE).on('click', function (event) {
     event.preventDefault();
 
     if ($__default['default'](event.target).parent().hasClass(CLASS_NAME_DROPDOWN_SUBMENU)) {
@@ -893,10 +893,10 @@
 
   var NAME$5 = 'ExpandableTable';
   var DATA_KEY$5 = 'lte.expandableTable';
-  var EVENT_KEY$4 = "." + DATA_KEY$5;
+  var EVENT_KEY$4 = ".{ DATA_KEY$5;
   var JQUERY_NO_CONFLICT$5 = $__default['default'].fn[NAME$5];
-  var EVENT_EXPANDED$2 = "expanded" + EVENT_KEY$4;
-  var EVENT_COLLAPSED$2 = "collapsed" + EVENT_KEY$4;
+  var EVENT_EXPANDED$2 = "expanded{ EVENT_KEY$4;
+  var EVENT_COLLAPSED$2 = "collapsed{ EVENT_KEY$4;
   var SELECTOR_TABLE = '.expandable-table';
   var SELECTOR_DATA_TOGGLE$2 = '[data-widget="expandable-table"]';
   var SELECTOR_ARIA_ATTR = 'aria-expanded';
@@ -1185,11 +1185,11 @@
     _proto.createTab = function createTab(title, link, uniqueName, autoOpen) {
       var _this = this;
 
-      var tabId = "panel-" + uniqueName + "-" + Math.floor(Math.random() * 1000);
-      var navId = "tab-" + uniqueName + "-" + Math.floor(Math.random() * 1000);
-      var newNavItem = "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link\" data-toggle=\"row\" id=\"" + navId + "\" href=\"#" + tabId + "\" role=\"tab\" aria-controls=\"" + tabId + "\" aria-selected=\"false\">" + title + "</a></li>";
+      var tabId = "panel-{ uniqueName + "-{ Math.floor(Math.random() * 1000);
+      var navId = "tab-{ uniqueName + "-{ Math.floor(Math.random() * 1000);
+      var newNavItem = "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link\" data-toggle=\"row\" id=\"{ navId + "\" href=\"#{ tabId + "\" role=\"tab\" aria-controls=\"{ tabId + "\" aria-selected=\"false\">{ title + "</a></li>";
       $__default['default'](SELECTOR_TAB_NAVBAR_NAV).append(newNavItem);
-      var newTabItem = "<div class=\"tab-pane fade\" id=\"" + tabId + "\" role=\"tabpanel\" aria-labelledby=\"" + navId + "\"><iframe src=\"" + link + "\"></iframe></div>";
+      var newTabItem = "<div class=\"tab-pane fade\" id=\"{ tabId + "\" role=\"tabpanel\" aria-labelledby=\"{ navId + "\"><iframe src=\"{ link + "\"></iframe></div>";
       $__default['default'](SELECTOR_TAB_CONTENT).append(newTabItem);
 
       if (autoOpen) {
@@ -1198,23 +1198,23 @@
           $loadingScreen.fadeIn();
           $__default['default'](tabId + " iframe").ready(function () {
             if (typeof _this._config.loadingScreen === 'number') {
-              _this.switchTab("#" + navId, _this._config.loadingScreen);
+              _this.switchTab("#{ navId, _this._config.loadingScreen);
 
               setTimeout(function () {
                 $loadingScreen.fadeOut();
               }, _this._config.loadingScreen);
             } else {
-              _this.switchTab("#" + navId, _this._config.loadingScreen);
+              _this.switchTab("#{ navId, _this._config.loadingScreen);
 
               $loadingScreen.fadeOut();
             }
           });
         } else {
-          this.switchTab("#" + navId);
+          this.switchTab("#{ navId);
         }
       }
 
-      this.onTabCreated($__default['default']("#" + navId));
+      this.onTabCreated($__default['default']("#{ navId));
     };
 
     _proto.openTabSidebar = function openTabSidebar(item, autoOpen) {
@@ -1268,7 +1268,7 @@
       $navItem.remove();
       $__default['default']('.tab-pane.active').remove();
 
-      if ($__default['default'](SELECTOR_TAB_CONTENT).children().length == $__default['default'](SELECTOR_TAB_EMPTY + ", " + SELECTOR_TAB_LOADING).length) {
+      if ($__default['default'](SELECTOR_TAB_CONTENT).children().length == $__default['default'](SELECTOR_TAB_EMPTY + ", { SELECTOR_TAB_LOADING).length) {
         $__default['default'](SELECTOR_TAB_EMPTY).show();
       } else {
         var prevNavItemIndex = navItemIndex - 1;
@@ -1280,7 +1280,7 @@
       if ($__default['default']('body').hasClass(CLASS_NAME_FULLSCREEN_MODE)) {
         $__default['default'](SELECTOR_DATA_TOGGLE_FULLSCREEN + " i").removeClass(this._config.iconMinimize).addClass(this._config.iconMaximize);
         $__default['default']('body').removeClass(CLASS_NAME_FULLSCREEN_MODE);
-        $__default['default'](SELECTOR_TAB_EMPTY + ", " + SELECTOR_TAB_LOADING).height('auto');
+        $__default['default'](SELECTOR_TAB_EMPTY + ", { SELECTOR_TAB_LOADING).height('auto');
         $__default['default'](SELECTOR_CONTENT_WRAPPER).height('auto');
         $__default['default'](SELECTOR_CONTENT_IFRAME).height('auto');
       } else {
@@ -1326,7 +1326,7 @@
       });
 
       if (this._config.useNavbarItems) {
-        $__default['default'](document).on('click', SELECTOR_HEADER_MENU_ITEM + ", " + SELECTOR_HEADER_DROPDOWN_ITEM, function (e) {
+        $__default['default'](document).on('click', SELECTOR_HEADER_MENU_ITEM + ", { SELECTOR_HEADER_DROPDOWN_ITEM, function (e) {
           e.preventDefault();
 
           _this2.openTabSidebar(e.target);
@@ -1396,11 +1396,11 @@
     };
 
     _proto._setItemActive = function _setItemActive(href) {
-      $__default['default'](SELECTOR_SIDEBAR_MENU_ITEM + ", " + SELECTOR_HEADER_DROPDOWN_ITEM).removeClass('active');
+      $__default['default'](SELECTOR_SIDEBAR_MENU_ITEM + ", { SELECTOR_HEADER_DROPDOWN_ITEM).removeClass('active');
       $__default['default'](SELECTOR_HEADER_MENU_ITEM).parent().removeClass('active');
-      var $headerMenuItem = $__default['default'](SELECTOR_HEADER_MENU_ITEM + "[href$=\"" + href + "\"]");
-      var $headerDropdownItem = $__default['default'](SELECTOR_HEADER_DROPDOWN_ITEM + "[href$=\"" + href + "\"]");
-      var $sidebarMenuItem = $__default['default'](SELECTOR_SIDEBAR_MENU_ITEM + "[href$=\"" + href + "\"]");
+      var $headerMenuItem = $__default['default'](SELECTOR_HEADER_MENU_ITEM + "[href$=\"{ href + "\"]");
+      var $headerDropdownItem = $__default['default'](SELECTOR_HEADER_DROPDOWN_ITEM + "[href$=\"{ href + "\"]");
+      var $sidebarMenuItem = $__default['default'](SELECTOR_SIDEBAR_MENU_ITEM + "[href$=\"{ href + "\"]");
       $headerMenuItem.each(function (i, e) {
         $__default['default'](e).parent().addClass('active');
       });
@@ -1420,7 +1420,7 @@
 
       if ($__default['default']('body').hasClass(CLASS_NAME_FULLSCREEN_MODE)) {
         var windowHeight = $__default['default'](window).height();
-        $__default['default'](SELECTOR_TAB_EMPTY + ", " + SELECTOR_TAB_LOADING).height(windowHeight);
+        $__default['default'](SELECTOR_TAB_EMPTY + ", { SELECTOR_TAB_LOADING).height(windowHeight);
         $__default['default'](SELECTOR_CONTENT_WRAPPER).height(windowHeight);
         $__default['default'](SELECTOR_CONTENT_IFRAME).height(windowHeight);
       } else {
@@ -1429,7 +1429,7 @@
 
         if (tabEmpty == true) {
           setTimeout(function () {
-            $__default['default'](SELECTOR_TAB_EMPTY + ", " + SELECTOR_TAB_LOADING).height(contentWrapperHeight - navbarHeight);
+            $__default['default'](SELECTOR_TAB_EMPTY + ", { SELECTOR_TAB_LOADING).height(contentWrapperHeight - navbarHeight);
           }, 50);
         } else {
           $__default['default'](SELECTOR_CONTENT_IFRAME).height(contentWrapperHeight - navbarHeight);
@@ -1605,7 +1605,7 @@
 
     _proto.fixLoginRegisterHeight = function fixLoginRegisterHeight() {
       var $body = $__default['default']('body');
-      var $selector = $__default['default'](SELECTOR_LOGIN_BOX + ", " + SELECTOR_REGISTER_BOX);
+      var $selector = $__default['default'](SELECTOR_LOGIN_BOX + ", { SELECTOR_REGISTER_BOX);
 
       if ($selector.length === 0) {
         $body.css('height', 'auto');
@@ -1736,10 +1736,10 @@
 
   var NAME$9 = 'PushMenu';
   var DATA_KEY$9 = 'lte.pushmenu';
-  var EVENT_KEY$5 = "." + DATA_KEY$9;
+  var EVENT_KEY$5 = ".{ DATA_KEY$9;
   var JQUERY_NO_CONFLICT$9 = $__default['default'].fn[NAME$9];
-  var EVENT_COLLAPSED$3 = "collapsed" + EVENT_KEY$5;
-  var EVENT_SHOWN = "shown" + EVENT_KEY$5;
+  var EVENT_COLLAPSED$3 = "collapsed{ EVENT_KEY$5;
+  var EVENT_SHOWN = "shown{ EVENT_KEY$5;
   var SELECTOR_TOGGLE_BUTTON = '[data-widget="pushmenu"]';
   var SELECTOR_BODY = 'body';
   var SELECTOR_OVERLAY = '#sidebar-overlay';
@@ -1782,13 +1782,13 @@
         }
       }
 
-      $bodySelector.addClass(CLASS_NAME_IS_OPENING).removeClass(CLASS_NAME_COLLAPSED$1 + " " + CLASS_NAME_CLOSED).delay(50).queue(function () {
+      $bodySelector.addClass(CLASS_NAME_IS_OPENING).removeClass(CLASS_NAME_COLLAPSED$1 + " { CLASS_NAME_CLOSED).delay(50).queue(function () {
         $bodySelector.removeClass(CLASS_NAME_IS_OPENING);
         $__default['default'](this).dequeue();
       });
 
       if (this._options.enableRemember) {
-        localStorage.setItem("remember" + EVENT_KEY$5, CLASS_NAME_OPEN);
+        localStorage.setItem("remember{ EVENT_KEY$5, CLASS_NAME_OPEN);
       }
 
       $__default['default'](this._element).trigger($__default['default'].Event(EVENT_SHOWN));
@@ -1806,7 +1806,7 @@
       $bodySelector.addClass(CLASS_NAME_COLLAPSED$1);
 
       if (this._options.enableRemember) {
-        localStorage.setItem("remember" + EVENT_KEY$5, CLASS_NAME_COLLAPSED$1);
+        localStorage.setItem("remember{ EVENT_KEY$5, CLASS_NAME_COLLAPSED$1);
       }
 
       $__default['default'](this._element).trigger($__default['default'].Event(EVENT_COLLAPSED$3));
@@ -1850,7 +1850,7 @@
       }
 
       var $body = $__default['default']('body');
-      var toggleState = localStorage.getItem("remember" + EVENT_KEY$5);
+      var toggleState = localStorage.getItem("remember{ EVENT_KEY$5);
 
       if (toggleState === CLASS_NAME_COLLAPSED$1) {
         if (this._options.noTransitionAfterReload) {
@@ -1973,9 +1973,9 @@
   var SELECTOR_SEARCH_INPUT = SELECTOR_DATA_WIDGET$1 + " .form-control";
   var SELECTOR_SEARCH_BUTTON = SELECTOR_DATA_WIDGET$1 + " .btn";
   var SELECTOR_SEARCH_ICON = SELECTOR_SEARCH_BUTTON + " i";
-  var SELECTOR_SEARCH_LIST_GROUP = "." + CLASS_NAME_LIST_GROUP;
-  var SELECTOR_SEARCH_RESULTS = "." + CLASS_NAME_SEARCH_RESULTS;
-  var SELECTOR_SEARCH_RESULTS_GROUP = SELECTOR_SEARCH_RESULTS + " ." + CLASS_NAME_LIST_GROUP;
+  var SELECTOR_SEARCH_LIST_GROUP = ".{ CLASS_NAME_LIST_GROUP;
+  var SELECTOR_SEARCH_RESULTS = ".{ CLASS_NAME_SEARCH_RESULTS;
+  var SELECTOR_SEARCH_RESULTS_GROUP = SELECTOR_SEARCH_RESULTS + " .{ CLASS_NAME_LIST_GROUP;
   var Default$8 = {
     arrowSign: '->',
     minLength: 3,
@@ -2089,8 +2089,8 @@
       }
 
       var itemObject = {};
-      var navLink = $__default['default'](item).clone().find("> " + SELECTOR_NAV_LINK);
-      var navTreeview = $__default['default'](item).clone().find("> " + SELECTOR_NAV_TREEVIEW);
+      var navLink = $__default['default'](item).clone().find("> { SELECTOR_NAV_LINK);
+      var navTreeview = $__default['default'](item).clone().find("> { SELECTOR_NAV_TREEVIEW);
       var link = navLink.attr('href');
       var name = navLink.find('p').children().remove().end().text();
       itemObject.name = this._trimText(name);
@@ -2114,7 +2114,7 @@
     _proto._renderItem = function _renderItem(name, link, path) {
       var _this4 = this;
 
-      path = path.join(" " + this.options.arrowSign + " ");
+      path = path.join(" { this.options.arrowSign + " ");
 
       if (this.options.highlightName || this.options.highlightPath) {
         var searchValue = $__default['default'](SELECTOR_SEARCH_INPUT).val().toLowerCase();
@@ -2122,18 +2122,18 @@
 
         if (this.options.highlightName) {
           name = name.replace(regExp, function (str) {
-            return "<b class=\"" + _this4.options.highlightClass + "\">" + str + "</b>";
+            return "<b class=\"{ _this4.options.highlightClass + "\">{ str + "</b>";
           });
         }
 
         if (this.options.highlightPath) {
           path = path.replace(regExp, function (str) {
-            return "<b class=\"" + _this4.options.highlightClass + "\">" + str + "</b>";
+            return "<b class=\"{ _this4.options.highlightClass + "\">{ str + "</b>";
           });
         }
       }
 
-      return "<a href=\"" + link + "\" class=\"list-group-item\">\n        <div class=\"search-title\">\n          " + name + "\n        </div>\n        <div class=\"search-path\">\n          " + path + "\n        </div>\n      </a>";
+      return "<a href=\"{ link + "\" class=\"list-group-item\">\n        <div class=\"search-title\">\n          { name + "\n        </div>\n        <div class=\"search-path\">\n          { path + "\n        </div>\n      </a>";
     };
 
     _proto._addNotFound = function _addNotFound() {
@@ -2244,11 +2244,11 @@
 
   var NAME$b = 'Toasts';
   var DATA_KEY$b = 'lte.toasts';
-  var EVENT_KEY$6 = "." + DATA_KEY$b;
+  var EVENT_KEY$6 = ".{ DATA_KEY$b;
   var JQUERY_NO_CONFLICT$b = $__default['default'].fn[NAME$b];
-  var EVENT_INIT = "init" + EVENT_KEY$6;
-  var EVENT_CREATED = "created" + EVENT_KEY$6;
-  var EVENT_REMOVED$1 = "removed" + EVENT_KEY$6;
+  var EVENT_INIT = "init{ EVENT_KEY$6;
+  var EVENT_CREATED = "created{ EVENT_KEY$6;
+  var EVENT_REMOVED$1 = "removed{ EVENT_KEY$6;
   var SELECTOR_CONTAINER_TOP_RIGHT = '#toastsContainerTopRight';
   var SELECTOR_CONTAINER_TOP_LEFT = '#toastsContainerTopLeft';
   var SELECTOR_CONTAINER_BOTTOM_RIGHT = '#toastsContainerBottomRight';
@@ -2560,11 +2560,11 @@
 
   var NAME$d = 'Treeview';
   var DATA_KEY$d = 'lte.treeview';
-  var EVENT_KEY$7 = "." + DATA_KEY$d;
+  var EVENT_KEY$7 = ".{ DATA_KEY$d;
   var JQUERY_NO_CONFLICT$d = $__default['default'].fn[NAME$d];
-  var EVENT_EXPANDED$3 = "expanded" + EVENT_KEY$7;
-  var EVENT_COLLAPSED$4 = "collapsed" + EVENT_KEY$7;
-  var EVENT_LOAD_DATA_API = "load" + EVENT_KEY$7;
+  var EVENT_EXPANDED$3 = "expanded{ EVENT_KEY$7;
+  var EVENT_COLLAPSED$4 = "collapsed{ EVENT_KEY$7;
+  var EVENT_LOAD_DATA_API = "load{ EVENT_KEY$7;
   var SELECTOR_LI = '.nav-item';
   var SELECTOR_LINK = '.nav-link';
   var SELECTOR_TREEVIEW_MENU = '.nav-treeview';
@@ -2574,7 +2574,7 @@
   var CLASS_NAME_IS_OPENING$1 = 'menu-is-opening';
   var CLASS_NAME_SIDEBAR_COLLAPSED = 'sidebar-collapse';
   var Default$b = {
-    trigger: SELECTOR_DATA_WIDGET$2 + " " + SELECTOR_LINK,
+    trigger: SELECTOR_DATA_WIDGET$2 + " { SELECTOR_LINK,
     animationSpeed: 300,
     accordion: true,
     expandSidebar: false,
@@ -2595,7 +2595,7 @@
     var _proto = Treeview.prototype;
 
     _proto.init = function init() {
-      $__default['default']("" + SELECTOR_LI + SELECTOR_OPEN + " " + SELECTOR_TREEVIEW_MENU).css('display', 'block');
+      $__default['default']("{ SELECTOR_LI + SELECTOR_OPEN + " { SELECTOR_TREEVIEW_MENU).css('display', 'block');
 
       this._setupListeners();
     };
@@ -2626,10 +2626,10 @@
       var _this2 = this;
 
       var collapsedEvent = $__default['default'].Event(EVENT_COLLAPSED$4);
-      parentLi.removeClass(CLASS_NAME_IS_OPENING$1 + " " + CLASS_NAME_OPEN$2);
+      parentLi.removeClass(CLASS_NAME_IS_OPENING$1 + " { CLASS_NAME_OPEN$2);
       treeviewMenu.stop().slideUp(this._config.animationSpeed, function () {
         $__default['default'](_this2._element).trigger(collapsedEvent);
-        treeviewMenu.find(SELECTOR_OPEN + " > " + SELECTOR_TREEVIEW_MENU).slideUp();
+        treeviewMenu.find(SELECTOR_OPEN + " > { SELECTOR_TREEVIEW_MENU).slideUp();
         treeviewMenu.find(SELECTOR_OPEN).removeClass(CLASS_NAME_OPEN$2);
       });
     };
@@ -2637,11 +2637,11 @@
     _proto.toggle = function toggle(event) {
       var $relativeTarget = $__default['default'](event.currentTarget);
       var $parent = $relativeTarget.parent();
-      var treeviewMenu = $parent.find("> " + SELECTOR_TREEVIEW_MENU);
+      var treeviewMenu = $parent.find("> { SELECTOR_TREEVIEW_MENU);
 
       if (!treeviewMenu.is(SELECTOR_TREEVIEW_MENU)) {
         if (!$parent.is(SELECTOR_LI)) {
-          treeviewMenu = $parent.parent().find("> " + SELECTOR_TREEVIEW_MENU);
+          treeviewMenu = $parent.parent().find("> { SELECTOR_TREEVIEW_MENU);
         }
 
         if (!treeviewMenu.is(SELECTOR_TREEVIEW_MENU)) {
@@ -2664,8 +2664,8 @@
     _proto._setupListeners = function _setupListeners() {
       var _this3 = this;
 
-      var elementId = this._element.attr('id') !== undefined ? "#" + this._element.attr('id') : '';
-      $__default['default'](document).on('click', "" + elementId + this._config.trigger, function (event) {
+      var elementId = this._element.attr('id') !== undefined ? "#{ this._element.attr('id') : '';
+      $__default['default'](document).on('click', "{ elementId + this._config.trigger, function (event) {
         _this3.toggle(event);
       });
     };
