@@ -717,13 +717,13 @@
                 var monthHtml = '<select class="monthselect">';
                 for (var m = 0; m < 12; m++) {
                     if ((!inMinYear || (minDate && m >= minDate.month())) && (!inMaxYear || (maxDate && m <= maxDate.month()))) {
-                        monthHtml += "<option value='{ m + "'{
+                        monthHtml += "<option value='" + m + "'" +
                             (m === currentMonth ? " selected='selected'" : "") +
-                            ">{ this.locale.monthNames[m] + "</option>";
+                            ">" + this.locale.monthNames[m] + "</option>";
                     } else {
-                        monthHtml += "<option value='{ m + "'{
+                        monthHtml += "<option value='" + m + "'" +
                             (m === currentMonth ? " selected='selected'" : "") +
-                            " disabled='disabled'>{ this.locale.monthNames[m] + "</option>";
+                            " disabled='disabled'>" + this.locale.monthNames[m] + "</option>";
                     }
                 }
                 monthHtml += "</select>";
