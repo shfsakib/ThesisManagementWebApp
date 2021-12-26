@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ThesisManagementWebApp.Web {
-    
-    
-    public partial class document_list {
-        
+namespace ThesisManagementWebApp.Web
+{
+
+
+    public partial class document_list
+    {
+
         /// <summary>
         /// ddlType control.
         /// </summary>
@@ -20,7 +22,34 @@ namespace ThesisManagementWebApp.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlType;
-        
+
+        /// <summary>
+        /// ddlBatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBatch;
+
+        /// <summary>
+        /// ddlSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSection;
+
+        /// <summary>
+        /// lnkSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
+
         /// <summary>
         /// gridDoc control.
         /// </summary>

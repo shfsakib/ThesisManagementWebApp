@@ -58,7 +58,7 @@
                                             <span class="d-block"><i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Style="font-size: 15px;" Text='<%#Eval("Description")%>'></asp:Label>
                                             </span>
                                             <span class="d-block"><i class="fas fa-paperclip"></i>&nbsp;&nbsp;<asp:Label ID="Label4" runat="server" Text='<%#Eval("FileName")%>'></asp:Label>
-                                                <a href='<%#Eval("Attachment") %>' title="Download"><i class="fas fa-download"></i></a>
+                                                <a href='<%#Eval("Attachment") %>' title="Download" class="btn btn-primary"><i class="fas fa-download"></i></a>
                                             </span>
                                             <span class="d-block">
                                                 <asp:LinkButton ID="lnkAccept" class="btn btn-primary mt-1" OnClick="lnkAccept_OnClick" runat="server"><i class="fas fa-check"></i>&nbsp;Accept</asp:LinkButton>

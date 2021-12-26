@@ -60,7 +60,7 @@
                                             <span class="d-block"><i class="fas fa-clipboard-list"></i>&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Style="font-size: 15px;" Text='<%#Eval("Description")%>'></asp:Label>
                                             </span>
                                             <span class="d-block"><i class="fas fa-paperclip"></i>&nbsp;&nbsp;<asp:Label ID="Label4" runat="server" Text='<%#Eval("FileName")%>'></asp:Label>
-                                                <a href='<%#Eval("Attachment") %>' title="Download"><i class="fas fa-download"></i></a>
+                                                <a href='<%#Eval("Attachment") %>'  class="btn btn-primary" title="Download"><i class="fas fa-download"></i></a>
                                             </span>
                                             <span class="d-block pt-2">
                                                 <asp:TextBox ID="txtReview" CssClass="form-control" Height="100px" placeholder="write your review about this report" TextMode="MultiLine" runat="server"></asp:TextBox>

@@ -26,7 +26,7 @@ namespace ThesisManagementWebApp.Web
         {
             if (!IsPostBack)
             {
-                if (func.TypeCookie() != "Student" )
+                if (func.TypeCookie() != "Student")
                 {
                     Response.Redirect("/Web/Login.aspx");
                 }
@@ -35,6 +35,7 @@ namespace ThesisManagementWebApp.Web
         }
         private void Load()
         {
+            func.BindDropDown(ddlInterest, "Interested topic", $@"SELECT DISTINCT INTEREST ID,INTEREST NAME FROM Registration WHERE Interest!=''");
             func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,   Registration.Gender, Registration.Type, Registration.Picture, Registration.Designation, 
                          Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
 FROM            Registration INNER JOIN
@@ -87,12 +88,29 @@ FROM            Registration INNER JOIN
 
         protected void txtSearch_OnTextChanged(object sender, EventArgs e)
         {
-            func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo, Registration.DOB, Registration.Gender, Registration.Address, Registration.Type, Registration.Picture, Registration.Designation, 
+            func.LoadGrid(gridTeacher, @"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Gender,  Registration.Type, Registration.Picture, Registration.Designation, 
                          Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
 FROM            Registration INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='A' AND Preffer='" + ddlType.Text + "' AND Name +' | '+Email LIKE '" + txtSearch.Text + "' ORDER BY Registration.RegistrationId ASC");
 
         }
 
+        protected void ddlInterest_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlInterest.SelectedIndex >= 0)
+            {
+                func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Gender,  Registration.Type, Registration.Picture, Registration.Designation, 
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Preffer, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
+FROM            Registration INNER JOIN
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Teacher' AND Registration.Status='A' AND Registration.Interest='{ddlInterest.SelectedValue}' ORDER BY Registration.RegistrationId ASC");
+                ddlType.SelectedIndex = -1;
+                txtSearch.Text = "";
+            }
+            else
+            {
+                Load();
+            }
+
+        }
     }
 }

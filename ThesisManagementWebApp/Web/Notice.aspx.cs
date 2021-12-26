@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace ThesisManagementWebApp.Web
@@ -30,6 +31,25 @@ namespace ThesisManagementWebApp.Web
         {
             gridNotice.PageIndex = e.NewPageIndex;
             Load();
+        }
+
+        protected void gridNotice_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                HtmlAnchor btnDownload = (HtmlAnchor)e.Row.FindControl("btnDownload");
+                Label lblWarn = (Label)e.Row.FindControl("lblWarn");
+                if (btnDownload.HRef == "")
+                {
+                    btnDownload.Visible = false;
+                    lblWarn.Visible = true;
+                }
+                else
+                {
+                    btnDownload.Visible = true;
+                    lblWarn.Visible = false;
+                }
+            }
         }
     }
 }

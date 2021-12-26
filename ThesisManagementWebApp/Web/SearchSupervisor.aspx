@@ -20,10 +20,14 @@
                         <asp:ListItem>Both</asp:ListItem>
                     </asp:DropDownList>
                 </div>
+                 <div class="col-lg-3">
+                    <asp:DropDownList ID="ddlInterest" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlInterest_OnSelectedIndexChanged" runat="server">
+                        </asp:DropDownList>
+                </div>
                 <div class="col-lg-5 justify-content-center">
                     <asp:TextBox runat="server" AutoPostBack="True" OnTextChanged="txtSearch_OnTextChanged" autocomplete="off" ID="txtSearch" placeholder="Search by Teacher's name, mobile no, email" class="form-control w-100"></asp:TextBox>
                 </div>
-                <div class="col-lg-4"></div>
+                <div class="col-lg-1"></div>
             </div>
             <div class="row pt-3">
                 <div class="col-lg-12  justify-content-center table-responsive">

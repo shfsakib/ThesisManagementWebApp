@@ -37,7 +37,7 @@ namespace ThesisManagementWebApp.Web
                     }
                     else if (func.TypeCookie() == "Coordinator")
                     {
-                        Response.Redirect("/Web/ViewAllStudentReq.aspx");
+                        Response.Redirect("/Web/view-assigned-list.aspx");
                     }
                     else if (func.TypeCookie() == "Student")
                     {
@@ -119,7 +119,7 @@ namespace ThesisManagementWebApp.Web
                     }
                     else if (cookie["Type"] == "Coordinator")
                     {
-                        Response.Redirect("/Web/ViewAllStudentReq.aspx");
+                        Response.Redirect("/Web/view-assigned-list.aspx");
                     }
                 }
                 else

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 using ThesisManagementWebApp.DAL.Gateway;
@@ -56,6 +57,26 @@ namespace ThesisManagementWebApp.Web
             else
             {
                 ScriptManager.RegisterStartupScript(this, Page.GetType(), "script", "alert('Notice remove failed.');", true);
+            }
+        }
+
+        
+        protected void gridResource_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType==DataControlRowType.DataRow)
+            {
+                HtmlAnchor btnDownload = (HtmlAnchor) e.Row.FindControl("btnDownload");
+                Label lblWarn = (Label) e.Row.FindControl("lblWarn");
+                if (btnDownload.HRef=="")
+                {
+                    btnDownload.Visible = false;
+                    lblWarn.Visible = true;
+                }
+                else
+                {
+                    btnDownload.Visible = true;
+                    lblWarn.Visible = false;
+                }
             }
         }
     }

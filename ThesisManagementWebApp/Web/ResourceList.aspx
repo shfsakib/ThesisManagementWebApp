@@ -17,7 +17,7 @@
             <div class="col-lg-12 justify-content-center table-responsive">
                 <asp:GridView ID="gridResource" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridResource_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Resouce Found" AllowPaging="True" PageSize="30" runat="server">
                     <Columns>
-                        <asp:TemplateField HeaderText="Department_Name">
+                        <asp:TemplateField HeaderText="Resource_Name">
                             <ItemTemplate>
                                 <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("ResourceId")%>' />
                                 <asp:Label ID="Label1" runat="server" Text='<%#Eval("ResourceName")%>'></asp:Label>
@@ -30,6 +30,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Action">
                             <ItemTemplate>
+                                <asp:LinkButton ID="lnkUpdate" class="btn btn-primary mt-1" href='<%#"/web/update-resource.aspx?id="+Eval("ResourceId")%>' runat="server" title="Update"><i class="fas fa-edit fa-lg"></i></asp:LinkButton>
                                 <asp:LinkButton ID="lnkRemove" class="btn btn-danger mt-1" OnClick="lnkRemove_OnClick" runat="server" title="Remove"><i class="fas fa-trash-alt fa-lg"></i></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>

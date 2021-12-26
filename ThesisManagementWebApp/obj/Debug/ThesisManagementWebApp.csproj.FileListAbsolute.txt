@@ -47,7 +47,6 @@ D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\roslyn\VBCSCompiler.exe
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.dll.config
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\ThesisManagementWebApp.pdb
-D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\BitsMasterClass.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.Agent.Intercept.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.DependencyCollector.dll
 D:\Git\ThesisManagementWebApp\ThesisManagementWebApp\bin\Microsoft.AI.PerfCounterCollector.dll

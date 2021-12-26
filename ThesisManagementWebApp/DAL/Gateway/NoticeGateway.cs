@@ -37,10 +37,11 @@ namespace ThesisManagementWebApp.DAL.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO Notice(NoticeId,Notice,NoticeTIme) VALUES(@NoticeId,@Notice,@NoticeTIme)", con);
+                cmd = new SqlCommand("INSERT INTO Notice(NoticeId,Notice,NoticeTIme,Attachment) VALUES(@NoticeId,@Notice,@NoticeTIme,@Attachment)", con);
                 cmd.Parameters.AddWithValue("@NoticeId", ob.NoticeId);
                 cmd.Parameters.AddWithValue("@Notice", ob.Notice);
                 cmd.Parameters.AddWithValue("@NoticeTIme", ob.NoticeTime);
+                cmd.Parameters.AddWithValue("@Attachment", ob.Attachment);
 
                 cmd.Transaction = transaction;
                 cmd.ExecuteNonQuery();

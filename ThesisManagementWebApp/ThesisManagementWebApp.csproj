@@ -97,6 +97,8 @@
     <Content Include="DashboardFile\avatar.svg" />
     <Content Include="DashboardFile\DummyPic.png" />
     <Content Include="DashboardFile\file.png" />
+    <Content Include="DashboardFile\font-awesome.css" />
+    <Content Include="DashboardFile\font-awesome.js" />
     <Content Include="DashboardFile\Login\css\main.css" />
     <Content Include="DashboardFile\Login\css\util.css" />
     <Content Include="DashboardFile\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -286,9 +288,11 @@
     <Content Include="Web\TeacherApproval.aspx" />
     <Content Include="Web\TeacherProfile.aspx" />
     <Content Include="Web\TeachersList.aspx" />
+    <Content Include="Web\update-notice.aspx" />
+    <Content Include="Web\update-resource.aspx" />
     <Content Include="Web\UpdateDepartment.aspx" />
     <Content Include="Web\UploadFinalReport.aspx" />
-    <Content Include="Web\ViewAllStudentReq.aspx" />
+    <Content Include="Web\view-assigned-list.aspx" />
     <Content Include="Web\ViewStudentReport.aspx" />
     <Content Include="Web\ViewStudentReq.aspx" />
     <Content Include="photos\100121DemoSampleForms.zip" />
@@ -555,6 +559,20 @@
     <Compile Include="Web\TeachersList.aspx.designer.cs">
       <DependentUpon>TeachersList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\update-notice.aspx.cs">
+      <DependentUpon>update-notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\update-notice.aspx.designer.cs">
+      <DependentUpon>update-notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\update-resource.aspx.cs">
+      <DependentUpon>update-resource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\update-resource.aspx.designer.cs">
+      <DependentUpon>update-resource.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\UpdateDepartment.aspx.cs">
       <DependentUpon>UpdateDepartment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -569,12 +587,12 @@
     <Compile Include="Web\UploadFinalReport.aspx.designer.cs">
       <DependentUpon>UploadFinalReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\ViewAllStudentReq.aspx.cs">
-      <DependentUpon>ViewAllStudentReq.aspx</DependentUpon>
+    <Compile Include="Web\view-assigned-list.aspx.cs">
+      <DependentUpon>view-assigned-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\ViewAllStudentReq.aspx.designer.cs">
-      <DependentUpon>ViewAllStudentReq.aspx</DependentUpon>
+    <Compile Include="Web\view-assigned-list.aspx.designer.cs">
+      <DependentUpon>view-assigned-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web\ViewStudentReport.aspx.cs">
       <DependentUpon>ViewStudentReport.aspx</DependentUpon>

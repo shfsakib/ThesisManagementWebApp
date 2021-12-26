@@ -68,7 +68,7 @@
             <div class="col-12 table-responsive mt-3">
                 <asp:GridView ID="gridDoc" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridDoc_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Documents Found" AllowPaging="True" PageSize="30" runat="server">
                     <Columns>
-                        <asp:TemplateField HeaderText="Subject">
+                        <asp:TemplateField HeaderText="Metric_Id">
                             <ItemTemplate>
                                 <asp:Label ID="Label9" runat="server" Text='<%#Eval("MetricId")%>'></asp:Label>
                             </ItemTemplate>
@@ -79,11 +79,11 @@
                                 <asp:Label ID="Label1" runat="server" Text='<%#Eval("TopicName")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="FileName">
+                       <%-- <asp:TemplateField HeaderText="FileName">
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%#Eval("Attachment")%>'></asp:Label>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                         <asp:TemplateField HeaderText="Type">
                             <ItemTemplate>
                                 <asp:Label ID="LabelType" runat="server" Text='<%#Eval("Type")%>'></asp:Label>

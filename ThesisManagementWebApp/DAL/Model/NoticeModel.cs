@@ -21,5 +21,6 @@ namespace ThesisManagementWebApp.DAL.Model
         public string NoticeId { get; set; }
         public string Notice { get; set; }
         public string NoticeTime { get; set; }
+        public string Attachment { get; set; }
     }
 }

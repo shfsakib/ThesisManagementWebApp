@@ -49,8 +49,8 @@
                         </nav>
                     </div>
                     <div class="header_side d-flex flex-row justify-content-center align-items-center">
-                        <img src="/DashboardFile/Website/images/phone-call.svg" alt="">
-                        <span>+880 1XXX XXXXXX</span>
+                       <%-- <img src="/DashboardFile/Website/images/phone-call.svg" alt="">
+                        <span>+880 1XXX XXXXXX</span>--%>
                     </div>
 
                     <!-- Hamburger -->
@@ -94,7 +94,7 @@
                                 <div class="hero_slide_background" style="background-image: url(/DashboardFile/Website/images/slider_background.jpg)"></div>
                                 <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
                                     <div class="hero_slide_content text-center">
-                                        <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Thesis <span>Management</span> System</h1>
+                                        <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Thesis & Project <span>Management</span> System</h1>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                 <div class="hero_slide_background" style="background-image: url(/DashboardFile/Website/images/slider_background.jpg)"></div>
                                 <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
                                     <div class="hero_slide_content text-center">
-                                        <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Thesis <span>Management</span> System</h1>
+                                        <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Thesis & Project <span>Management</span> System</h1>
 
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
                                 <div class="hero_slide_background" style="background-image: url(/DashboardFile/Website/images/slider_background.jpg)"></div>
                                 <div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
                                     <div class="hero_slide_content text-center">
-                                        <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Thesis <span>Management</span> System</h1>
+                                        <h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Thesis & Project <span>Management</span> System</h1>
 
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                         <div class="row course_boxes">
                             <asp:Repeater ID="repeaterResource" runat="server" OnItemDataBound="repeaterResource_OnItemDataBound">
                                 <ItemTemplate>
-                                    <div class="col-lg-3 course_box">
+                                    <div class="col-lg-2 col-md-3 course_box">
                                         <div class="card">
                                             <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("ResourceId") %>' />
                                             <asp:HiddenField ID="Type" runat="server" Value='<%#Eval("Type") %>' />
@@ -186,7 +186,7 @@
                             <div class="footer_copyright">
                                 <span>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Department of CSE, IIUC
                                     All rights reserved.
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </span>

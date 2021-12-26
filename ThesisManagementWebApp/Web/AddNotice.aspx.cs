@@ -41,11 +41,21 @@ namespace ThesisManagementWebApp.Web
                 lblMessage.ForeColor = Color.Red;
             }
             else
-            {
+            { 
                 ViewState["NoticeId"] = func.GenerateId("Select Max(NoticeId) FROM Notice");
                 noticeModel.NoticeId = ViewState["NoticeId"].ToString();
                 noticeModel.Notice = txtNotice.Text;
                 noticeModel.NoticeTime = func.Date();
+                if (fileAttach.HasFile)
+                {
+                    string imagePath = Server.MapPath("/photos/") + ViewState["NoticeId"].ToString() + fileAttach.FileName;
+                    fileAttach.PostedFile.SaveAs(imagePath);
+                    noticeModel.Attachment = "/photos/" + ViewState["NoticeId"].ToString() + fileAttach.FileName;
+                }
+                else
+                {
+                    noticeModel.Attachment = "";
+                }
                 bool a = noticeGateway.SaveNotice(noticeModel);
                 if (a)
                 {

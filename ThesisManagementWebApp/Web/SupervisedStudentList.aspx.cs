@@ -124,7 +124,7 @@ FROM            ReqSupervisor INNER JOIN
                           Registration.Email, Registration.MobileNo, Registration.Picture, DepartmentInfo.DepartmentName AS Department
 FROM            ReqSupervisor INNER JOIN
                          Registration ON ReqSupervisor.StudentId = Registration.RegistrationId INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.Status='A' AND ReqSupervisor.SupervisorId='{ func.UserIdCookie() }' AND Registration.Batch='{ddlSection.SelectedValue}' AND Registration.Type='Student'  ORDER BY  ReqSupervisor.ReqId ASC");
+                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE ReqSupervisor.Status='A' AND ReqSupervisor.SupervisorId='{ func.UserIdCookie() }' AND Registration.Batch='{ddlBatch.SelectedValue}' AND Registration.Type='Student'  ORDER BY  ReqSupervisor.ReqId ASC");
             }
             else
             {
