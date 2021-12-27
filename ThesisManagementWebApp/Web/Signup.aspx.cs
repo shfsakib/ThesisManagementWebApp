@@ -170,7 +170,7 @@ namespace ThesisManagementWebApp.Web
 
                     deptId = ddlDepartment.SelectedValue;
                     designation = txtDesignation.Text;
-                    ViewState["id"] = txtStdntId.Text;
+                    ViewState["id"] = txtTeacherId.Text;
                 }
                 else if (ddlType.Text == "Student")
                 {
@@ -186,7 +186,7 @@ namespace ThesisManagementWebApp.Web
                     }
 
                     deptId = ddlStudentDepartment.SelectedValue;
-                    ViewState["id"] = txtTeacherId.Text;
+                    ViewState["id"] = txtStdntId.Text;
                 }
                 else if (ddlType.Text == "Coordinator")
                 {
